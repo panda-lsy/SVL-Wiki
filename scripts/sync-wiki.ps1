@@ -39,6 +39,44 @@ function Test-Git {
     }
 }
 
+# 扁平化文件名映射
+function Get-FlatFileName {
+    param([string]$RelativePath)
+    
+    # 标准化路径分隔符，移除 ./ 前缀和 .md 后缀
+    $cleanPath = $RelativePath -replace '^\./', '' -replace '\.md$', '' -replace '\\', '/'
+    
+    # 如果是 docs/ 路径，转换为扁平名称
+    if ($cleanPath -match '^docs/(.+)$') {
+        return $Matches[1] -replace '/', '-'
+    }
+    
+    return $cleanPath
+}
+
+# 更新 Markdown 文件中的链接
+function Update-MarkdownLinks {
+    param(
+        [string]$FilePath,
+        [hashtable]$FileMapping
+    )
+    
+    $content = Get-Content $FilePath -Raw -Encoding UTF8
+    $updated = $content
+    
+    # 更新所有相对路径链接
+    foreach ($oldPath in $FileMapping.Keys) {
+        $newPath = $FileMapping[$oldPath]
+        
+        # 匹配 Markdown 链接: [text](./path) 或 [text](path)
+        $updated = $updated -replace "\[([^\]]+)\]\(\.?$oldPath\)", "[$1]($newPath)"
+        $updated = $updated -replace "\[([^\]]+)\]\(\.?$oldPath\.md\)", "[$1]($newPath)"
+    }
+    
+    # 保存更新后的内容
+    Set-Content $FilePath -Value $updated -Encoding UTF8 -NoNewline
+}
+
 # 同步到单个 Wiki 仓库
 function Sync-WikiRepo {
     param(
@@ -64,15 +102,57 @@ function Sync-WikiRepo {
         # 清理旧文件（保留 .git）
         Get-ChildItem $WikiDir -Exclude ".git" | Remove-Item -Recurse -Force
         
-        # 复制文档文件
-        Write-Info "  复制文档..."
+        # 收集所有文件并创建映射
+        Write-Info "  扫描文档..."
+        $FileMapping = @{}
+        $AllMdFiles = @()
         
-        # 复制根目录 .md 文件
-        Copy-Item -Path "$RepoRoot\*.md" -Destination $WikiDir -Force
+        # 添加根目录 MD 文件
+        Get-ChildItem "$RepoRoot\*.md" -File | ForEach-Object {
+            $fileName = $_.Name
+            if ($fileName -eq "README.md") {
+                $FileMapping["./README"] = "Home"
+                $FileMapping["README"] = "Home"
+            } else {
+                $baseName = $_.BaseName
+                $FileMapping["./$baseName"] = $baseName
+                $FileMapping[$baseName] = $baseName
+            }
+            $AllMdFiles += $_.FullName
+        }
         
-        # 复制 docs 文件夹
-        if (Test-Path "$RepoRoot\docs") {
-            Copy-Item -Path "$RepoRoot\docs" -Destination $WikiDir -Recurse -Force
+        # 添加 docs 目录下的所有 MD 文件
+        Get-ChildItem "$RepoRoot\docs" -Filter "*.md" -Recurse -File | ForEach-Object {
+            $relativePath = $_.FullName.Substring("$RepoRoot\".Length) -replace '\.md$', '' -replace '\\', '/'
+            $flatName = Get-FlatFileName -RelativePath $relativePath
+            
+            # 添加多种链接格式到映射
+            $FileMapping["./$relativePath"] = $flatName
+            $FileMapping[$relativePath] = $flatName
+            $FileMapping["./$relativePath.md"] = $flatName
+            $FileMapping["$relativePath.md"] = $flatName
+            
+            $AllMdFiles += $_.FullName
+        }
+        
+        Write-Info "  复制和扁平化文档..."
+        
+        # 复制并重命名所有文件
+        foreach ($file in $AllMdFiles) {
+            $relativePath = $file.Substring("$RepoRoot\".Length)
+            $fileName = Split-Path $file -Leaf
+            
+            if ($fileName -eq "README.md") {
+                $targetFile = Join-Path $WikiDir "Home.md"
+            } elseif ($relativePath -match '^docs\\') {
+                # 扁平化 docs 目录文件
+                $flatName = Get-FlatFileName -RelativePath ($relativePath -replace '\.md$', '')
+                $targetFile = Join-Path $WikiDir "$flatName.md"
+            } else {
+                $targetFile = Join-Path $WikiDir $fileName
+            }
+            
+            Copy-Item $file $targetFile -Force
         }
         
         # 复制 images 文件夹
@@ -80,9 +160,10 @@ function Sync-WikiRepo {
             Copy-Item -Path "$RepoRoot\images" -Destination $WikiDir -Recurse -Force
         }
         
-        # 设置 Home.md（GitHub Wiki 首页必须是 Home.md）
-        if (Test-Path "$WikiDir\README.md") {
-            Rename-Item "$WikiDir\README.md" "Home.md" -Force
+        # 更新所有 Markdown 文件中的链接
+        Write-Info "  更新链接引用..."
+        Get-ChildItem "$WikiDir\*.md" -File | ForEach-Object {
+            Update-MarkdownLinks -FilePath $_.FullName -FileMapping $FileMapping
         }
         
         # 进入目录并提交

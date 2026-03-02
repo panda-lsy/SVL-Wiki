@@ -1,6 +1,6 @@
 ## 🏠 SVL Wiki
 
-[**首页**](/Home)
+[**首页**](./README)
 
 ## 🚀 快速开始
 
@@ -30,11 +30,11 @@
 - [构建指南](./docs/development/Building)
 - [贡献指南](./docs/development/Contributing)
 
-## � Wiki 相关
+## 📚 Wiki 相关
 
 - [为 Wiki 作出贡献](./docs/CONTRIBUTING)
 
-## �🔗 外部链接
+## 🔗 外部链接
 
 - [GitHub 仓库](https://github.com/panda-lsy/SVL-StardewValleyLauncher)
 - [问题反馈](https://github.com/panda-lsy/SVL-StardewValleyLauncher/issues)
