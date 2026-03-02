@@ -54,24 +54,30 @@ jobs:
           # 提交并推送
           git add -A
           git diff --quiet && git diff --staged --quiet || git commit -m "docs: 自动同步 - $(date '+%Y-%m-%d %H:%M:%S')"
-          git push origin master
+          git push -f https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.wiki.git HEAD:master
           
           echo "✅ SVL-Wiki Wiki 同步完成"
 
       - name: Sync to SVL-StardewValleyLauncher Wiki
         env:
-          GH_TOKEN: ${{ secrets.SVL_WIKI_TOKEN }}
+          SSH_KEY: ${{ secrets.SVL_WIKI_SSH_KEY }}
         run: |
           echo "📦 同步到 SVL-StardewValleyLauncher Wiki..."
           
-          if [ -z "$GH_TOKEN" ]; then
-            echo "⚠️ SVL_WIKI_TOKEN 未配置，跳过此仓库"
-            echo "请在 Settings > Secrets 中添加 SVL_WIKI_TOKEN"
+          if [ -z "$SSH_KEY" ]; then
+            echo "⚠️ SVL_WIKI_SSH_KEY 未配置，跳过此仓库"
+            echo "请在 Settings > Secrets 中添加 SVL_WIKI_SSH_KEY"
             exit 0
           fi
           
-          # 克隆 Wiki 仓库
-          git clone https://x-access-token:${GH_TOKEN}@github.com/panda-lsy/SVL-StardewValleyLauncher.wiki.git launcher-wiki-temp
+          # 配置 SSH
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+          
+          # 克隆 Wiki 仓库 (SSH)
+          git clone git@github.com:panda-lsy/SVL-StardewValleyLauncher.wiki.git launcher-wiki-temp
           
           # 清理旧文件
           cd launcher-wiki-temp
@@ -90,7 +96,7 @@ jobs:
           # 提交并推送
           git add -A
           git diff --quiet && git diff --staged --quiet || git commit -m "docs: 自动同步 - $(date '+%Y-%m-%d %H:%M:%S')"
-          git push origin master
+          git push -f origin HEAD:master
           
           echo "✅ SVL-StardewValleyLauncher Wiki 同步完成"
 
