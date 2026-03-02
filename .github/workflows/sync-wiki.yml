@@ -37,9 +37,12 @@ jobs:
           # 克隆 Wiki 仓库
           git clone https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.wiki.git wiki-temp
           
-          # 清理旧文件
+          # 进入目录
           cd wiki-temp
-          find . -not -name '.git' -delete
+          
+          # 删除旧文件（保留 .git 目录以保持历史）
+          find . -maxdepth 1 -not -name '.git' -delete
+          rm -rf docs images 2>/dev/null || true
           
           # 复制新文件
           cp -r $GITHUB_WORKSPACE/*.md .
@@ -51,10 +54,13 @@ jobs:
             mv README.md Home.md
           fi
           
-          # 提交并推送
+          # 提交
           git add -A
           git diff --quiet && git diff --staged --quiet || git commit -m "docs: 自动同步 - $(date '+%Y-%m-%d %H:%M:%S')"
-          git push -f https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.wiki.git HEAD:master
+          
+          # 拉取远程更改并推送（保持历史）
+          git pull --rebase https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.wiki.git master || true
+          git push https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.wiki.git HEAD:master
           
           echo "✅ SVL-Wiki Wiki 同步完成"
 
@@ -79,9 +85,12 @@ jobs:
           # 克隆 Wiki 仓库 (SSH)
           git clone git@github.com:panda-lsy/SVL-StardewValleyLauncher.wiki.git launcher-wiki-temp
           
-          # 清理旧文件
+          # 进入目录
           cd launcher-wiki-temp
-          find . -not -name '.git' -delete
+          
+          # 删除旧文件（保留 .git 目录以保持历史）
+          find . -maxdepth 1 -not -name '.git' -delete
+          rm -rf docs images 2>/dev/null || true
           
           # 复制新文件
           cp -r $GITHUB_WORKSPACE/*.md .
@@ -93,10 +102,13 @@ jobs:
             mv README.md Home.md
           fi
           
-          # 提交并推送
+          # 提交
           git add -A
           git diff --quiet && git diff --staged --quiet || git commit -m "docs: 自动同步 - $(date '+%Y-%m-%d %H:%M:%S')"
-          git push -f origin HEAD:master
+          
+          # 拉取远程更改并推送（保持历史）
+          git pull --rebase origin master || true
+          git push git@github.com:panda-lsy/SVL-StardewValleyLauncher.wiki.git HEAD:master
           
           echo "✅ SVL-StardewValleyLauncher Wiki 同步完成"
 
