@@ -1,0 +1,102 @@
+name: Sync Wiki
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'images/**'
+      - '*.md'
+      - '.github/workflows/sync-wiki.yml'
+  workflow_dispatch:  # 手动触发
+
+permissions:
+  contents: write
+
+jobs:
+  sync-wiki:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout main repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Sync to SVL-Wiki Wiki
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "📦 同步到 SVL-Wiki Wiki..."
+          
+          # 克隆 Wiki 仓库
+          git clone https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.wiki.git wiki-temp
+          
+          # 清理旧文件
+          cd wiki-temp
+          find . -not -name '.git' -delete
+          
+          # 复制新文件
+          cp -r $GITHUB_WORKSPACE/*.md .
+          cp -r $GITHUB_WORKSPACE/docs .
+          cp -r $GITHUB_WORKSPACE/images .
+          
+          # 重命名 README.md 为 Home.md
+          if [ -f README.md ]; then
+            mv README.md Home.md
+          fi
+          
+          # 提交并推送
+          git add -A
+          git diff --quiet && git diff --staged --quiet || git commit -m "docs: 自动同步 - $(date '+%Y-%m-%d %H:%M:%S')"
+          git push origin master
+          
+          echo "✅ SVL-Wiki Wiki 同步完成"
+
+      - name: Sync to SVL-StardewValleyLauncher Wiki
+        env:
+          GH_TOKEN: ${{ secrets.SVL_WIKI_TOKEN }}
+        run: |
+          echo "📦 同步到 SVL-StardewValleyLauncher Wiki..."
+          
+          if [ -z "$GH_TOKEN" ]; then
+            echo "⚠️ SVL_WIKI_TOKEN 未配置，跳过此仓库"
+            echo "请在 Settings > Secrets 中添加 SVL_WIKI_TOKEN"
+            exit 0
+          fi
+          
+          # 克隆 Wiki 仓库
+          git clone https://x-access-token:${GH_TOKEN}@github.com/panda-lsy/SVL-StardewValleyLauncher.wiki.git launcher-wiki-temp
+          
+          # 清理旧文件
+          cd launcher-wiki-temp
+          find . -not -name '.git' -delete
+          
+          # 复制新文件
+          cp -r $GITHUB_WORKSPACE/*.md .
+          cp -r $GITHUB_WORKSPACE/docs .
+          cp -r $GITHUB_WORKSPACE/images .
+          
+          # 重命名 README.md 为 Home.md
+          if [ -f README.md ]; then
+            mv README.md Home.md
+          fi
+          
+          # 提交并推送
+          git add -A
+          git diff --quiet && git diff --staged --quiet || git commit -m "docs: 自动同步 - $(date '+%Y-%m-%d %H:%M:%S')"
+          git push origin master
+          
+          echo "✅ SVL-StardewValleyLauncher Wiki 同步完成"
+
+      - name: Summary
+        run: |
+          echo "## Wiki 同步完成" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ SVL-Wiki Wiki: https://github.com/${{ github.repository }}/wiki" >> $GITHUB_STEP_SUMMARY
+          echo "✅ SVL-StardewValleyLauncher Wiki: https://github.com/panda-lsy/SVL-StardewValleyLauncher/wiki" >> $GITHUB_STEP_SUMMARY

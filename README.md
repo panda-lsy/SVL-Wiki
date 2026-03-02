@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://gitee.com/mc_shengxia/SVL-StardewValleyLauncher/raw/main/SVL.Desktop/Images/icon.png" alt="SVL Logo" width="128" height="128">
+  <img src="images/icon.png" alt="SVL Logo" width="128" height="128">
 </p>
 
 <h1 align="center">SVL Wiki</h1>
