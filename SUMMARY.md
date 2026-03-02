@@ -27,3 +27,7 @@
 * [技术栈](docs/development/Tech-Stack.md)
 * [构建项目](docs/development/Building.md)
 * [贡献指南](docs/development/Contributing.md)
+
+## Wiki 相关
+
+* [为 Wiki 作出贡献](docs/CONTRIBUTING.md)
