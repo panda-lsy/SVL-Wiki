@@ -28,6 +28,74 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
+      - name: Prepare flattened wiki files
+        run: |
+          echo "📦 准备扁平化的 Wiki 文件..."
+          
+          # 创建临时目录
+          mkdir -p wiki-output
+          
+          # 复制 images 文件夹
+          cp -r images wiki-output/
+          
+          # 创建链接映射文件
+          declare -A file_map
+          
+          # 处理根目录的 MD 文件
+          for file in *.md; do
+            if [ -f "$file" ]; then
+              if [ "$file" = "README.md" ]; then
+                cp "$file" wiki-output/Home.md
+                file_map["./README"]="Home"
+                file_map["README"]="Home"
+              else
+                base=$(basename "$file" .md)
+                cp "$file" "wiki-output/$file"
+                file_map["./$base"]="$base"
+                file_map["$base"]="$base"
+              fi
+            fi
+          done
+          
+          # 处理 docs 目录下的文件（扁平化）
+          find docs -name "*.md" -type f | while read file; do
+            # 移除 docs/ 前缀和 .md 后缀
+            relative=${file#docs/}
+            relative=${relative%.md}
+            # 替换 / 为 -
+            flat_name=${relative//\//-}
+            
+            cp "$file" "wiki-output/${flat_name}.md"
+            
+            # 添加到映射
+            echo "./docs/$relative" >> /tmp/link_map.txt
+            echo "$flat_name" >> /tmp/link_map.txt
+            echo "docs/$relative" >> /tmp/link_map.txt
+            echo "$flat_name" >> /tmp/link_map.txt
+          done
+          
+          # 更新所有链接
+          echo "📝 更新链接引用..."
+          cd wiki-output
+          for md_file in *.md; do
+            if [ -f "$md_file" ]; then
+              # 更新 docs/ 路径的链接
+              sed -i -E 's|\[([^\]]+)\]\(\.?/?docs/([^)]+)\)|[\1](\2)|g' "$md_file"
+              sed -i -E 's|\[([^\]]+)\]\(\.?/?docs/([^)]+)\.md\)|[\1](\2)|g' "$md_file"
+              
+              # 替换路径中的 / 为 -
+              sed -i -E 's|\[([^\]]+)\]\((tutorials|features|development|CONTRIBUTING)/([^)]+)\)|[\1](\2-\3)|g' "$md_file"
+              sed -i -E 's|\[([^\]]+)\]\((tutorials|features|development|CONTRIBUTING)/([^)]+)\.md\)|[\1](\2-\3)|g' "$md_file"
+              
+              # 更新 README 链接为 Home
+              sed -i -E 's|\[([^\]]+)\]\(\.?/?README\)|[\1](Home)|g' "$md_file"
+              sed -i -E 's|\[([^\]]+)\]\(\.?/?README\.md\)|[\1](Home)|g' "$md_file"
+            fi
+          done
+          
+          echo "✅ 文件准备完成"
+          ls -la wiki-output/
+      
       - name: Sync to SVL-Wiki Wiki
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -41,17 +109,10 @@ jobs:
           cd wiki-temp
           
           # 删除旧文件（保留 .git 目录以保持历史）
-          ls -A | grep -v '^\.git$' | xargs rm -rf
+          find . -maxdepth 1 -not -name '.git' -not -name '.' | xargs rm -rf
           
-          # 复制新文件
-          cp -r $GITHUB_WORKSPACE/*.md .
-          cp -r $GITHUB_WORKSPACE/docs .
-          cp -r $GITHUB_WORKSPACE/images .
-          
-          # 重命名 README.md 为 Home.md
-          if [ -f README.md ]; then
-            mv README.md Home.md
-          fi
+          # 复制扁平化后的文件
+          cp -r wiki-output/* .
           
           # 提交
           git add -A
@@ -88,17 +149,10 @@ jobs:
           cd launcher-wiki-temp
           
           # 删除旧文件（保留 .git 目录以保持历史）
-          ls -A | grep -v '^\.git$' | xargs rm -rf
+          find . -maxdepth 1 -not -name '.git' -not -name '.' | xargs rm -rf
           
-          # 复制新文件
-          cp -r $GITHUB_WORKSPACE/*.md .
-          cp -r $GITHUB_WORKSPACE/docs .
-          cp -r $GITHUB_WORKSPACE/images .
-          
-          # 重命名 README.md 为 Home.md
-          if [ -f README.md ]; then
-            mv README.md Home.md
-          fi
+          # 复制扁平化后的文件
+          cp -r wiki-output/* .
           
           # 提交
           git add -A
