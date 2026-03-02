@@ -113,8 +113,8 @@ jobs:
           # 删除旧文件（保留 .git 目录以保持历史）
           find . -maxdepth 1 -not -name '.git' -not -name '.' | xargs rm -rf
           
-          # 复制扁平化后的文件
-          cp -r wiki-output/* .
+          # 复制扁平化后的文件（使用绝对路径）
+          cp -r ${GITHUB_WORKSPACE}/wiki-output/* .
           
           # 提交
           git add -A
@@ -153,8 +153,8 @@ jobs:
           # 删除旧文件（保留 .git 目录以保持历史）
           find . -maxdepth 1 -not -name '.git' -not -name '.' | xargs rm -rf
           
-          # 复制扁平化后的文件
-          cp -r wiki-output/* .
+          # 复制扁平化后的文件（使用绝对路径）
+          cp -r ${GITHUB_WORKSPACE}/wiki-output/* .
           
           # 提交
           git add -A
