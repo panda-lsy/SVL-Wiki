@@ -166,9 +166,62 @@ jobs:
           
           echo "✅ SVL-StardewValleyLauncher Wiki 同步完成"
 
+      - name: Sync to Gitee Wiki
+        env:
+          GITEE_SSH_KEY: ${{ secrets.GITEE_SSH_KEY }}
+        run: |
+          echo "📦 同步到 Gitee Wiki..."
+          
+          if [ -z "$GITEE_SSH_KEY" ]; then
+            echo "⚠️ GITEE_SSH_KEY 未配置，跳过此仓库"
+            echo "请在 Settings > Secrets 中添加 GITEE_SSH_KEY"
+            echo "📖 参考：docs/Gitee-Sync-Guide.md"
+            exit 0
+          fi
+          
+          # 配置 SSH
+          mkdir -p ~/.ssh
+          echo "$GITEE_SSH_KEY" > ~/.ssh/id_ed25519_gitee
+          chmod 600 ~/.ssh/id_ed25519_gitee
+          
+          # 配置 SSH 使用 Gitee 密钥
+          cat >> ~/.ssh/config << EOF
+          Host gitee.com
+              HostName gitee.com
+              PreferredAuthentications publickey
+              IdentityFile ~/.ssh/id_ed25519_gitee
+              StrictHostKeyChecking no
+          EOF
+          
+          ssh-keyscan gitee.com >> ~/.ssh/known_hosts 2>/dev/null
+          
+          # 克隆 Wiki 仓库 (SSH)
+          git clone git@gitee.com:mc_shengxia/SVL-StardewValleyLauncher.wiki.git gitee-wiki-temp
+          
+          # 进入目录
+          cd gitee-wiki-temp
+          
+          # 删除旧文件（保留 .git 目录以保持历史）
+          find . -maxdepth 1 -not -name '.git' -not -name '.' | xargs rm -rf
+          
+          # 复制扁平化后的文件（使用绝对路径）
+          cp -r ${GITHUB_WORKSPACE}/wiki-output/* .
+          
+          # 提交
+          git add -A
+          git diff --quiet && git diff --staged --quiet || git commit -m "docs: 自动同步 - $(date '+%Y-%m-%d %H:%M:%S')"
+          
+          # 拉取远程更改并推送（保持历史）
+          git pull --rebase git@gitee.com:mc_shengxia/SVL-StardewValleyLauncher.wiki.git master || true
+          git push git@gitee.com:mc_shengxia/SVL-StardewValleyLauncher.wiki.git HEAD:master
+          
+          echo "✅ Gitee Wiki 同步完成"
+          echo "📖 查看：https://gitee.com/mc_shengxia/SVL-StardewValleyLauncher/wikis"
+
       - name: Summary
         run: |
           echo "## Wiki 同步完成" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "✅ SVL-Wiki Wiki: https://github.com/${{ github.repository }}/wiki" >> $GITHUB_STEP_SUMMARY
           echo "✅ SVL-StardewValleyLauncher Wiki: https://github.com/panda-lsy/SVL-StardewValleyLauncher/wiki" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Gitee Wiki: https://gitee.com/mc_shengxia/SVL-StardewValleyLauncher/wikis" >> $GITHUB_STEP_SUMMARY

@@ -25,6 +25,33 @@
 | ⬇️**下载管理** | 多任务下载、断点续传、队列管理       |
 | 🎨**主题**       | 深色/浅色主题、自定义配色            |
 
+## 🖊 文档开发进度
+
+| 章节                                                     | 进度                                                           | 状态      | 最后更新 |
+| -------------------------------------------------------- | -------------------------------------------------------------- | --------- | -------- |
+| **快速开始**                                       |                                                                |           |          |
+| ├─[安装指南](./docs/tutorials/Installation)               | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | ✅ 完成   | 2026-03  |
+| ├─[初次使用](./docs/tutorials/Getting-Started)            | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | ✅ 完成   | 2026-03  |
+| └─[创建游戏实例](./docs/tutorials/Creating-Instance)      | ![85%](https://img.shields.io/badge/进度-85%25-green)         | 🔄 进行中 | 2026-03  |
+| **功能文档**                                       |                                                                |           |          |
+| ├─[游戏实例管理](./docs/features/Instance-Management)     | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
+| ├─[Mod 管理](./docs/features/Mod-Management)              | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
+| ├─[NexusMods 集成](./docs/features/NexusMods-Integration) | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
+| ├─[Modpack 整合包](./docs/features/Modpack-Support)       | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
+| ├─[下载管理器](./docs/features/Download-Manager)          | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
+| └─[主题与外观](./docs/features/Theming)                   | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
+| **高级功能**                                       |                                                                |           |          |
+| ├─[版本隔离](./docs/features/Version-Isolation)           | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
+| ├─[SMAPI 管理](./docs/features/SMAPI-Management)          | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
+| └─[设置与配置](./docs/features/Settings)                  | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
+| **开发文档**                                       |                                                                |           |          |
+| ├─[项目结构](./docs/development/Project-Structure)        | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
+| ├─[技术栈](./docs/development/Tech-Stack)                 | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
+| ├─[构建指南](./docs/development/Building)                 | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
+| └─[贡献指南](./docs/development/Contributing)             | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
+
+> **说明**: 进度 = 50% AI 生成 + 50% 人工审核 | ✅ 完成 | 🔄 进行中 | 📝 编写中
+
 ## 📚 文档导航
 
 ### 🚀 快速开始
@@ -55,6 +82,25 @@
 - [构建指南](./docs/development/Building) - 从源码构建 SVL
 - [贡献指南](./docs/development/Contributing) - 如何参与开发
 
+## 🤝 为 Wiki 做出贡献
+
+我们欢迎所有人为 SVL Wiki 做出贡献！无论是修复错别字、改进文档结构，还是添加新的教程和指南，你的贡献都会帮助到更多的用户。
+
+### 快速开始
+
+1. **Fork 本仓库** - 点击右上角的 Fork 按钮
+2. **编辑文档** - 使用 Markdown 格式编写或修改文档
+3. **提交 PR** - 创建 Pull Request，描述你的更改
+
+### 贡献方式
+
+- 📝 **改进文档** - 修复错别字、优化表述、补充说明
+- 📚 **添加教程** - 分享你的使用经验和技巧
+- 🌍 **翻译文档** - 帮助将文档翻译成其他语言
+- 🐛 **报告问题** - 在 Issues 中指出文档错误或不清楚的地方
+
+详细指南请参阅 [Wiki 贡献指南](./docs/CONTRIBUTING)。
+
 ## 🔗 链接
 
 - **源码仓库**: [github.com/panda-lsy/SVL-StardewValleyLauncher](https://github.com/panda-lsy/SVL-StardewValleyLauncher)
@@ -64,11 +110,11 @@
 
 ## 💻 系统要求
 
-| 项目     | 要求                                     |
-| -------- | ---------------------------------------- |
-| 操作系统 | Windows 10 / 11                          |
-| 运行时   | .NET Framework 4.8（Windows 10+ 已内置） |
-| 游戏     | Stardew Valley（Steam 或 GOG 版本）      |
+| 项目     | 要求                                          |
+| -------- | --------------------------------------------- |
+| 操作系统 | Windows 7 SP1 及以上                          |
+| 运行时   | .NET Framework 4.8（Windows 10+ 已内置）      |
+| 游戏     | Stardew Valley 完整游戏（任意版本、任意来源） |
 
 ## 📄 许可证
 

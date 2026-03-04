@@ -1,9 +1,10 @@
 # SVL Wiki 同步脚本
-# 将文档同步到多个 GitHub Wiki 仓库
+# 将文档同步到多个 GitHub Wiki 仓库和 Gitee Wiki
 
 param(
     [switch]$DryRun = $false,  # 仅预览，不实际推送
-    [switch]$Force = $false    # 强制覆盖远程内容
+    [switch]$Force = $false,   # 强制覆盖远程内容
+    [switch]$SkipGitee = $false # 跳过 Gitee 同步
 )
 
 # 配置
@@ -22,6 +23,13 @@ $WikiRepos = @(
         Url = "https://github.com/panda-lsy/SVL-StardewValleyLauncher.wiki.git"
     }
 )
+
+# Gitee Wiki 配置
+$GiteeWiki = @{
+    Name = "Gitee-SVL-StardewValleyLauncher"
+    Url = "git@gitee.com:mc_shengxia/SVL-StardewValleyLauncher.wiki.git"
+    RequiresSSH = $true
+}
 
 # 颜色输出函数
 function Write-Info { Write-Host "[INFO] $args" -ForegroundColor Cyan }
@@ -251,6 +259,40 @@ function Main {
             $failed++
         }
         Write-Host ""
+    }
+    
+    # 同步到 Gitee Wiki
+    if (-not $SkipGitee) {
+        Write-Info "检查 Gitee SSH 配置..."
+        
+        # 检查 SSH 密钥
+        $sshKeyPath = "$env:USERPROFILE\.ssh\id_ed25519"
+        $sshPubKeyPath = "$env:USERPROFILE\.ssh\id_ed25519.pub"
+        
+        if (-not (Test-Path $sshKeyPath) -or -not (Test-Path $sshPubKeyPath)) {
+            Write-Warning "未找到 SSH 密钥，跳过 Gitee 同步"
+            Write-Host ""
+            Write-Host "要启用 Gitee 同步，请按以下步骤操作：" -ForegroundColor Yellow
+            Write-Host "1. 生成 SSH 密钥：" -ForegroundColor Yellow
+            Write-Host "   ssh-keygen -t ed25519 -C `"你的邮箱@example.com`"" -ForegroundColor Cyan
+            Write-Host "2. 将公钥添加到 Gitee：" -ForegroundColor Yellow
+            Write-Host "   访问 https://gitee.com/profile/ssh_keys" -ForegroundColor Cyan
+            Write-Host "   复制 $sshPubKeyPath 的内容" -ForegroundColor Cyan
+            Write-Host "3. 测试连接：" -ForegroundColor Yellow
+            Write-Host "   ssh -T git@gitee.com" -ForegroundColor Cyan
+            Write-Host ""
+        } else {
+            Write-Success "找到 SSH 密钥"
+            $result = Sync-WikiRepo -Name $GiteeWiki.Name -Url $GiteeWiki.Url -TempPath $TempDir
+            if ($result) {
+                $success++
+            } else {
+                $failed++
+            }
+            Write-Host ""
+        }
+    } else {
+        Write-Info "已跳过 Gitee 同步"
     }
     
     # 清理临时目录

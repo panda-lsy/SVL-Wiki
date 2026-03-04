@@ -4,17 +4,18 @@
 
 ## 官方预览渠道
 
-Wiki 目前有三个官方预览渠道：
+Wiki 目前有四个官方预览渠道：
 
 | 渠道 | 地址 | 说明 |
 |------|------|------|
 | Wiki 仓库 Wiki | [https://github.com/panda-lsy/SVL-Wiki/wiki](https://github.com/panda-lsy/SVL-Wiki/wiki) | GitHub Wiki 原生预览 |
 | SVL 启动器仓库 Wiki | [https://github.com/panda-lsy/SVL-StardewValleyLauncher/wiki](https://github.com/panda-lsy/SVL-StardewValleyLauncher/wiki) | 主项目仓库的 Wiki |
+| Gitee Wiki | [https://gitee.com/mc_shengxia/SVL-StardewValleyLauncher/wikis](https://gitee.com/mc_shengxia/SVL-StardewValleyLauncher/wikis) | Gitee 镜像 Wiki |
 | 阿里云挂载 Wiki | [https://marki.89b52195.er.aliyun-esa.net/](https://marki.89b52195.er.aliyun-esa.net/) | 由 [Marki](https://github.com/Freakz3z/Marki) 提供技术支持 |
 
 ## 自动同步机制
 
-所有三个渠道都会自动从 [SVL-Wiki 仓库](https://github.com/panda-lsy/SVL-Wiki) 加载内容：
+所有四个渠道都会自动从 [SVL-Wiki 仓库](https://github.com/panda-lsy/SVL-Wiki) 加载内容：
 
 ```
 ┌─────────────────────────────────────┐
@@ -22,12 +23,12 @@ Wiki 目前有三个官方预览渠道：
 │   https://github.com/panda-lsy/SVL-Wiki
 └──────────────┬──────────────────────┘
                │ 自动同步
-       ┌───────┼───────┐
-       ▼       ▼       ▼
-   ┌───────┐ ┌───────┐ ┌───────┐
-   │ Wiki  │ │ 启动器│ │ 阿里云│
-   │ 仓库  │ │  Wiki │ │ Marki │
-   └───────┘ └───────┘ └───────┘
+       ┌───────┼───────┬───────┐
+       ▼       ▼       ▼       ▼
+   ┌───────┐ ┌───────┐ ┌───────┐ ┌───────┐
+   │ Wiki  │ │ 启动器│ │ Gitee │ │ 阿里云│
+   │ 仓库  │ │  Wiki │ │  Wiki │ │ Marki │
+   └───────┘ └───────┘ └───────┘ └───────┘
 ```
 
 当仓库更新时，GitHub Actions 会自动将内容同步到所有预览渠道。
