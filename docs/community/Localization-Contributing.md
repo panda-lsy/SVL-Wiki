@@ -57,7 +57,7 @@
 
 对于 Mod 类型的资源，你还可以配置以下关系（其中，Mod 名称可以在选择平台，输入 Mod ID 后自动补全）：
 
-![1773318605660](image/Localization-Contributing/1773318605660.png)
+![3rd.png](image/Localization-Contributing/3rd.png)
 
 | 关系类型           | 说明                                    |
 | ------------------ | --------------------------------------- |
