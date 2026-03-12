@@ -171,4 +171,4 @@ SVL-StardewValleyLauncher/
 
 - [技术栈](./Tech-Stack)
 - [构建项目](./Building)
-- [贡献指南](./Contributing)
+- [贡献指南](../community/Contributing)

@@ -192,4 +192,4 @@ Stardew Modding API 集成：
 
 - [项目结构](./Project-Structure)
 - [构建项目](./Building)
-- [贡献指南](./Contributing)
+- [贡献指南](../community/Contributing)

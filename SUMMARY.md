@@ -26,8 +26,8 @@
 * [项目结构](docs/development/Project-Structure.md)
 * [技术栈](docs/development/Tech-Stack.md)
 * [构建项目](docs/development/Building.md)
-* [贡献指南](docs/development/Contributing.md)
 
-## Wiki 相关
+## 贡献指南
 
-* [为 Wiki 作出贡献](docs/CONTRIBUTING.md)
+* [对 Wiki 进行贡献](docs/community/Contributing.md)
+* [社区资源本地化](docs/community/Localization-Contributing.md)

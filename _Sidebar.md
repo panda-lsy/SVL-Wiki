@@ -28,13 +28,13 @@
 - [项目结构](./docs/development/Project-Structure)
 - [技术栈](./docs/development/Tech-Stack)
 - [构建指南](./docs/development/Building)
-- [贡献指南](./docs/development/Contributing)
 
-## 📚 Wiki 相关
+## 🤝 贡献指南
 
-- [为 Wiki 作出贡献](./docs/CONTRIBUTING)
+- [对 Wiki 进行贡献](./docs/community/Contributing)
+- [社区资源本地化](./docs/community/Localization-Contributing)
 
-## 🔗 外部链接
+##  外部链接
 
 - [GitHub 仓库](https://github.com/panda-lsy/SVL-StardewValleyLauncher)
 - [问题反馈](https://github.com/panda-lsy/SVL-StardewValleyLauncher/issues)
