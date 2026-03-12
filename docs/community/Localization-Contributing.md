@@ -36,6 +36,8 @@
 - 选择平台（NexusMods/Curseforge）和资源类型（Mod / 整合包（Modpack） / 合集（Collection））
 - 填写资源 ID 或尾链（NexusMods 的 Collection 链接，如 `https://www.nexusmods.com/games/stardewvalley/collections/tckf0m`，其尾链为 ``tckf0m``）
 - 可以填写你作为贡献者的昵称，在后续提交成功并并入仓库后，你会在 SVL 启动器内对应的资源下载页面看到你的大名！
+
+  ![contributor.png](image/Localization-Contributing/contributor.png)
 - 点击"确定并加载信息"按钮获取平台原始信息与仓库现有内容
 
 ### 2.完善内容
