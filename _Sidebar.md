@@ -31,8 +31,8 @@
 
 ## 🤝 贡献指南
 
-- [对 Wiki 进行贡献](./docs/community/Contributing)
-- [社区资源本地化](./docs/community/Localization-Contributing)
+- [对 Wiki 进行贡献](./docs-community-Contributing)
+- [社区资源本地化](./docs-community-Localization-Contributing)
 
 ##  外部链接
 
