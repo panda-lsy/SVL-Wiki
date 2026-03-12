@@ -52,8 +52,8 @@
 | ├─[技术栈](./docs/development/Tech-Stack)                      | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
 | └─[构建指南](./docs/development/Building)                      | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
 | **贡献指南**                                            |                                                             |           |          |
-| ├─[对 Wiki 进行贡献](./docs-community-Contributing)            | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | ✅ 完成   | 2026-03  |
-| └─[社区资源本地化](./docs-community-Localization-Contributing) | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | ✅ 完成   | 2026-03  |
+| ├─[对 Wiki 进行贡献](./docs/community/Contributing)            | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | ✅ 完成   | 2026-03  |
+| └─[社区资源本地化](./docs/community/Localization-Contributing) | ![100%](https://img.shields.io/badge/进度-50%25-yellow)       | 📝 编写中 | -        |
 
 > **说明**: 进度 = 50% AI 生成 + 50% 人工审核 | ✅ 完成 | 🔄 进行中 | 📝 编写中
 
@@ -88,8 +88,8 @@
 
 ### 🤝 贡献指南
 
-- [对 Wiki 进行贡献](./docs-community-Contributing) - 如何参与 Wiki 编写和改进
-- [社区资源本地化](./docs-community-Localization-Contributing) - 为 Mod、整合包在 Curseforge/NexusMods 上的信息添加中文翻译
+- [对 Wiki 进行贡献](./docs/community/Contributing) - 如何参与 Wiki 编写和改进
+- [社区资源本地化](./docs/community/Localization-Contributing) - 为 Mod、整合包在 Curseforge/NexusMods 上的信息添加中文翻译
 
 ## 🤝 为 Wiki 做出贡献
 

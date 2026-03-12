@@ -86,8 +86,10 @@ jobs:
                 s/\[([^\]]+)\]\(\.?\/?docs\/features\/([^)\.]+)(\.md)?\)/[$1](features-$2)/g;
                 # 更新 docs/development/ 链接
                 s/\[([^\]]+)\]\(\.?\/?docs\/development\/([^)\.]+)(\.md)?\)/[$1](development-$2)/g;
-                # 更新 docs/CONTRIBUTING 链接
-                s/\[([^\]]+)\]\(\.?\/?docs\/CONTRIBUTING(\.md)?\)/[$1](CONTRIBUTING)/g;
+                # 更新 docs/community/ 链接
+                s/\[([^\]]+)\]\(\.?\/?docs\/community\/([^)\.]+)(\.md)?\)/[$1](community-$2)/g;
+                # 兼容旧的 docs/CONTRIBUTING 链接
+                s/\[([^\]]+)\]\(\.?\/?docs\/CONTRIBUTING(\.md)?\)/[$1](community-Contributing)/g;
                 # 更新 README 链接为 Home
                 s/\[([^\]]+)\]\(\.?\/?README(\.md)?\)/[$1](Home)/g;
               ' "$md_file"

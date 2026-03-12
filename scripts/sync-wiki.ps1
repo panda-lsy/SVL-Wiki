@@ -75,10 +75,11 @@ function Update-MarkdownLinks {
     # 更新所有相对路径链接
     foreach ($oldPath in $FileMapping.Keys) {
         $newPath = $FileMapping[$oldPath]
+        $escapedPath = [regex]::Escape($oldPath)
         
         # 匹配 Markdown 链接: [text](./path) 或 [text](path)
-        $updated = $updated -replace "\[([^\]]+)\]\(\.?$oldPath\)", "[$1]($newPath)"
-        $updated = $updated -replace "\[([^\]]+)\]\(\.?$oldPath\.md\)", "[$1]($newPath)"
+        $updated = $updated -replace "\[([^\]]+)\]\($escapedPath\)", "[$1]($newPath)"
+        $updated = $updated -replace "\[([^\]]+)\]\($escapedPath\.md\)", "[$1]($newPath)"
     }
     
     # 保存更新后的内容
