@@ -10,10 +10,11 @@
 
 我们支持对以下平台的资源进行本地化贡献：
 
-| 平台                 | 说明                          |
-| -------------------- | ----------------------------- |
-| **CurseForge** | 知名的游戏 Mod 社区平台       |
-| **NexusMods**  | 最大的星露谷物语 Mod 发布平台 |
+| 平台                     | 说明                                                                                                  |
+| ------------------------ | ----------------------------------------------------------------------------------------------------- |
+| **CurseForge**     | 知名的游戏 Mod 社区平台                                                                               |
+| **NexusMods**      | 最大的星露谷物语 Mod 发布平台                                                                         |
+| **本地 Unique ID** | 无法被平台检测到的（如子 Mod）的唯一凭证；<br />可通过启动器 版本管理-Mod 管理 的模组本地信息页面获取 |
 
 ## 快速贡献入口
 
@@ -33,12 +34,18 @@
 
 ![1ST](image/Localization-Contributing/1st.png)
 
-- 选择平台（NexusMods/Curseforge）和资源类型（Mod / 整合包（Modpack） / 合集（Collection））
+- 选择平台（NexusMods/Curseforge/Unique ID）和资源类型（Mod / 整合包（Modpack） / 合集（Collection））
 - 填写资源 ID 或尾链（NexusMods 的 Collection 链接，如 `https://www.nexusmods.com/games/stardewvalley/collections/tckf0m`，其尾链为 ``tckf0m``）
 - 可以填写你作为贡献者的昵称，在后续提交成功并并入仓库后，你会在 SVL 启动器内对应的资源下载页面看到你的大名！
 
   ![contributor.png](image/Localization-Contributing/contributor.png)
 - 点击"确定并加载信息"按钮获取平台原始信息与仓库现有内容
+
+在启动器更新至 1.1.8 版本后，可在资源详情页或 Mod 本地信息页点击「贡献本地化 」按钮，快速跳转到汉化提交页面，此时资源信息会被一键填充解析，无需再手动录入。
+
+![faster1.png](image/Localization-Contributing/faster1.png)
+
+![faster2.png](image/Localization-Contributing/faster2.png)
 
 ### 2.完善内容
 
