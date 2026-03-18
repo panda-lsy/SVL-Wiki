@@ -1,144 +1,84 @@
 # 初次使用
 
-本指南帮助你快速上手 SVL 启动器。
+> 欢迎使用 SVL（Stardew Valley Launcher）！如果你是第一次接触这个启动器，本章节将会快速教会你如何添加星露谷物语作为 Base 到启动器，以及创建你的第一个**版本隔离的** SMAPI 游戏实例。
 
-## 📋 目录
+## 小科普
 
-- [界面概览](#界面概览)
-- [设置游戏路径](#设置游戏路径)
-- [配置 Mod 下载源](#配置-mod-下载源)
-- [启动游戏](#启动游戏)
+**什么是 Base？**
 
-## 界面概览
+**Base** 指的是通过 **传统的游戏安装方式** 安装的星露谷物语（以及 SMAPI）所在的安装文件夹（例如 Steam 默认的 `...\Steam\steamapps\common\Stardew Valley`）。
 
-SVL 的主界面分为几个部分：
+**什么是游戏实例？**
 
-* 顶部导航栏
-* 主页面
-  * 左侧栏
-  * 右侧栏
+**实例** 是 SVL  **最核心的创新** ，它让你拥有多个完全独立的游戏环境。
 
-![主界面](image/Getting-Started/main.png)
+* 拥有自己独立的  **Mods 文件夹** 和 SMAPI 版本。
+* 共享同一份游戏本体文件（避免重复占用硬盘空间）。
 
-### 顶部导航栏
+> 注：版本隔离的实例不同于传统的 Mod 组合，前者对整合包系统适配性更佳。你可以在一个《星露谷物语》下，通过更加系统的管理方式来共存许多整合包。![Modpacks.png](image/Getting-Started/Modpacks.png)
+>
+> 这些 Modpacks 使用的都是同一个游戏本体！但是可以随意切换。
 
-| 文字 | 页面     | 功能                               |
-| ---- | -------- | ---------------------------------- |
-| SVL  | 无       | 启动器标题，可在设置自定义         |
-| 启动 | 主页面   | 管理和启动游戏实例                 |
-| 下载 | 下载页面 | 下载社区资源（SMAPI、Mod、整合包） |
-| 设置 | 设置页面 | 对启动器进行全局设置               |
+## 添加你的 Base 文件夹
 
-## 设置游戏路径
+启动器进行版本隔离管理的基础是需要一个安装好的《星露谷物语》，它会基于这个作为 Base，然后进行游戏实例的管理与启动。
 
-### 自动检测
+当你第一次打开 SVL，它会自动检测你现有的 Base 游戏目录（例如 Steam 安装的 Stardew Valley）。
+![1773845589261](image/Getting-Started/1773845589261.png)
 
-首次运行时，SVL 会尝试自动检测游戏路径：
+如果并没有自动检测到 Base，或者你的游戏安装到其他文件夹的话，可以手动添加到版本列表中：
 
-- **Steam**: `Steam\steamapps\common\Stardew Valley`
-- **GOG**: `GOG Galaxy\Games\Stardew Valley`
+在主页面点击「版本选择」，然后在版本选择页面的左下角，点击「添加」按钮，之后选择游戏所在的文件夹就可以了
 
-### 手动设置
+（注意：文件夹输入框可以复制路径进去并自动进行解析，可以先在文件管理器找到游戏的位置，然后一键复制游戏路径过去）
 
-如果自动检测失败，可以手动选择游戏路径：
+![1773845817621](image/Getting-Started/1773845817621.png)
 
-1. 进入 **「启动 (主页面)」** → **「版本选择」![版本选择](image/Getting-Started/paths.png)**
-2. 点击 **「添加或导入」** 下方的 **「添加」**
-3. 找到 Stardew Valley 安装目录（可在文件夹右侧的输入框直接粘贴绝对路径）
-4. 选择包含 `Stardew Valley.exe` 的文件夹
-5. 点击 **「确定」**
+## 创建第一个游戏实例
 
-### 验证路径
+通过在启动器里 **安装一个新的 SMAPI** （或者直接把 SMAPI 的压缩包拖进去），它就会自动引导你 **创建一个新的游戏实例** 。
 
-正确的游戏目录应包含：
+### 下载 SMAPI
 
-```
-Stardew Valley/
-├── Stardew Valley.exe
-├── Stardew Valley.dll
-├── Content/
-└── ...
-```
+SVL 提供三个源的 SMAPI 自动化安装支持
 
-## 配置下载源
+| 来源 | Github   | Curseforge | NexusMods                           |
+| ---- | -------- | ---------- | ----------------------------------- |
+| 登录 | 无需登录 | 需要登录   | 需要登录                            |
+| 优势 | 版本齐全 | 下载速度快 | 版本齐全                            |
+| 劣势 | 网速受限 | 版本不全   | 网速受限，需要 premium 才能自动下载 |
 
-SVL 支持从多个 Mod 社区下载 Mod、SMAPI 与整合包，包括 **Nexus Mods** 和 **CurseForge**。配置这些下载源可以让你直接在启动器中搜索、浏览和下载 Mod。
+点击导航栏的 **「下载」** 按钮，选择对应的源然后点击 **「查看详情」**，以跳转到安装页面
 
-### Nexus Mods
+根据支持的游戏版本在对应的 SMAPI 版本下点击 **「安装」**
 
-[Nexus Mods](https://www.nexusmods.com/) 是最大的游戏 Mod 社区之一，拥有丰富的星露谷物语 Mod 资源。
+![SMAPIlist](image/Creating-Instance/SMAPIList.png)
 
-#### 特点
+此时需要确认游戏本体，确认完毕后点击 **「使用此路径」** ，启动器将会创建使用此文件夹下游戏资源的 游戏实例。
 
-- 📚 Mod 资源丰富，更新活跃
-- 🔍 强大的搜索和分类功能
-- ⭐ Mod 评分和评论系统
-- 🔄 支持 Mod 更新追踪
+![ChoiceBase](image/Creating-Instance/ChoiceBase.png)
 
-#### 配置步骤
+输入实例的名称（版本名字）然后点击 **「确定」**
 
-1. 进入 **「设置」** → **「下载源配置」** → **「登录 NexusMods」**![NexusMods](image/Getting-Started/Nexus.png)
-2. 点击 **「登录 NexusMods」** 按钮![登录NexusMods](image/Getting-Started/loginNeuxs.png)
-3. 使用浏览器完成 OAuth 授权
-4. 授权成功后自动返回 SVL
+![Input.png](image/Creating-Instance/Input.png)
 
-> **提示**：登录后可以直接从 NexusMods 网站一键下载 Mod（需关联 NXM 协议）。
+SVL 会自动创建实例并安装 SMAPI，此时右下角会浮现 **「任务管理器」** 按钮，点击即可查看当前的任务状态。
 
-### CurseForge
+![Downloading.png](image/Creating-Instance/Downloading.png)
 
-[CurseForge](https://www.curseforge.com/) 是另一个流行的 Mod 托管平台，同样提供了大量的星露谷物语 Mod。
+### 从本地的 SMAPI ZIP 文件导入安装
 
-#### 特点
+选择整合包文件（`.svlpack`、`.zip` 等），并直接拖入启动器窗口。其余操作同上。
 
-- 🎮 整合包资源丰富
-- 📦 支持 Modpack 导入
-- 🌐 社区活跃
-- 📊 Mod 统计信息详细
+![1773846726756](image/Getting-Started/1773846726756.png)
 
-#### 配置步骤
+### 检测是否成功安装
 
-1. 进入 **「设置」** → **「下载源配置」![CurseforgeAPI](image/Getting-Started/CurseforgeAPI.png)**
-2. 如有账号，直接点击[获取 Curseforge API Key](https://console.curseforge.com/?#/api-keys)
-3. 将获取到的 API Key 填入输入框，并点击测试。正常会返回 "API Key 有效"
+提示 **安装完成** 后，点击**「版本选择」**![1773846938389](image/Getting-Started/1773846938389.png)
 
-### 下载源对比
+在这里就能发现新的游戏实例
 
-| 特性                 | Nexus Mods   | CurseForge |
-| -------------------- | ------------ | ---------- |
-| **Mod 数量**   | 丰富         | 良好       |
-| **需要登录**   | 是           | 是         |
-| **整合包支持** | ✅           | ✅         |
-| **一键下载**   | 需要 Premium | ✅         |
-| **更新追踪**   | ✅           | ✅         |
-
-> **建议**：同时配置两个下载源，以获得更全面的 Mod 资源访问。
-
-## 启动游戏
-
-### 启动方式
-
-1. 在版本选择找到你的实例卡片![版本选择](image/Getting-Started/paths.png)
-2. 点击切换，并返回到主界面。![主界面](image/Getting-Started/main.png)
-3. 点击 **「启动游戏」** 按钮
-
-### 启动模式
-
-| 模式               | 说明                                |
-| ------------------ | ----------------------------------- |
-| **Mod 模式** | 通过 SMAPI 启动，加载所有启用的 Mod |
-| **原版模式** | 直接启动游戏，不加载 Mod            |
-
-### 首次启动
-
-首次启动时，SMAPI 会：
-
-- 显示控制台窗口
-- 加载所有 Mod
-- 输出加载日志
-
-如果一切正常，游戏会正常启动并显示 SMAPI 版本信息。
-
----
+![1773846993218](image/Getting-Started/1773846993218.png)
 
 ## 下一步
 

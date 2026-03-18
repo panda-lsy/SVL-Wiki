@@ -29,31 +29,31 @@
 
 > **目前 Wiki 内容（除在主页标注进度为 100% 的内容外）还需进行人工审核修订，一切请以启动器实际功能为准。**
 
-| 章节                                                          | 进度                                                        | 状态      | 最后更新 |
-| ------------------------------------------------------------- | ----------------------------------------------------------- | --------- | -------- |
-| **快速开始**                                            |                                                             |           |          |
-| ├─[安装指南](./docs/tutorials/Installation)                    | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | ✅ 完成   | 2026-03  |
-| ├─[初次使用](./docs/tutorials/Getting-Started)                 | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | ✅ 完成   | 2026-03  |
-| └─[创建游戏实例](./docs/tutorials/Creating-Instance)           | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | 🔄 进行中 | 2026-03  |
-| └─[安装 Mods](./docs/tutorials/Installing-Mods)                | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 🔄 进行中 | 2026-03  |
-| **功能文档**                                            |                                                             |           |          |
-| ├─[游戏实例管理](./docs/features/Instance-Management)          | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
-| ├─[Mod 管理](./docs/features/Mod-Management)                   | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
-| ├─[NexusMods 集成](./docs/features/NexusMods-Integration)      | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
-| ├─[Modpack 整合包](./docs/features/Modpack-Support)            | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
-| ├─[下载管理器](./docs/features/Download-Manager)               | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
-| └─[主题与外观](./docs/features/Theming)                        | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
-| **高级功能**                                            |                                                             |           |          |
-| ├─[版本隔离](./docs/features/Version-Isolation)                | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
-| ├─[SMAPI 管理](./docs/features/SMAPI-Management)               | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
-| └─[设置与配置](./docs/features/Settings)                       | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
-| **开发文档**                                            |                                                             |           |          |
-| ├─[项目结构](./docs/development/Project-Structure)             | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
-| ├─[技术栈](./docs/development/Tech-Stack)                      | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
-| └─[构建指南](./docs/development/Building)                      | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中 | -        |
-| **贡献指南**                                            |                                                             |           |          |
-| ├─[对 Wiki 进行贡献](./docs/community/Contributing)            | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | ✅ 完成   | 2026-03  |
-| └─[社区资源本地化](./docs/community/Localization-Contributing) | ![100%](https://img.shields.io/badge/进度-50%25-yellow)       | 📝 编写中 | -        |
+| 章节                                                          | 进度                                                        | 状态        | 最后更新   |
+| ------------------------------------------------------------- | ----------------------------------------------------------- | ----------- | ---------- |
+| **快速开始**                                            |                                                             |             |            |
+| ├─[安装指南](./docs/tutorials/Installation)                    | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | ✅ 二次翻新 | 2026-03-18 |
+| ├─[初次使用](./docs/tutorials/Getting-Started)                 | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | ✅ 完成     | 2026-03    |
+| └─[创建游戏实例](./docs/tutorials/Creating-Instance)           | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | 🔄 进行中   | 2026-03    |
+| └─[安装 Mods](./docs/tutorials/Installing-Mods)                | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 🔄 进行中   | 2026-03    |
+| **功能文档**                                            |                                                             |             |            |
+| ├─[游戏实例管理](./docs/features/Instance-Management)          | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
+| ├─[Mod 管理](./docs/features/Mod-Management)                   | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
+| ├─[NexusMods 集成](./docs/features/NexusMods-Integration)      | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
+| ├─[Modpack 整合包](./docs/features/Modpack-Support)            | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
+| ├─[下载管理器](./docs/features/Download-Manager)               | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
+| └─[主题与外观](./docs/features/Theming)                        | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
+| **高级功能**                                            |                                                             |             |            |
+| ├─[版本隔离](./docs/features/Version-Isolation)                | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
+| ├─[SMAPI 管理](./docs/features/SMAPI-Management)               | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
+| └─[设置与配置](./docs/features/Settings)                       | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
+| **开发文档**                                            |                                                             |             |            |
+| ├─[项目结构](./docs/development/Project-Structure)             | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
+| ├─[技术栈](./docs/development/Tech-Stack)                      | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
+| └─[构建指南](./docs/development/Building)                      | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
+| **贡献指南**                                            |                                                             |             |            |
+| ├─[对 Wiki 进行贡献](./docs/community/Contributing)            | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | ✅ 完成     | 2026-03    |
+| └─[社区资源本地化](./docs/community/Localization-Contributing) | ![100%](https://img.shields.io/badge/进度-50%25-yellow)       | 📝 编写中   | -          |
 
 > **说明**: 进度 = 50% AI 生成 + 50% 人工审核 | ✅ 完成 | 🔄 进行中 | 📝 编写中
 
