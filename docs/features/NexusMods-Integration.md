@@ -66,7 +66,7 @@ Mod 搜索等处可能出现：「Nexus OAuth 登录已失效，请在设置页�
 | 能力 | 说明 |
 |------|------|
 | 头像 / 用户名 / 会员类型 | 登录态展示 |
-| 每日 / 每小时请求 | API 统计 |
+| 每日 / 每小时请求 | API 统计：`used/limit`；汇总「小时剩余…｜每日剩余…」或「未获取」（见 [设置](./Settings)） |
 | NXM 协议回调与受限下载 | 需有效登录（下载页无独立粘贴导入控件） |
 | 导出补全 FileID | 导出整合包时可尝试补 Nexus/CF FileID |
 
@@ -109,7 +109,7 @@ Mod 搜索等处可能出现：「Nexus OAuth 登录已失效，请在设置页�
 
 ## Collection
 
-Nexus Collection 可通过整合包安装链路处理（见 [Modpack 整合包](./Modpack-Support)）。任务页选中 Collection/整合包任务时显示 **整合包 Mod 进度**（文案形如「a/b 个 Mod 已处理」；分页每页 **8** 条，页码「第 n/m 页」；行状态「等待中」/「处理中」/「已安装」/「失败」/「已跳过」/「待处理」；需求「可选」/「必需」）。行操作：**打开来源** / **选择文件并安装**（失败/跳过/待处理且需手动时）/ **跳过可选 Mod**（仅可选且「待处理」）。建议操作可提示手动来源勿把网页当压缩包、用「选择文件并安装」补装。完整「一键订阅 Collection」入口文案以现版下载/导入为准，勿照搬旧 WPF 菜单名。 任务态另见：「准备 Collection 清单」/「正在准备 Collection 清单: {名}」/「命中 Collection 缓存，准备安装」/「准备下载 Collection 包（n 个镜像）」。`CollectionInstallService` 进度 StepText 节选：「复用已缓存 Collection，跳过浏览器和下载」→「下载 Collection 数据」→「Collection 下载完成」/「Collection 文件就绪」→「解析 collection.json」→「collection.json 解析完成: n 个 Mod」→「安装 SMAPI」→「SMAPI 就绪」→「下载安装 Mod」（可含「阶段 k: 跳过可选 Mod / 复用已安装 Mod / 下载安装 Mod / 补丁应用失败」）→「应用 bundled 文件」→「bundled 文件应用完成」→「保存实例配置」。失败/取消示例：「Collection slug 不能为空」「未检测到游戏目录，无法安装 Collection」「Nexus 未登录，无法下载 Collection」「无法获取经过校验的 SMAPI 安装包，已停止 Collection 安装」「Collection 安装已取消」。
+Nexus Collection 可通过整合包安装链路处理（见 [Modpack 整合包](./Modpack-Support)）。任务页选中 Collection/整合包任务时显示 **整合包 Mod 进度**（文案形如「a/b 个 Mod 已处理」；分页每页 **8** 条，页码「第 n/m 页」；行状态「等待中」/「处理中」/「已安装」/「失败」/「已跳过」/「待处理」；需求「可选」/「必需」）。行操作：**打开来源** / **选择文件并安装**（失败/跳过/待处理且需手动时）/ **跳过可选 Mod**（仅可选且「待处理」）。建议操作可提示手动来源勿把网页当压缩包、用「选择文件并安装」补装。完整「一键订阅 Collection」入口文案以现版下载/导入为准，勿照搬旧 WPF 菜单名。 任务态另见：「准备 Collection 清单」/「正在准备 Collection 清单: {名}」/「命中 Collection 缓存，准备安装」/「准备下载 Collection 包（n 个镜像）」。`CollectionInstallService` 进度 StepText 节选：「复用已缓存 Collection，跳过浏览器和下载」→「下载 Collection 数据」→「Collection 下载完成」/「Collection 文件就绪」→「解析 collection.json」→「collection.json 解析完成: n 个 Mod」→「安装 SMAPI」→「SMAPI 就绪」→「下载安装 Mod」（可含「阶段 k: 跳过可选 Mod / 复用已安装 Mod / 下载安装 Mod / 补丁应用失败」）→「应用 bundled 文件」→「bundled 文件应用完成」→「保存实例配置」。失败/取消示例：「Collection slug 不能为空」「未检测到游戏目录，无法安装 Collection」「Nexus 未登录，无法下载 Collection」「无法获取经过校验的 SMAPI 安装包，已停止 Collection 安装」「Collection 安装已取消」。`CollectionPatchService` 补丁结果：「没有需要应用的补丁」/「补丁目标 Mod 目录不存在」/「未找到该 Mod 的 patches 目录」/「已应用 n 个补丁，跳过 m 个」(+ 可选原因如「CRC 不匹配」「源文件不存在」「路径无效」)/「没有补丁成功应用」。
 
 ## 免费 vs Premium（已核源码语义）
 
