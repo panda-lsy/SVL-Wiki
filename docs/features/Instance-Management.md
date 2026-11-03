@@ -73,9 +73,9 @@
 
 | 侧栏 | 内容摘要 |
 |------|----------|
-| **概览** | 版本信息；改图标 / 名称 / 描述 / 收藏并保存；快捷打开 **版本文件夹**、**存档文件夹**（有则显示）、**Mod 文件夹**；高级：**删除当前版本**（仅 versions 根）或 **卸载 Base SMAPI**（Base 且已装 SMAPI）；提示「Base 版本不可删除，仅可卸载其 SMAPI」 |
+| **概览** | 版本信息；改图标 / 名称 / 描述 / 收藏并保存；快捷打开 **版本文件夹**、**存档文件夹**（`ApplicationData/StardewValley/Saves`，有则显示）、**Mod 文件夹**；高级：**删除当前版本**（仅 versions 根）或 **卸载 Base SMAPI**（Base 且已装 SMAPI）；提示「Base 版本不可删除，仅可卸载其 SMAPI」 |
 | **自动安装** | **安装 / 更改 SMAPI** |
-| **Mod 管理** | 见 [Mod 管理](./Mod-Management) |
+| **Mod管理**（无空格，`VersionSettings.Nav.ModManage`） | 见 [Mod 管理](./Mod-Management) |
 | **设置** | 窗口标题、启动参数、Steam 大厅、Steam 启动参数覆写；**无隔离开关** |
 | **导出** | 见 [Modpack 整合包](./Modpack-Support)；清单默认不含 Mod 本体 |
 
@@ -88,8 +88,8 @@
 |----|------|
 | **窗口标题** | 可含占位符；有帮助按钮 |
 | **启动参数** | 当前版本 |
-| **启动时尝试加入 Steam 大厅** | + **Steam 大厅 ID（64 位数字）** |
-| **Steam 启动参数覆写** | 可看默认参数；勾选覆盖后编辑；**写入 Steam 启动参数** |
+| **启动时尝试加入 Steam 大厅** | + **Steam 大厅 ID（64 位数字）**；提示「仅支持 Steam 大厅数字 ID；游戏内字母邀请码和 IP 地址仍需在联机菜单手动输入。」 |
+| **Steam 启动参数覆写** | 可看默认参数；勾选 **覆盖 Steam 启动参数** 后编辑；按钮 **写入 Steam 启动参数** |
 
 数据在 `instance-launch-settings.json`（与全局 `settings.json` 分离）。
 
