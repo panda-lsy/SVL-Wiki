@@ -96,7 +96,7 @@
 | **窗口标题** | 水印「例如: Stardew Valley &lt;ver&gt; - &lt;name&gt;」；旁「?」ToolTip「查看窗口标题占位符说明」→ 对话框标题「窗口标题占位符帮助」：`<name>` / `<ver>` / `<smver>` / `<modscount>`；留空或 `<default>` 恢复默认 |
 | **启动参数** | 水印「例如: --debug --loglevel trace」 |
 | **启动时尝试加入 Steam 大厅** | + **Steam 大厅 ID（64 位数字）**（水印「例如: 109775241234567890」）；提示「仅支持 Steam 大厅数字 ID；游戏内字母邀请码和 IP 地址仍需在联机菜单手动输入。」 |
-| **重置默认** / **保存实例设置** | 同卡底部按钮（后者 `VersionSettings.Settings.Save`）。重置确认标题「恢复实例默认设置」：正文「将清空当前实例的窗口标题、启动参数、服务器连接和 Steam 覆写设置。\n\n实例路径和 Mod 文件不会被删除。是否继续？」；成功状态「实例设置已恢复默认值（未删除实例数据）」 |
+| **重置默认** / **保存实例设置** | 同卡底部按钮（后者 `VersionSettings.Settings.Save`）。重置确认标题「恢复实例默认设置」：正文「将清空当前实例的窗口标题、启动参数、服务器连接和 Steam 覆写设置。\n\n实例路径和 Mod 文件不会被删除。是否继续？」；成功状态「实例设置已恢复默认值（未删除实例数据）」。自动保存中「实例设置已自动保存」；手工保存「实例设置已保存（HH:mm:ss）」；失败「保存实例设置失败：…」。概览 **保存个性化** 亦走 `SaveInstanceSettings`（名称空则回落 `Default Instance`） |
 | **Steam 启动参数覆写** | 说明「默认参数会自动指向当前实例的 SMAPI 可执行文件，你也可以手动编辑后写入 Steam。」；只读 **默认命令**；勾选 **覆盖 Steam 启动参数**；**编辑参数** 水印含 `StardewModdingAPI.exe` 与 `%command%`；只读 **参数预览**；按钮 **写入 Steam 启动参数** + **保存实例设置** |
 
 数据在 `instance-launch-settings.json`（与全局 `settings.json` 分离）。源码：`VersionSettingsPageView.axaml` 设置区。
