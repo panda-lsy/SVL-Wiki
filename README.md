@@ -41,7 +41,7 @@
 | └─[安装 Mods](./docs/tutorials/Installing-Mods) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 本地安装确认框 zip/文件夹分流 | 2026-11-04 |
 | **功能文档** | | | |
 | ├─[游戏实例管理](./docs/features/Instance-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 实例设置自动/手工保存状态句 | 2026-11-04 |
-| ├─[Mod 管理](./docs/features/Mod-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 启用/禁用/卸载成功失败状态句 | 2026-11-04 |
+| ├─[Mod 管理](./docs/features/Mod-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 更新检测进度与批量更新取消状态 | 2026-11-04 |
 | ├─[NexusMods 集成](./docs/features/NexusMods-Integration) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Linux/Win/macOS NXM 注册路径与 Collection 任务态 | 2026-11-04 |
 | ├─[Modpack 整合包](./docs/features/Modpack-Support) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 拖放对话框路径项完整路径展示 | 2026-11-04 |
 | ├─[下载管理器](./docs/features/Download-Manager) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 选择/确认游戏路径全文与无效目录状态 | 2026-11-04 |
