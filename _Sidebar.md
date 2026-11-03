@@ -7,6 +7,7 @@
 - [安装指南](./docs/tutorials/Installation)
 - [初次使用](./docs/tutorials/Getting-Started)
 - [创建实例](./docs/tutorials/Creating-Instance)
+- [安装 Mods](./docs/tutorials/Installing-Mods)
 
 ## 📦 功能文档
 

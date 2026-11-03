@@ -17,6 +17,9 @@
 
 ## 打开入口
 
+![Mod 管理（Linux · v1.2.0.0）](../tutorials/image/avalonia/mods.png)
+
+
 1. **版本选择** → 实例齿轮；或启动页 **「Mod管理」** / **「版本设置」**。
 2. 左侧点 **「Mod 管理」**。
 

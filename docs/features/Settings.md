@@ -18,6 +18,9 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 
 ## 打开设置
 
+![设置页（Linux · v1.2.0.0）](../tutorials/image/avalonia/settings.png)
+
+
 1. 左侧导航点 **「设置」**（本地化键 `Nav.Settings`）。
 2. 页顶会显示当前 `settings.json` 路径。
 

@@ -4,7 +4,7 @@
 
 源码：`SettingsPageView.axaml` 个性化卡片、`ThemeService`、`AppUserSettings`。
 
-![设置页（Linux · v1.2.0.0）](../tutorials/image/avalonia/svl-settings.png)
+![个性化（Linux · v1.2.0.0）](../tutorials/image/avalonia/theme.png)
 
 ## 目录
 

@@ -4,7 +4,7 @@
 
 源码：`SettingsPageView.axaml`（下载设置）、`DownloadPageView` / Mod 搜索相关页、`OpenNexusLoginCommand`。
 
-![设置页（Linux · v1.2.0.0）](../tutorials/image/avalonia/svl-settings.png)
+![设置页（Linux · v1.2.0.0）](../tutorials/image/avalonia/settings.png)
 
 ## 目录
 
