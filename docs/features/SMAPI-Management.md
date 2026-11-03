@@ -25,7 +25,7 @@ SMAPI（Stardew Modding API）是星露谷主流 Mod 加载器。SVL 负责下�
 |------|------|
 | 下载页 | **下载** → SMAPI 详情 → **安装** → 选 Base → 起实例名 |
 | 拖放 | 将 SMAPI 官方 zip 拖入窗口 |
-| 版本设置 | **自动安装** → **安装 / 更改 SMAPI** |
+| 版本设置 | **自动安装**（侧栏文案）→ 卡片 **「安装选项」** → **「安装 / 更改 SMAPI」**；进度文案「正在安装 SMAPI...」 |
 
 创建实例完整步骤见 [创建游戏实例](../tutorials/Creating-Instance)。
 
@@ -36,9 +36,9 @@ SMAPI（Stardew Modding API）是星露谷主流 Mod 加载器。SVL 负责下�
 
 | 来源 | 说明 |
 |------|------|
-| **GitHub** | 默认常见源（设置里可有默认 SMAPI 源项，**待核实**是否暴露在下载设置） |
-| **NexusMods** | 需登录；自动下载规则受平台限制 |
-| **CurseForge** | 需登录 |
+| **GitHub** | 选择器默认常见源；`settings.json` 的 `DefaultSmapiSource` 默认 GitHub，**设置页无控件** |
+| **CurseForge** | SMAPI 版本选择器可选；失败可回退 GitHub |
+| **NexusMods** | 需登录；非 Premium 可能等待浏览器慢速下载 + NXM 回传 |
 | **本地 zip** | 拖放或本地安装流程 |
 
 ## Base 与隔离实例

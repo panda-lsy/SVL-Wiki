@@ -14,7 +14,7 @@
 - [NXM 协议](#nxm-协议)
 - [API 额度](#api-额度)
 - [Collection](#collection)
-- [待核实](#待核实)
+- [免费 vs Premium（已核源码语义）](#免费-vs-premium已核源码语义)
 
 ## 登录
 
@@ -62,7 +62,11 @@
 
 下载页另有 **NXM 链接导入**（水印形如 `nxm://stardewvalley/mods/.../files/...`）与 **导入 NXM**。
 
-Linux/macOS 注册是否与系统桌面集成完全一致：**待核实**（以本机「重新注册」结果为准）。
+平台实现（`SVL.Core.Platform`）：
+
+- **Linux**：freedesktop desktop entry `svl-avalonia-nxm.desktop` + `mimeapps.list`（含桌面环境专用 mimeapps）。
+- **macOS**：要求 `.app` 的 `Info.plist` 已声明 nxm URL scheme；缺失则注册失败并提示重新打包。
+- 便携解压 / Flatpak 等非标准布局：**可能**注册失败，请用设置内「重新注册」看结果文案。
 
 ## API 额度
 
@@ -72,10 +76,13 @@ Linux/macOS 注册是否与系统桌面集成完全一致：**待核实**（以�
 
 Nexus Collection 可通过整合包安装链路处理（见 [Modpack 整合包](./Modpack-Support)）。完整「一键订阅 Collection」UI 文案以现版下载/导入入口为准，勿照搬旧 WPF 菜单名。
 
-## 待核实
+## 免费 vs Premium（已核源码语义）
 
-- 免费账号 vs Premium 在自动下载上的产品文案差异  
-- 桌面端 NXM 在 Flatpak / 便携包场景的注册路径  
+- 登录态展示会员类型：`Premium` / `Free`（`NexusAuthService` 读 `is_premium`）。
+- **非 Premium**：部分 NXM / 自动直链会走 **浏览器下载回退**（`BrowserDownloadFallbackService`）；界面会提示在文件页点 **『Slow Download』**，完成后再回启动器；任务状态可见「等待浏览器下载（非 Premium）」。
+- **Premium**：更易走直接 API/NXM 自动流（仍受 Nexus 配额与登录态约束）。
+
+Flatpak / 纯便携包的 NXM 注册仍依赖上述桌面入口是否写得到，失败时以设置页状态文案为准。
 
 ---
 

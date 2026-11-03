@@ -44,7 +44,7 @@
 |------|------|------|
 | GitHub | 通常不需要 | 常见默认源 |
 | CurseForge | 需要 | 需已登录 |
-| NexusMods | 需要 | 受限下载依赖账号；Premium 行为 **待核实** 产品文案 |
+| NexusMods | 需要 | 受限下载依赖账号；非 Premium 常需浏览器 **Slow Download** 再回传（见 [NexusMods 集成](../features/NexusMods-Integration)） |
 
 步骤：
 

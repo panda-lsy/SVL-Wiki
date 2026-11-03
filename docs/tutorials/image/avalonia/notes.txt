@@ -1,0 +1,227 @@
+Window title (WM): Stardew Valley Launcher
+In-app header logo: SVL
+Top nav (left to right): 启动, 下载, 任务, 设置
+No first-run modal was showing. Home is an empty-state guide. Dialogs below appear only after a click.
+Did not sign in to Nexus or CurseForge. Did not submit 添加实例 or 安装.
+
+== main.png (启动) ==
+Left card:
+  暂无实例
+  请先添加游戏实例
+  未找到版本
+Left buttons:
+  启动游戏 (disabled)
+  版本选择
+  版本设置 (disabled)
+Main:
+  欢迎使用星露谷物语启动器
+  Stardew Valley Launcher
+  尚未配置游戏实例
+  请先点击左侧版本选择进入实例管理，再返回启动页。
+  实例信息    暂无实例
+  启动模式    自动
+  安全启动    已关闭
+  状态        未探测到本机游戏目录
+  开始使用
+  请先添加游戏实例才能开始使用启动器：
+  1. 点击左侧版本选择进入实例管理页面
+  2. 使用添加功能选择游戏安装目录
+  3. 支持多实例管理，方便切换不同版本
+  4. 支持自动探测 Steam 和 GOG 版本
+  button: 版本选择
+  使用提示
+  点击左侧启动游戏按钮即可开始游玩 Stardew Valley。
+  使用版本选择可切换不同游戏版本；版本设置可配置启动参数和 Mod 选项。
+  左下角「Mod管理」按钮可直接跳转到该版本的 Mod 管理页面。
+Note: the help text names 「Mod管理」, but with no instance the third left button is 版本设置 and is disabled. Per-instance Mod 管理 was not opened.
+
+== instances.png (版本选择 / 路径列表) ==
+  路径列表
+  当前未探测到可用路径，可通过下方按钮
+  手动添加
+  选择启动版本
+  请从左侧选择一个游戏路径
+  点击路径后，右侧将显示该路径下的所有可用版本
+  路径操作
+  添加
+  导入整合包
+  刷新
+  打开文件夹 (disabled)
+  未发现本机实例，可手动添加
+
+== add-instance.png (dialog from 添加; window title 添加实例) ==
+  添加实例
+  请输入实例目录路径
+  游戏目录
+  placeholder: 选择或输入 Stardew Valley 安装目录
+  浏览
+  取消
+  确认
+Closed with 取消. No directory was chosen, so no instance was created.
+
+== downloads.png and smapi.png (下载 > SMAPI) ==
+Same frame. Sidebar:
+  下载类别
+  游戏本体
+    SteamCMD 登录下载
+  SMAPI (selected)
+    模组启动器
+  Mod
+    单个模组
+  Modpack
+    整合包
+  进行中的任务
+    当前无进行中任务
+  历史任务
+    当前无历史任务
+  未选择任务
+Main:
+  搜索 SMAPI
+  状态: 已准备 3 个来源卡片
+  输入关键词
+  全部
+  搜索
+  未设置游戏安装目录
+  当前需要先配置实例中的游戏目录，下载与安装流程才会使用该目录。
+  探测结果: 未探测到游戏目录
+  前往实例管理
+  SMAPI 搜索结果
+  GitHub / NexusMods / Curseforge cards
+  SMAPI - Stardew Modding API
+  GitHub    Star 2,783    2026-03-23
+  适用于星露谷物语的Mod加载器
+  进入详情
+
+== smapi-detail.png (GitHub 进入详情; header 资源下载) ==
+  资源下载
+  SMAPI - Stardew Modding API
+  GitHub
+  资源ID: 299987048
+  SMAPI is an open-source modding framework and API for Stardew Valley ; that lets you play the game with mods. It's safely installed alongside the game's executable, and ; doesn't change any of your game files. It serves seven main purposes:
+  状态: 详情已加载
+  转到来源
+  EN
+  贡献本地化
+  复制 | 名称 | ID
+  支持的游戏版本
+  全部
+  版本列表
+  Stardew Valley 未知
+  收起
+  [ 未知 ] SMAPI-4.5.2-installer-double-zipped.zip
+  SMAPI-4.5.2-installer-double-zipped.zip
+  安装    另存为
+  [ 未知 ] SMAPI-4.5.2-installer.zip
+  SMAPI-4.5.2-installer.zip
+  安装    另存为
+Did not click 安装 or 另存为.
+
+== mods.png (下载 > Mod) ==
+  搜索 Mod
+  输入 Mod 关键词
+  来源 全部
+  版本 全部
+  类型 全部
+  搜索
+  重置
+  来源：全部（每个来源最多展示 10 条）
+  Nexus OAuth 登录已失效，请在设置页重新登录。
+  不再提示
+  本次使用期间不提示
+  去登录
+  未设置游戏安装目录
+  当前需要先配置实例中的游戏目录，下载与安装流程才会使用该目录。
+  探测结果: 未探测到游戏目录
+  前往实例管理
+  Mod 资源列表
+  暂无资源，可尝试搜索关键词
+  上一页
+  第 1/1 页
+  下一页
+Did not click 去登录.
+
+== modpack.png (下载 > Modpack) ==
+  搜索 Modpack
+  输入 Modpack 关键词
+  未设置游戏安装目录
+  当前需要先配置实例中的游戏目录，下载与安装流程才会使用该目录。
+  探测结果: 未探测到游戏目录
+  前往实例管理
+  Modpack 资源列表
+  暂无资源，可尝试搜索关键词
+  上一页 / 第 1/1 页 / 下一页
+
+== settings.png (设置 > 基本设置) ==
+Sidebar:
+  设置
+  参数与行为配置中心
+  基本设置 (selected)
+  下载设置
+  个性化
+  其他
+  关于
+Main:
+  设置已从本地加载
+  配置文件: /home/box/.local/share/SVL/Avalonia/settings.json
+  操作路径：基本设置 -> 下载设置 -> 个性化 -> 其他 -> 关于
+  保存设置
+  打开 JSON
+  设置已从本地加载
+  恢复默认设置
+  基本设置
+  以下字段会影响窗口标题、应用名称和启动标识。
+  游戏窗口标题
+  <default>
+  启动器标题
+  Stardew Valley Launcher
+  启动器简称
+  SVL
+  游戏启动后启动器行为
+  游戏启动后最小化
+  checkbox (unchecked): 启动时自动连接服务器
+  服务器地址
+  例如: 127.0.0.1:24642
+  Steam 大厅 ID (64 位数字)
+  例如: 109775241234567890
+  自动连接支持 64 位 Steam 大厅数字 ID；游戏内邀请码和 IP 地址仍须手动加入。
+  设置更改后会自动保存，也可点击按钮立即保存。
+  保存设置
+
+== theme.png (设置 > 个性化) ==
+  当前标签：个性化
+  个性化
+  主题模式
+  跟随系统
+  配色方案
+  星露谷（默认）
+  自定义强调色（#RGB / #RRGGBB，可选）
+  #D47748
+  应用
+  恢复默认
+  留空使用当前配色方案的默认强调色
+  启用动画 (checked)
+  主窗口透明效果强度
+  25%
+  0% 完全不透明；数值越高，主窗口背景越透明。100% 为当前最大透明效果。文字、控件和弹窗不受影响。
+  界面字体大小
+  14
+  界面语言
+  zh-CN
+  设置更改后会自动保存，也可点击按钮立即保存。
+  保存设置
+Theme was not changed.
+
+== 任务 (seen, not saved as a requested file) ==
+  任务列表
+  运行中: 0 历史已完成: 0
+  清空已完成 (disabled)
+  当前没有任务
+  去下载页发起任务后，这里会实时显示进度。
+  前往下载
+
+== Blockers ==
+- No local game directory / instance (未探测到本机游戏目录, 未发现本机实例). 启动游戏 and 版本设置 stay disabled. Per-instance 「Mod管理」 is not on screen.
+- 打开文件夹 is disabled.
+- Mod and Modpack lists are empty until a keyword search; Mod shows Nexus OAuth 登录已失效. Login was not attempted.
+- Creating an instance needs a Stardew Valley install directory (浏览 / 确认). None was selected.
+- 游戏本体 is labeled SteamCMD 登录下载; Steam login was not attempted.
