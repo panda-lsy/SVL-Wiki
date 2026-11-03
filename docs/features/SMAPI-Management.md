@@ -64,7 +64,7 @@ SMAPI（Stardew Modding API）是星露谷主流 Mod 加载器。SVL 负责下�
 1. 打开对应实例 **版本设置 → 自动安装**  
 2. **安装 / 更改 SMAPI**  
 3. 弹出 `SmapiVersionPickerDialog`：标题区「选择要安装的 SMAPI 版本」；只读「当前版本:」「安装路径:」；「下载源:」下拉；加载中「正在获取版本列表...」；失败「加载失败: …」/「CurseForge 加载失败，请切换到 GitHub 源」（CurseForge 失败可回退 GitHub）；列表项显示「SMAPI」+ 版本号，预发布标「预发布」；**上一页** / **下一页**；底部 **确认安装** / **取消**  
-4. 若需命名隔离实例，另弹 `InstanceNameDialog`（标签「实例名称」，水印「输入实例名称」，**取消** / **确认**）；选 Base 时用 `InstanceSelectionDialog`：Title 属性默认「选择实例」；控件内另有固定标签「选择 Base 路径」+ 路径下拉；**取消** / **确认**  
+4. 若需命名隔离实例，另弹 `InstanceNameDialog`（控件默认标题「实例命名」；标签「实例名称」；水印「输入实例名称」；**取消** / **确认**）。调用方标题常见：「输入 SMAPI 实例名称」（主安装流）/「输入SMAPI实例名称」（无空格，另两处拖放/回退命名）/「输入版本名称」（Collection/整合包安装）。校验失败写在输入框下方（不改标题）：`InstanceNameValidator` — 空「实例名称不能为空」；超长「实例名称不能超过 80 个字符」；非法字符「实例名称包含非法字符: '…'」；保留名「"{名}" 是系统保留名称，不能作为实例名称」；点开头结尾「实例名称不能以点开头或结尾」；特殊 Unicode「实例名称包含不支持的 Unicode 字符（控制字符/特殊符号/私用区），请使用常规字符」；emoji「实例名称不能包含 emoji 或代理对字符」；重名「实例名称已存在: {名}」。选 Base 时用 `InstanceSelectionDialog`：Title 属性默认「选择实例」；控件内固定「选择 Base 路径」+ 路径下拉；**取消** / **确认**  
 5. 安装阶段任务态文案「安装中（SMAPI）」（下载到 100% 后进度会重置再装；`TargetGamePath` 经 `ResolveBasePath` 归一，避免嵌套 `versions`）  
 6. 页内/状态栏（`ChangeSmapiVersionAsync`）：取消选择「已取消 SMAPI 安装」；下载「正在下载 SMAPI {版本}...」/`SmapiInstallProgressText`「正在下载...」；安装「正在安装 SMAPI...」或「正在更新 SMAPI...」（更新隔离实例时）；成功「SMAPI {版本} 安装成功」/「…更新成功」；失败「SMAPI 下载失败」/「SMAPI 安装失败: …」/「SMAPI 更新失败: …」；取消「SMAPI 安装已取消」/「SMAPI 更新已取消」。任务名形如「SMAPI {版本} - {实例名}」。成功后会把 `PreferredInstancePath` 切到新运行目录并尽量写入默认 Modded 图标（不覆盖用户自定义图标）。路径已装 SMAPI 但仍为原版入口时点安装：「检测到当前路径已安装 SMAPI，请先切换到 SMAPI 版本」。
 

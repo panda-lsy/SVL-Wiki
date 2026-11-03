@@ -64,7 +64,7 @@
 详见 [创建游戏实例](../tutorials/Creating-Instance)。摘要：
 
 1. **添加** Base 文件夹（`GamePathSelectionDialog` 标题「添加实例」；说明「请输入实例目录路径」；标签「游戏目录」；水印「选择或输入 Stardew Valley 安装目录」；**浏览** / **取消** / **确认**）。失败状态：「目录无效：未检测到游戏核心文件」/「该目录已存在于实例列表」。  
-2. 下载/拖入 **SMAPI** → 命名（`InstanceNameDialog` 重名报错「实例名称已存在: {名}」）→ 生成 Versions 实例  
+2. 下载/拖入 **SMAPI** → 命名（`InstanceNameDialog`；标题见 [SMAPI 管理](./SMAPI-Management)；重名「实例名称已存在: {名}」；其余校验见 `InstanceNameValidator`）→ 生成 Versions 实例  
 3. **导入整合包** 或下载页安装整合包  
 
 无「启用隔离」勾选；隔离为默认产物。

@@ -43,6 +43,7 @@
 ## 从下载页安装
 
 导航 **「下载」** → 类别 **Modpack** → **搜索 Modpack** 列表安装。  
+在线/任务安装流选 Base 后，命名窗标题为 **「输入版本名称」**（`InstanceNameDialog`；取消状态「已取消整合包安装」/ Collection 为「已取消 Collection 安装」）。本地拖放则用 `ModpackDropDialog` 内的 **版本实例名称** 字段（见上），不是同一标题。校验与重名规则同 [SMAPI 管理](./SMAPI-Management) 的 `InstanceNameValidator`。  
 Localization 另有 `Download.Modpack.Title/Description/UrlWatermark/Import/OpenSearch` 等键，且 VM 有 `QueueModpackUrlDownload`，但 **axaml 未挂载**对应输入框/按钮；实机勿按旧文寻找「导入 Modpack URL」卡片。文件导入：拖放或文件选择器（`*.zip` / `*.cfmodpack` / `*.7z`）。
 
 ## 导出
