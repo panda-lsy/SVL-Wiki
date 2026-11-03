@@ -70,9 +70,9 @@ Avalonia 主入口是导航 **「任务」**（`Nav.Tasks`），列表 + 详情�
 
 三步（`DownloadPageView.axaml`，可用 **上一步** / **下一步**）：
 
-1. **安装 SteamCMD** — 文案：「首次使用需下载并解压 SteamCMD 命令行客户端（约 2MB）…」；按钮 **下载 SteamCMD**；显示 **SteamCMD 状态：**
-2. **登录 Steam 账号** — 账号/密码等输入 + **登录**；需已拥有游戏；令牌/邮箱验证码跟日志提示
-3. **选择版本下载** — 「SteamCMD 自动获取的版本」下拉；可选 **自定义 Manifest ID**（水印「从 SteamDB 查询 Manifest ID」，优先于下拉）；可输入自定义指令（水印例 `app_update 413150`）
+1. **安装 SteamCMD** — 文案：「首次使用需下载并解压 SteamCMD 命令行客户端（约 2MB），用于登录与下载游戏文件。」；按钮 **下载 SteamCMD**；显示 **SteamCMD 状态：**
+2. **Steam 账号登录** — **账号**（水印「Steam 登录账号」）、**密码**（水印「Steam 密码」）、**Steam Guard 验证码（如需要）**（水印「邮箱验证码 / 手机令牌」）+ **登录**。黄条「关于 Steam Guard 登录」：手机令牌需在 Steam 手机 APP 批准或填验证码；等待超时约 180 秒可重试；**登录信息不会被存储。**
+3. **选择游戏版本并下载** — 「SteamCMD 自动获取的版本」下拉；**自定义 Manifest ID（可选，优先于下拉）**（水印「从 SteamDB 查询 Manifest ID」）；**保存目录（须为空目录）**（水印「游戏文件保存位置」）+ **浏览**；可输入自定义指令（水印例 `app_update 413150`；提示「指令会以 +指令 +quit 形式执行；登录建议在登录页填写以支持 Steam Guard。」）
 
 侧有 **SteamCMD 日志**。账号登录与下载未在本批截图中演示（`notes.txt` blockers）。
 

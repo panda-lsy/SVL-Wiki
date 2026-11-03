@@ -73,7 +73,7 @@
 
 | 侧栏 | 内容摘要 |
 |------|----------|
-| **概览** | 版本信息；改图标 / 名称 / 描述 / 收藏并保存；快捷打开 **版本文件夹**、**存档文件夹**（`ApplicationData/StardewValley/Saves`，有则显示）、**Mod 文件夹**；高级：**删除当前版本**（仅 versions 根）或 **卸载 Base SMAPI**（Base 且已装 SMAPI）；提示「Base 版本不可删除，仅可卸载其 SMAPI」 |
+| **概览** | 版本信息；改图标 / 名称 / 描述 / 收藏并保存；快捷方式「版本文件夹」「存档文件夹」（`ApplicationData/StardewValley/Saves`，有则显示）、「Mod 文件夹」；高级：**删除当前版本**（仅 versions 根；确认「确认删除版本」，目录进回收站可恢复）或 **卸载 Base SMAPI**（确认「确认卸载 Base SMAPI」：移走 SMAPI 可执行文件、保留 Mods）；提示「Base 版本不可删除，仅可卸载其 SMAPI」 |
 | **自动安装** | **安装 / 更改 SMAPI** |
 | **Mod管理**（无空格，`VersionSettings.Nav.ModManage`） | 见 [Mod 管理](./Mod-Management) |
 | **设置** | 窗口标题、启动参数、Steam 大厅、Steam 启动参数覆写；**无隔离开关** |
