@@ -65,7 +65,7 @@ SMAPI（Stardew Modding API）是星露谷主流 Mod 加载器。SVL 负责下�
 3. 弹出 `SmapiVersionPickerDialog`：标题区「选择要安装的 SMAPI 版本」；只读「当前版本:」「安装路径:」；「下载源:」下拉；加载中「正在获取版本列表...」；列表项显示「SMAPI」+ 版本号，预发布标「预发布」；**上一页** / **下一页**；底部 **确认安装** / **取消**  
 4. 若需命名隔离实例，另弹 `InstanceNameDialog`（标签「实例名称」，水印「输入实例名称」，**取消** / **确认**）；选 Base 时用 `InstanceSelectionDialog`：Title 属性默认「选择实例」；控件内另有固定标签「选择 Base 路径」+ 路径下拉；**取消** / **确认**  
 5. 安装阶段任务态文案「安装中（SMAPI）」（下载到 100% 后进度会重置再装；`TargetGamePath` 经 `ResolveBasePath` 归一，避免嵌套 `versions`）  
-5. 看任务/页内进度（如「正在安装 SMAPI...」）
+6. 页内/状态栏（`ChangeSmapiVersionAsync`）：取消选择「已取消 SMAPI 安装」；下载「正在下载 SMAPI {版本}...」/`SmapiInstallProgressText`「正在下载...」；安装「正在安装 SMAPI...」或「正在更新 SMAPI...」（更新隔离实例时）；成功「SMAPI {版本} 安装成功」/「…更新成功」；失败「SMAPI 下载失败」/「SMAPI 安装失败: …」/「SMAPI 更新失败: …」；取消「SMAPI 安装已取消」/「SMAPI 更新已取消」。任务名形如「SMAPI {版本} - {实例名}」。成功后会把 `PreferredInstancePath` 切到新运行目录并尽量写入默认 Modded 图标（不覆盖用户自定义图标）。路径已装 SMAPI 但仍为原版入口时点安装：「检测到当前路径已安装 SMAPI，请先切换到 SMAPI 版本」。
 
 装完后卡片应显示 SMAPI 标签与版本号；图标可能随运行时刷新。
 
