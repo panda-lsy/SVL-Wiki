@@ -64,6 +64,7 @@ Mods 分栏可见（文案以界面为准）：
 - Tag 提示原文：「选中 Tag 仅用于组合搜索或批量标签操作；点击“搜索”后才会写入搜索公式。」
 - **Tag 筛选与管理**：勾选 **文件夹式** / **前缀式** / **自定义**
 - 底部分页：**上一页** / 页码 / **下一页**；显示「共 n 项」
+- **高级语法** 对话框标题「高级语法速查」（`ShowAdvancedSearchHelp`）：关键字 `tag:` / `author:` / `description:` / `name:` / `uid:` / `folder:` / `enabled:` / `disabled:`；示例 `tag:"UI" author:Pathos`、`enabled:yes tag:地图`、`name:"CJB Cheats Menu" -test`；提示含空格值用英文双引号、`-关键词` 排除
 
 行内可有启用、禁用、卸载等操作。
 
