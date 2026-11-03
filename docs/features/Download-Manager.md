@@ -63,7 +63,7 @@ Avalonia 主入口是导航 **「任务」**（`Nav.Tasks`），列表 + 详情�
 
 无有效游戏路径时，下载主区黄条：**未设置游戏安装目录**（`Download.Path.*`）→ **前往实例管理**；探测前缀「探测结果: 」。若流程需要选目录：对话框「选择游戏路径」（说明「下载与安装需要有效的 Stardew Valley 目录。请先选择游戏目录。」；标签「游戏目录」+ **浏览**）→ 无效则状态「选择的目录无效：未检测到游戏核心文件」→「确认游戏路径」（正文「请确认此目录为 Stardew Valley 安装目录。确认后将作为下载与安装目标路径。」；按钮 **确认使用此路径**，写入 `PreferredInstancePath`）；详情见 [安装 Mods](../tutorials/Installing-Mods)。
 
-下载页侧栏标题「下载类别」（实机）：**游戏本体**（副文案「SteamCMD 登录下载」，axaml 硬编码）、**SMAPI**（`Download.Category.SmapiSub`「模组启动器」）、**Mod**（「单个模组」）、**Modpack**（「整合包」）。侧栏下方任务摘要标题 **进行中的任务** / **历史任务**（`Download.ActiveTasks` / `Download.HistoryTasks`）；空态「当前无进行中任务」/「当前无历史任务」。历史任务行可有 **复制失败明细**（`Download.Task.CopyFailed`，有 `FailedDetails` 时）。切换类别状态栏：「通过 SteamCMD 登录并下载游戏本体（支持历史版本）」/「可搜索并安装 SMAPI」/「可搜索并安装 Mod」/「可导入或下载 Modpack」。列表标题「SMAPI 资源列表」/「Mod 资源列表」/「Modpack 资源列表」。Mod 搜索水印「输入 Mod 关键词」。外挂入队提示「SMAPI 安装任务已创建: {名}」；通用「已加入队列」。
+下载页侧栏标题「下载类别」（实机）：**游戏本体**（副文案「SteamCMD 登录下载」，axaml 硬编码）、**SMAPI**（`Download.Category.SmapiSub`「模组启动器」）、**Mod**（「单个模组」）、**Modpack**（「整合包」）。侧栏下方任务摘要标题 **进行中的任务** / **历史任务**（`Download.ActiveTasks` / `Download.HistoryTasks`）；空态「当前无进行中任务」/「当前无历史任务」。进行中行操作（Localization，有条件显示）：**取消** / **重试** / **打开报告**（文案键 `Download.Task.Cancel/Retry/OpenReport`——此处 **取消** 不等于任务页 **取消任务**）。历史行另可有 **打开备份** / **复制失败明细** / **打开重试报告**（`OpenBackup` / `CopyFailed` / `OpenRetryReport`）。点任务名可 `SelectTask` 跳到导航 **任务** 详情。切换类别状态栏：「通过 SteamCMD 登录并下载游戏本体（支持历史版本）」/「可搜索并安装 SMAPI」/「可搜索并安装 Mod」/「可导入或下载 Modpack」。列表标题「SMAPI 资源列表」/「Mod 资源列表」/「Modpack 资源列表」。Mod 搜索水印「输入 Mod 关键词」。外挂入队提示「SMAPI 安装任务已创建: {名}」；通用「已加入队列」。
 
 
 ## 游戏本体（SteamCMD）
