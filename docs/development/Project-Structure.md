@@ -1,169 +1,118 @@
 # 项目结构
 
-本文档介绍 SVL-StardewValleyLauncher 的项目结构。
+对应仓库 [SVL-StardewValleyLauncher](https://github.com/panda-lsy/SVL-StardewValleyLauncher) 的 **Avalonia 主线**。目录以仓库根布局为准（**不是**旧文档里的 `src/SVL.Desktop` 三层假想结构）。
 
-## 📋 目录
+## 目录
 
 - [整体架构](#整体架构)
-- [项目组成](#项目组成)
-- [核心目录结构](#核心目录结构)
-- [模块划分](#模块划分)
+- [解决方案项目](#解决方案项目)
+- [仓库树](#仓库树)
+- [模块提示](#模块提示)
 
 ## 整体架构
 
-SVL 采用 MVVM 架构模式，基于 .NET Framework 4.8 和 WPF 构建。
+MVVM + 平台抽象：UI 在 Avalonia，系统差异在 `SVL.Core.Platform`。
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                      UI Layer (WPF)                      │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐     │
-│  │   Views     │  │  Controls   │  │  Converters │     │
-│  └─────────────┘  └─────────────┘  └─────────────┘     │
+│              UI (SVL.Avalonia · AXAML)                   │
+│   Views / Controls / Resources / Assets                 │
 ├─────────────────────────────────────────────────────────┤
-│                    ViewModel Layer                       │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐     │
-│  │ MainVM      │  │ InstanceVM  │  │  ModVM      │     │
-│  └─────────────┘  └─────────────┘  └─────────────┘     │
+│              ViewModels (CommunityToolkit.Mvvm)         │
 ├─────────────────────────────────────────────────────────┤
-│                    Service Layer                         │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐     │
-│  │ NexusService│  │ModService   │  │DownloadSvc  │     │
-│  └─────────────┘  └─────────────┘  └─────────────┘     │
+│              App Services (SVL.Avalonia/Services)       │
 ├─────────────────────────────────────────────────────────┤
-│                     Data Layer                           │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐     │
-│  │   Models    │  │  Repository │  │   LiteDB    │     │
-│  └─────────────┘  └─────────────┘  └─────────────┘     │
+│         Platform (SVL.Core.Platform/Services)           │
+│         Windows / Linux / macOS 实现                    │
 └─────────────────────────────────────────────────────────┘
 ```
 
-## 项目组成
+## 解决方案项目
 
-| 项目 | 说明 | 输出类型 |
-|------|------|----------|
-| **SVL.Desktop** | 桌面应用程序主项目 | WPF 应用程序 |
-| **SVL.Core** | 核心业务逻辑 | 类库 |
-| **SVL.Infrastructure** | 基础设施层 | 类库 |
+`SVL.sln`（修订时）包含：
 
-## 核心目录结构
+| 项目 | 说明 | 输出 |
+|------|------|------|
+| **SVL.Avalonia** | 跨平台桌面主程序 | 可执行应用 |
+| **SVL.Core.Platform** | 平台抽象与实现 | 类库 |
+| **SVL.Migration.Tests** | 迁移等相关测试 | 测试 |
+
+**不在**默认 sln 构建路径、但仓库中仍存在：
+
+| 路径 | 说明 |
+|------|------|
+| `SVL.Desktop/`、`SVL.Core/` | 旧 WPF / Core，迁移对照 |
+| `SVL.Tests/` | **待核实**是否仍维护、是否进 CI |
+
+来源：`SVL.sln`、启动器 `README.md`「项目结构」。
+
+## 仓库树
 
 ```
 SVL-StardewValleyLauncher/
-├── src/
-│   ├── SVL.Desktop/           # 桌面应用项目
-│   │   ├── Views/             # XAML 视图
-│   │   │   ├── MainWindow.xaml
-│   │   │   ├── Pages/
-│   │   │   │   ├── HomePage.xaml
-│   │   │   │   ├── ModPage.xaml
-│   │   │   │   ├── DownloadPage.xaml
-│   │   │   │   └── SettingsPage.xaml
-│   │   │   └── Dialogs/
-│   │   ├── ViewModels/        # 视图模型
-│   │   │   ├── MainViewModel.cs
-│   │   │   ├── HomeViewModel.cs
-│   │   │   └── ...
-│   │   ├── Controls/          # 自定义控件
-│   │   ├── Converters/        # 值转换器
-│   │   ├── Themes/            # 主题资源
-│   │   │   ├── Light.xaml
-│   │   │   ├── Dark.xaml
-│   │   │   └── Colors/
-│   │   ├── Resources/         # 静态资源
-│   │   │   ├── Images/
-│   │   │   └── Icons/
-│   │   ├── App.xaml           # 应用程序入口
-│   │   └── App.xaml.cs
-│   │
-│   ├── SVL.Core/              # 核心业务层
-│   │   ├── Models/            # 数据模型
-│   │   │   ├── GameInstance.cs
-│   │   │   ├── ModInfo.cs
-│   │   │   ├── DownloadTask.cs
-│   │   │   └── ...
-│   │   ├── Services/          # 服务接口
-│   │   │   ├── IInstanceService.cs
-│   │   │   ├── IModService.cs
-│   │   │   ├── IDownloadService.cs
-│   │   │   └── INexusModsService.cs
-│   │   ├── Events/            # 事件定义
-│   │   └── Exceptions/        # 自定义异常
-│   │
-│   └── SVL.Infrastructure/    # 基础设施层
-│       ├── Services/          # 服务实现
-│       │   ├── InstanceService.cs
-│       │   ├── ModService.cs
-│       │   ├── DownloadService.cs
-│       │   ├── NexusModsService.cs
-│       │   └── SmapiService.cs
-│       ├── Repositories/      # 数据仓库
-│       ├── Configuration/     # 配置管理
-│       ├── FileSystem/        # 文件系统操作
-│       └── Networking/        # 网络请求
-│
-├── docs/                      # 文档
-├── tests/                     # 测试项目
-├── .github/                   # GitHub 配置
-│   └── workflows/
-├── Directory.Build.props
-├── global.json
-└── README.md
+├── SVL.Avalonia/              # Avalonia 主项目
+│   ├── ViewModels/
+│   ├── Views/                 # AXAML 页面
+│   ├── Controls/
+│   ├── Resources/             # 主题与样式
+│   ├── Services/              # 应用服务
+│   ├── Models/
+│   ├── Converters/
+│   ├── Assets/                # 图标等
+│   ├── App.axaml / App.axaml.cs
+│   └── SVL.Avalonia.csproj    # TargetFramework: net10.0
+├── SVL.Core.Platform/         # 平台层
+│   ├── Services/              # 如 GameInstallPathLocator、Linux NXM 等
+│   └── SVL.Core.Platform.csproj
+├── SVL.Migration.Tests/
+├── SVL.Core/                  # 旧代码（参考）
+├── SVL.Desktop/               # 旧 WPF UI（参考）
+├── SVL.Tests/                 # 待核实
+├── packaging/                 # 如 macOS DMG 布局
+├── scripts/                   # 打包辅助（如 package-linux-deb.sh）
+├── .github/workflows/         # 含 package-avalonia.yml
+├── build.ps1                  # 统一多平台打包
+├── docs/                      # 仓库内开发/发布文档
+├── CHANGELOG.md
+├── LICENSE
+└── SVL.sln
 ```
 
-## 模块划分
+用户数据（运行时，非仓库内）：`LocalApplicationData/SVL/Avalonia/`（见 [安装指南](../tutorials/Installation)）。
 
-### 实例管理模块
+## 模块提示
 
-负责游戏实例的创建、管理和启动。
+下列名称便于检索源码，**不是**对外 API 承诺。类名以仓库为准；不确定处标了路径。
 
-| 文件/类 | 功能 |
-|---------|------|
-| `GameInstance` | 实例数据模型 |
-| `InstanceService` | 实例 CRUD 操作 |
-| `InstanceManager` | 实例运行时管理 |
-| `VersionIsolation` | 版本隔离处理 |
+### 实例与路径
 
-### Mod 管理模块
+| 线索 | 路径提示 |
+|------|----------|
+| 实例页 VM | `SVL.Avalonia/ViewModels/InstancesPageViewModel.cs` |
+| 实例注册存储 | `SVL.Avalonia/Services/InstanceRegistryStore.cs` |
+| 游戏路径探测 | `SVL.Core.Platform/Services/GameInstallPathLocator.cs` |
 
-负责 Mod 的安装、启用、禁用和更新。
+### Mod / 下载 / 商店
 
-| 文件/类 | 功能 |
-|---------|------|
-| `ModInfo` | Mod 信息模型 |
-| `ModService` | Mod 操作服务 |
-| `DependencyResolver` | 依赖解析 |
-| `ConflictDetector` | 冲突检测 |
+| 线索 | 路径提示 |
+|------|----------|
+| 下载页 VM | `SVL.Avalonia/ViewModels/DownloadPageViewModel.cs` |
+| 下载安装服务 | `SVL.Avalonia/Services/DownloadInstallService.cs`、`HttpDownloadService.cs` |
+| Nexus / CurseForge 缓存等 | `SVL.Avalonia/Services/*DownloadCache*.cs` 等 |
+| 功能页大 VM | `SVL.Avalonia/ViewModels/FeaturePagesViewModels.cs`（**待核实**拆分情况） |
 
-### 下载管理模块
+### 设置 / 更新 / 遥测
 
-负责文件下载和任务管理。
+| 线索 | 路径提示 |
+|------|----------|
+| 用户设置 | `AppUserSettingsStore.cs` |
+| 设置页 VM | `SettingsPageViewModel.cs` |
+| 更新应用 | `LauncherUpdateApplier.cs` |
+| 旧配置迁移 | `LegacyConfigurationMigrationService.cs` |
 
-| 文件/类 | 功能 |
-|---------|------|
-| `DownloadTask` | 下载任务模型 |
-| `DownloadService` | 下载服务 |
-| `HttpClientHandler` | HTTP 请求处理 |
-| `DownloadQueue` | 下载队列管理 |
+### 主题
 
-### NexusMods 集成模块
-
-负责与 NexusMods API 交互。
-
-| 文件/类 | 功能 |
-|---------|------|
-| `NexusModsService` | NexusMods 服务 |
-| `OAuthClient` | OAuth 认证 |
-| `NxProtocolHandler` | NXM 协议处理 |
-
-### 主题系统模块
-
-负责应用程序主题管理。
-
-| 文件/类 | 功能 |
-|---------|------|
-| `ThemeService` | 主题切换服务 |
-| `AccentColor` | 强调色配置 |
-| `ResourceDictionary` | WPF 资源 |
+主题与资源在 `SVL.Avalonia/Resources/`、`Assets/`。**待核实**具体文件名列表（勿再写旧 `Themes/Light.xaml` 结构）。
 
 ---
 

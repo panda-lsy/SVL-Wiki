@@ -10,122 +10,118 @@
 
 ---
 
-## 📖 关于 SVL
+## 关于 SVL
 
-**SVL (Stardew Valley Launcher)** 是一个功能完整的星露谷物语启动器和 Mod 管理器。它提供现代化的 Windows 桌面体验，让你轻松管理游戏实例、安装和组织 Mod、集成 NexusMods 下载，以及创建和分享 Modpack。
+**SVL (Stardew Valley Launcher)** 是星露谷物语启动器与 Mod 管理器。主线基于 **Avalonia UI + .NET 10**，支持 **Windows / Linux / macOS**。可管理游戏实例、安装与组织 Mod、对接 NexusMods / CurseForge，以及创建和分享 Modpack。
 
-## ✨ 核心功能
+> 产品站与部分页面可能仍写「仅 Windows」；以本 Wiki 修订页与 [启动器仓库 README](https://github.com/panda-lsy/SVL-StardewValleyLauncher) 为准。
 
-| 功能                                    | 描述                                 |
-| --------------------------------------- | ------------------------------------ |
-| 🎮**游戏启动**                    | 多实例管理、SMAPI 自动安装、版本隔离 |
-| 📦**Mod 管理**                    | 一键启用/禁用、更新检测、详情查看    |
-| 🌐**NexusMods & Curseforge 集成** | 搜索浏览、OAuth 登录、一键下载安装   |
-| 📋**Modpack**                     | 创建/导入整合包、支持多种格式        |
-| ⬇️**下载管理**                  | 多任务下载、断点续传、队列管理       |
-| 🎨**主题**                        | 深色/浅色主题、自定义配色            |
+## 核心功能
 
-## 🖊 文档开发进度
+| 功能 | 描述 |
+|------|------|
+| 游戏启动 | 多实例、SMAPI 安装与版本隔离 |
+| Mod 管理 | 启用/禁用、更新检测、依赖与冲突 |
+| NexusMods / CurseForge | 搜索、登录、下载；Nexus 支持 `nxm://` |
+| Modpack | 创建/导入；兼容多种整合包格式 |
+| 下载管理 | 多任务队列与进度 |
+| 主题 | 深色/浅色等（Fluent 主题体系） |
 
-> **目前 Wiki 内容（除在主页标注进度为 100% 的内容外）还需进行人工审核修订，一切请以启动器实际功能为准。**
+## 文档开发进度
 
-| 章节                                                          | 进度                                                        | 状态        | 最后更新   |
-| ------------------------------------------------------------- | ----------------------------------------------------------- | ----------- | ---------- |
-| **快速开始**                                            |                                                             |             |            |
-| ├─[安装指南](./docs/tutorials/Installation)                    | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | ✅ 二次翻新 | 2026-03-18 |
-| ├─[初次使用](./docs/tutorials/Getting-Started)                 | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | ✅ 完成     | 2026-03    |
-| └─[创建游戏实例](./docs/tutorials/Creating-Instance)           | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | 🔄 进行中   | 2026-03    |
-| └─[安装 Mods](./docs/tutorials/Installing-Mods)                | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 🔄 进行中   | 2026-03    |
-| **功能文档**                                            |                                                             |             |            |
-| ├─[游戏实例管理](./docs/features/Instance-Management)          | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
-| ├─[Mod 管理](./docs/features/Mod-Management)                   | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
-| ├─[NexusMods 集成](./docs/features/NexusMods-Integration)      | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
-| ├─[Modpack 整合包](./docs/features/Modpack-Support)            | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
-| ├─[下载管理器](./docs/features/Download-Manager)               | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
-| └─[主题与外观](./docs/features/Theming)                        | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
-| **高级功能**                                            |                                                             |             |            |
-| ├─[版本隔离](./docs/features/Version-Isolation)                | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
-| ├─[SMAPI 管理](./docs/features/SMAPI-Management)               | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
-| └─[设置与配置](./docs/features/Settings)                       | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
-| **开发文档**                                            |                                                             |             |            |
-| ├─[项目结构](./docs/development/Project-Structure)             | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
-| ├─[技术栈](./docs/development/Tech-Stack)                      | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
-| └─[构建指南](./docs/development/Building)                      | ![50%](https://img.shields.io/badge/进度-50%25-yellow)        | 📝 编写中   | -          |
-| **贡献指南**                                            |                                                             |             |            |
-| ├─[对 Wiki 进行贡献](./docs/community/Contributing)            | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | ✅ 完成     | 2026-03    |
-| └─[社区资源本地化](./docs/community/Localization-Contributing) | ![100%](https://img.shields.io/badge/进度-50%25-yellow)       | 📝 编写中   | -          |
+> 未标注「已按 Avalonia 修订」的页面，内容可能仍残留 WPF / Win7 表述。**一切以启动器实机与源码为准。**
 
-> **说明**: 进度 = 50% AI 生成 + 50% 人工审核 | ✅ 完成 | 🔄 进行中 | 📝 编写中
+| 章节 | 进度 | 状态 | 最后更新 |
+|------|------|------|----------|
+| **快速开始** | | | |
+| ├─[安装指南](./docs/tutorials/Installation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia/.NET 10 重写 | 2026-11-03 |
+| ├─[初次使用](./docs/tutorials/Getting-Started) | ![轻修订](https://img.shields.io/badge/进度-轻修订-yellow) | 🔄 已补跨平台说明；菜单名仍待实机核对 | 2026-11-03 |
+| ├─[创建游戏实例](./docs/tutorials/Creating-Instance) | ![待改](https://img.shields.io/badge/进度-待Avalonia校对-orange) | ⏳ 未纳入本批；可能含旧截图/文案 | - |
+| └─[安装 Mods](./docs/tutorials/Installing-Mods) | ![待改](https://img.shields.io/badge/进度-待Avalonia校对-orange) | ⏳ 未纳入本批 | - |
+| **功能文档** | | | |
+| ├─[游戏实例管理](./docs/features/Instance-Management) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
+| ├─[Mod 管理](./docs/features/Mod-Management) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
+| ├─[NexusMods 集成](./docs/features/NexusMods-Integration) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
+| ├─[Modpack 整合包](./docs/features/Modpack-Support) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
+| ├─[下载管理器](./docs/features/Download-Manager) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
+| └─[主题与外观](./docs/features/Theming) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
+| **高级功能** | | | |
+| ├─[版本隔离](./docs/features/Version-Isolation) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
+| ├─[SMAPI 管理](./docs/features/SMAPI-Management) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
+| └─[设置与配置](./docs/features/Settings) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
+| **开发文档** | | | |
+| ├─[项目结构](./docs/development/Project-Structure) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia 仓库结构重写 | 2026-11-03 |
+| ├─[技术栈](./docs/development/Tech-Stack) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia/.NET 10 重写 | 2026-11-03 |
+| └─[构建指南](./docs/development/Building) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已对齐 `build.ps1` / `SVL.Avalonia` | 2026-11-03 |
+| **贡献指南** | | | |
+| ├─[对 Wiki 进行贡献](./docs/community/Contributing) | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | ✅ 完成 | 2026-03 |
+| └─[社区资源本地化](./docs/community/Localization-Contributing) | ![进行中](https://img.shields.io/badge/进度-进行中-yellow) | 📝 编写中 | - |
 
-## 📚 文档导航
+> **说明**：不要把「未校对的旧稿」标成 100%。本表只反映文档状态，不代表启动器功能完成度。
 
-### 🚀 快速开始
-
-- [安装指南](./docs/tutorials/Installation) - 下载和安装 SVL
-- [初次使用](./docs/tutorials/Getting-Started) - 第一次使用 SVL 的指南
-- [创建游戏实例](./docs/tutorials/Creating-Instance) - 创建和管理游戏实例
-
-### 📦 功能文档
-
-- [游戏实例管理](./docs/features/Instance-Management) - 多实例与版本隔离
-- [Mod 管理](./docs/features/Mod-Management) - Mod 安装、启用、依赖解析
-- [NexusMods 集成](./docs/features/NexusMods-Integration) - 与 NexusMods 平台集成
-- [Modpack 整合包](./docs/features/Modpack-Support) - 创建和导入整合包
-- [下载管理器](./docs/features/Download-Manager) - 多任务下载与断点续传
-- [主题与外观](./docs/features/Theming) - 自定义启动器外观
-
-### 🔧 高级功能
-
-- [版本隔离](./docs/features/Version-Isolation) - 多版本游戏隔离运行
-- [SMAPI 管理](./docs/features/SMAPI-Management) - SMAPI 安装与版本管理
-- [设置与配置](./docs/features/Settings) - 启动器配置选项
-
-### 👨‍💻 开发文档
-
-- [项目结构](./docs/development/Project-Structure) - 代码库结构说明
-- [技术栈](./docs/development/Tech-Stack) - 使用的技术和框架
-- [构建指南](./docs/development/Building) - 从源码构建 SVL
-
-### 🤝 贡献指南
-
-- [对 Wiki 进行贡献](./docs/community/Contributing) - 如何参与 Wiki 编写和改进
-- [社区资源本地化](./docs/community/Localization-Contributing) - 为 Mod、整合包在 Curseforge/NexusMods 上的信息添加中文翻译
-
-## 🤝 为 Wiki 做出贡献
-
-我们欢迎所有人为 SVL Wiki 做出贡献！无论是修复错别字、改进文档结构，还是添加新的教程和指南，你的贡献都会帮助到更多的用户。
+## 文档导航
 
 ### 快速开始
 
-1. **Fork 本仓库** - 点击右上角的 Fork 按钮
-2. **编辑文档** - 使用 Markdown 格式编写或修改文档
-3. **提交 PR** - 创建 Pull Request，描述你的更改
+- [安装指南](./docs/tutorials/Installation) - 下载和安装 SVL（Win / Linux / macOS）
+- [初次使用](./docs/tutorials/Getting-Started) - 第一次使用 SVL
+- [创建游戏实例](./docs/tutorials/Creating-Instance) - 创建和管理游戏实例
 
-### 贡献方式
+### 功能文档
 
-- 📝 **改进文档** - 修复错别字、优化表述、补充说明
-- 📚 **添加教程** - 分享你的使用经验和技巧
-- 🌍 **翻译文档** - 帮助将文档翻译成其他语言
-- 🐛 **报告问题** - 在 Issues 中指出文档错误或不清楚的地方
+- [游戏实例管理](./docs/features/Instance-Management)
+- [Mod 管理](./docs/features/Mod-Management)
+- [NexusMods 集成](./docs/features/NexusMods-Integration)
+- [Modpack 整合包](./docs/features/Modpack-Support)
+- [下载管理器](./docs/features/Download-Manager)
+- [主题与外观](./docs/features/Theming)
 
-详细指南请参阅 [Wiki 贡献指南](./docs/community/Contributing)。
+### 高级功能
 
-## 🔗 链接
+- [版本隔离](./docs/features/Version-Isolation)
+- [SMAPI 管理](./docs/features/SMAPI-Management)
+- [设置与配置](./docs/features/Settings)
 
-- **源码仓库**: [github.com/panda-lsy/SVL-StardewValleyLauncher](https://github.com/panda-lsy/SVL-StardewValleyLauncher)
+### 开发文档
+
+- [项目结构](./docs/development/Project-Structure)
+- [技术栈](./docs/development/Tech-Stack)
+- [构建指南](./docs/development/Building)
+
+### 贡献指南
+
+- [对 Wiki 进行贡献](./docs/community/Contributing)
+- [社区资源本地化](./docs/community/Localization-Contributing)
+
+## 为 Wiki 做出贡献
+
+欢迎修错别字、补教程、报文档问题。
+
+1. Fork 本仓库
+2. 用 Markdown 编辑
+3. 提交 Pull Request，写清改了什么
+
+详见 [Wiki 贡献指南](./docs/community/Contributing)。
+
+## 链接
+
+- **源码**: [SVL-StardewValleyLauncher](https://github.com/panda-lsy/SVL-StardewValleyLauncher)
 - **问题反馈**: [Issues](https://github.com/panda-lsy/SVL-StardewValleyLauncher/issues)
 - **发布下载**: [Releases](https://github.com/panda-lsy/SVL-StardewValleyLauncher/releases)
-- **赞助支持**: [爱发电](https://ifdian.net/a/mcshengxia)
+- **赞助**: [爱发电](https://ifdian.net/a/mcshengxia)
 
-## 💻 系统要求
+## 系统要求
 
-| 项目     | 要求                                          |
-| -------- | --------------------------------------------- |
-| 操作系统 | Windows 7 SP1 及以上                          |
-| 运行时   | .NET Framework 4.8（Windows 10+ 已内置）      |
-| 游戏     | Stardew Valley 完整游戏（任意版本、任意来源） |
+| 项目 | 要求 |
+|------|------|
+| 操作系统 | Windows 10/11、Linux x64、macOS 14+ |
+| 运行时 | 自包含包无需本机 .NET；轻量包需 [.NET 10 Runtime](https://dotnet.microsoft.com/download/dotnet/10.0)（架构一致） |
+| 从源码构建 | [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) |
+| 游戏 | Stardew Valley（Steam / GOG 等） |
 
-## 📄 许可证
+详细安装见 [安装指南](./docs/tutorials/Installation)。
+
+## 许可证
 
 SVL 基于 [Apache License 2.0](https://github.com/panda-lsy/SVL-StardewValleyLauncher/blob/main/LICENSE) 开源。
 

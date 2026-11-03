@@ -1,99 +1,135 @@
 # 安装指南
 
-本指南将帮助你下载和安装 SVL 启动器。
+本指南说明如何下载并安装跨平台版 SVL（Avalonia / .NET 10）。
 
-## 📋 目录
+> **版本说明（截至本页修订时）**  
+> - GitHub **Latest** 仍可能指向旧版 WPF 线（例如 `v1.1.8.6`）。  
+> - 跨平台包在 **Pre-release**（例如 `v1.2.0.0`）。下载时请确认标签与资源名，不要误下旧版单文件 EXE 当主安装方式。  
+> 来源：[GitHub Releases](https://github.com/panda-lsy/SVL-StardewValleyLauncher/releases)、启动器仓库 `README.md`。
+
+## 目录
 
 - [系统要求](#系统要求)
-- [下载 SVL](#下载-svl)
+- [包体类型](#包体类型)
+- [推荐下载（v1.2.0.0 矩阵）](#推荐下载v1200-矩阵)
 - [安装步骤](#安装步骤)
+- [校验 SHA256](#校验-sha256)
+- [旧版 EXE / 更新器兼容](#旧版-exe--更新器兼容)
 - [常见问题](#常见问题)
 
 ## 系统要求
 
-### 基本要求
+| 项目 | 要求 |
+|------|------|
+| 操作系统 | Windows 10/11；Linux x64（建议 XDG 桌面环境）；macOS 14+ |
+| 运行时 | **自包含包**：无需本机安装 .NET；**轻量包**（文件名含 `requires_dotnet10`）：需对应架构的 [.NET 10 Runtime](https://dotnet.microsoft.com/download/dotnet/10.0) |
+| 游戏 | Stardew Valley（Steam / GOG 等；路径可由启动器检测或手动指定） |
+| 磁盘 | 启动器约数十到上百 MB（自包含更大）+ 游戏与 Mod 空间 |
 
-| 项目               | 要求                                                       |
-| ------------------ | ---------------------------------------------------------- |
-| **操作系统** | Windows 7 SP1 及以上                                       |
-| **运行时**   | .NET Framework 4.8（Windows 10+ 已内置，旧系统需手动安装） |
-| **磁盘空间** | 100 MB（启动器）+ 游戏空间                                 |
+> 旧文档中的 Windows 7 / .NET Framework 4.8 **不再适用于** Avalonia 主线。
 
-### 游戏要求
+## 包体类型
 
-- Stardew Valley 完整游戏部署
-- 支持任意版本、任意来源（Steam、GOG、其他）
+| 类型 | 识别方式 | 说明 |
+|------|----------|------|
+| 自包含（推荐不确定时选这个） | 文件名**不含** `requires_dotnet10` | 自带运行时，体积更大 |
+| 轻量 | 文件名含 `requires_dotnet10` | 体积小；目标机需已装同架构 .NET 10 Runtime；**不能**当作旧版更新器的直接更新文件 |
+| Release / Debug | 资源名含 `release` / `debug`，或 DEB 的 `debug` 段 | Debug 便于排障；日常请用 Release |
 
-## 下载 SVL
+发布页还会附带 `SHA256SUMS.txt`、`update.txt` 等辅助文件。
+
+## 推荐下载（v1.2.0.0 矩阵）
+
+以 [v1.2.0.0](https://github.com/panda-lsy/SVL-StardewValleyLauncher/releases/tag/v1.2.0.0) 为例（Pre-release）。日常优先 **Release + 自包含**。
+
+### Windows x64
+
+| 场景 | 资源名示例 | 用法 |
+|------|------------|------|
+| 日常（自包含） | `SVL_v1.2.0.0_release_Windows_x64.zip` | 解压后运行 `SVL.Avalonia.exe` |
+| 轻量 | `SVL_v1.2.0.0_release_Windows_x64_requires_dotnet10.zip` | 先装 .NET 10 Runtime，再解压运行 |
+| Debug | `SVL_v1.2.0.0_debug_Windows_x64_requires_dotnet10.zip` 等 | 排障用；以发布页实际资源为准 |
+
+### Linux x64
+
+| 场景 | 资源名示例 | 用法 |
+|------|------------|------|
+| DEB 自包含 | `svl-launcher_1.2.0.0_amd64.deb` | `sudo apt install ./svl-launcher_1.2.0.0_amd64.deb`，或用图形安装器；之后可从应用菜单启动 |
+| DEB 轻量 | `svl-launcher_1.2.0.0_amd64_requires_dotnet10.deb` | 需软件源提供 `dotnet-runtime-10.0`（与自包含 DEB **同名包**，装其一即可） |
+| ZIP 免安装 | `SVL_v1.2.0.0_release_Linux_x64.zip` | 解压后执行 `sh run-svl.sh` |
+| ZIP 轻量 | `SVL_v1.2.0.0_release_Linux_x64_requires_dotnet10.zip` | 同上，且需本机 .NET 10 Runtime |
+
+发布页上可能还有无扩展名的同名产物（CI 工件形态）；**用户安装请优先 ZIP / DEB**。
+
+### macOS
+
+| 场景 | 资源名示例 | 用法 |
+|------|------------|------|
+| Apple 芯片自包含 | `SVL_v1.2.0.0_release_macOS_arm64.dmg` | 打开 DMG，拖入 Applications |
+| Intel 自包含 | `SVL_v1.2.0.0_release_macOS_x64.dmg` | 同上 |
+| 轻量 | 文件名含 `requires_dotnet10` 的对应 DMG | 需先装对应架构 .NET 10 Runtime |
+
+> 正式分发签名 / 公证：当前构建多为临时 ad-hoc 签名；Gatekeeper 可能拦截。处理步骤以启动器 `README.md` 与系统提示为准（**待核实**具体 UI 文案）。来源：`README.md`。
 
 ### 下载源
 
-SVL 提供两个下载源，可根据网络情况选择：
-
-| 下载源           | 地址                                                                                                                      | 说明                 |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| **GitHub** | [github.com/panda-lsy/SVL-StardewValleyLauncher/releases](https://github.com/panda-lsy/SVL-StardewValleyLauncher/releases)   | 官方主仓库，国际访问 |
-| **Gitee**  | [gitee.com/mc_shengxia/SVL-StardewValleyLauncher/releases](https://gitee.com/mc_shengxia/SVL-StardewValleyLauncher/releases) | 国内镜像，访问更快   |
-
-### 版本类型
-
-发布版本包含以下类型：
-
-| 版本类型              | 说明                                             |
-| --------------------- | ------------------------------------------------ |
-| **Release**     | 稳定发布版，经过充分测试，推荐大多数用户使用     |
-| **Pre-release** | 预发布版，包含最新功能和改进，可能存在不稳定因素 |
-
-### 构建类型
-
-每个版本提供两种构建：
-
-| 构建类型               | 说明                         | 适用场景                 |
-| ---------------------- | ---------------------------- | ------------------------ |
-| **Release 构建** | 优化构建，无调试输出         | 日常使用，性能最优       |
-| **Debug 构建**   | 包含日志输出和命令行调试信息 | 遇到问题时用于排查和反馈 |
-
-### 下载步骤
-
-1. 访问下载源（GitHub 或 Gitee）
-2. 点击 **「Releases」** 标签
-3. 选择合适的版本：
-   - 推荐选择最新的 **Release** 版本
-   - 想体验新功能可选择 **Pre-release** 版本
-4. 在版本列表中下载对应的文件：
-   - 日常使用：下载 `Release` 构建的 `.exe` 文件
-   - 需要调试：下载 `Debug` 构建的 `.exe` 文件
+| 源 | 地址 |
+|----|------|
+| GitHub（主） | [Releases](https://github.com/panda-lsy/SVL-StardewValleyLauncher/releases) |
+| Gitee（镜像，**待核实**是否已同步 Avalonia 包） | [gitee.com/mc_shengxia/SVL-StardewValleyLauncher](https://gitee.com/mc_shengxia/SVL-StardewValleyLauncher) |
 
 ## 安装步骤
 
-### 使用便携版
+### Windows
 
-SVL 是便携软件，无需安装：
+1. 下载对应 ZIP（优先 `release_Windows_x64.zip`）。
+2. 解压到任意目录（勿只保留嵌套损坏的半包）。
+3. 运行 `SVL.Avalonia.exe`。
+4. 可选：为该 EXE 创建快捷方式。
 
-1. 将下载的 `.exe` 文件保存到任意目录（如 `D:\Tools\SVL.Desktop.exe`）
-2. 双击运行即可启动 SVL
-3. 可选：右键创建快捷方式到桌面，方便后续使用
+### Linux（DEB）
 
-### Debug 版本注意事项
+```bash
+sudo apt install ./svl-launcher_1.2.0.0_amd64.deb
+```
 
-如果下载的是 Debug 构建：
+安装后从应用菜单启动 SVL。
 
-- 启动时会显示命令行窗口
-- 窗口中会输出详细的运行日志
-- 遇到问题时，可以将日志截图或复制内容用于反馈
+### Linux（ZIP）
 
-### 关联 NXM 协议
+```bash
+unzip SVL_v1.2.0.0_release_Linux_x64.zip -d svl
+cd svl
+sh run-svl.sh
+```
 
-首次运行时，SVL 会提示是否关联 `nxm://` 协议。
+`run-svl.sh` 会处理可执行权限并转发参数。来源：启动器 `README.md`。
 
-关联后可以：
+### macOS
 
-- 从 NexusMods 网站一键下载 Mod
-- 浏览器点击直接打开 SVL
+1. 打开对应架构的 `.dmg`。
+2. 将 `Stardew Valley Launcher.app` 拖到 Applications。
+3. 从启动台 / Applications 打开。
 
-#### 测试协议关联
+### 配置与数据目录（参考）
 
-点击下面的按钮测试 NXM 协议是否已正确关联到 SVL：
+新版用户数据目录基于 `Environment.SpecialFolder.LocalApplicationData` 下的 `SVL/Avalonia/`（例如 `settings.json`、日志等）。常见对应关系：
+
+| 系统 | 典型路径 |
+|------|----------|
+| Windows | `%LOCALAPPDATA%\SVL\Avalonia\` |
+| Linux | `~/.local/share/SVL/Avalonia/`（若设置了 `XDG_DATA_HOME` 则相对该目录） |
+| macOS | `~/Library/Application Support/SVL/Avalonia/` |
+
+来源：`SVL.Avalonia/Services/AppUserSettingsStore.cs`、`App.axaml.cs`。若本机路径不同，以实际文件夹为准。
+
+首次启动会尝试迁移旧版配置与实例列表；旧文件保留，游戏本体与 Mod 不会因迁移被移动。来源：启动器 `README.md`。
+
+### NXM 协议
+
+SVL 支持关联 `nxm://`，以便从 NexusMods 一键下载。各平台注册实现不同（Windows / Linux XDG 等，见 `SVL.Core.Platform`）。
+
+**待核实**：Avalonia 版首次启动是否仍弹出「是否关联」对话框、以及按钮原文；请以实机为准，勿照搬旧 WPF 截图文案。
 
 <p align="center">
   <a href="nxm://test/link">
@@ -101,31 +137,56 @@ SVL 是便携软件，无需安装：
   </a>
 </p>
 
-> **注意**：目前 NXM 协议测试无法正常回调 nxm 链接。此链接仅用于测试协议关联，不会下载任何实际的 Mod。
+> 测试链接仅验证协议是否被接管，不会下载真实 Mod。
+
+## 校验 SHA256
+
+发布页提供 `SHA256SUMS.txt`。下载后建议核对：
+
+```bash
+# Linux / macOS 示例
+sha256sum -c SHA256SUMS.txt
+# 或只核你下载的那一个文件名
+```
+
+```powershell
+# Windows PowerShell 示例
+Get-FileHash .\SVL_v1.2.0.0_release_Windows_x64.zip -Algorithm SHA256
+# 与 SHA256SUMS.txt 中对应行比对
+```
+
+## 旧版 EXE / 更新器兼容
+
+下列资源**不是**新用户的主安装路径：
+
+| 资源 | 用途 |
+|------|------|
+| `SVL.Desktop_v{版本}_Release.exe` / `_Debug.exe` | 自包含构建额外产出的**单文件 EXE**。旧版更新器要求发布资产是真正的单文件 EXE，不能把 ZIP 改名为 EXE。需要给旧版在线更新用时，仍须把该 EXE 挂到 Release 资产上。 |
+| 名称含 `requires_dotnet10` 的轻量包 | **不能**作为旧版的直接更新文件。 |
+
+新版会识别当前包体类型，检查更新时只选**同类型**安装包；Windows 支持应用内替换，macOS / Linux 当前需到发布页手动安装。无法识别或没有同类型文件时，会提示手动选择，不会自动换类型。来源：启动器 `README.md`。
 
 ## 常见问题
 
-### Q: 提示缺少 .NET Framework 4.8
+### Q: 轻量包打不开 / 提示缺运行时
 
-**A:** Windows 10 1903+ 和 Windows 11 已内置。如需安装：
+**A:** 安装与系统架构一致的 [.NET 10 Runtime](https://dotnet.microsoft.com/download/dotnet/10.0)，或改下自包含包。
 
-1. 访问 [Microsoft 下载中心](https://dotnet.microsoft.com/download/dotnet-framework/net48)
-2. 下载并安装
+### Q: 我只看到 `SVL.Desktop_….exe`，没有 ZIP/DMG/DEB？
 
-### Q: 启动器无法启动
+**A:** 确认打开的是 Avalonia 预发布标签（如 `v1.2.0.0`），而不是仅含旧 WPF 资产的 Latest。新用户请用 ZIP / DEB / DMG。
 
-**A:** 尝试以下步骤：
-
-1. 以管理员身份运行
-2. 检查杀毒软件是否拦截
-3. 重新下载最新版本
-
-### Q: 如何更新 SVL？
+### Q: 如何更新？
 
 **A:**
 
-1. SVL 会自动检查更新
-2. 也可以手动下载新版本覆盖
+1. 应用内检查更新（同包体类型）。
+2. 或手动下载同类型新包覆盖 / 重装（macOS、Linux 当前更偏手动）。
+3. 从旧 WPF 升到 Avalonia：首次启动会迁移配置；更新通道与 EXE 兼容说明见上一节。
+
+### Q: macOS 提示无法打开未验证的开发者？
+
+**A:** 与 ad-hoc 签名有关。按系统「隐私与安全性」提示处理，或等待正式 Developer ID / 公证包。**待核实**官方推荐绕过步骤文案。
 
 ---
 

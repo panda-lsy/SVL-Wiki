@@ -1,190 +1,115 @@
 # 技术栈
 
-本文档介绍 SVL 项目使用的技术栈和依赖项。
+本文档对应 **Avalonia 主线**（`main` / `SVL.Avalonia`）。旧 WPF / .NET Framework 4.8 源码仍留在仓库中供对照，**不在**默认解决方案构建路径内。
 
-## 📋 目录
+版本号以仓库内 `.csproj` 为准；下文取自修订时的 `SVL.Avalonia.csproj` / `SVL.Core.Platform.csproj` / `SVL.Migration.Tests.csproj`。
+
+## 目录
 
 - [核心框架](#核心框架)
-- [主要依赖项](#主要依赖项)
-- [UI 框架](#ui-框架)
-- [数据存储](#数据存储)
-- [网络通信](#网络通信)
+- [主要依赖](#主要依赖)
+- [UI](#ui)
+- [数据与配置](#数据与配置)
+- [平台层](#平台层)
+- [测试](#测试)
+- [遗留代码](#遗留代码)
 
 ## 核心框架
 
-| 技术 | 版本 | 用途 |
-|------|------|------|
-| **.NET Framework** | 4.8 | 运行时框架 |
-| **C#** | 7.3+ | 编程语言 |
-| **WPF** | - | UI 框架 |
+| 技术 | 版本（修订时） | 用途 |
+|------|----------------|------|
+| **.NET** | 10（`net10.0`） | 运行时 / 目标框架 |
+| **C#** | 随 SDK | 语言 |
+| **Avalonia** | 11.2.8 | 跨平台 UI |
+| **Avalonia.Desktop** | 11.2.8 | 桌面宿主 |
+| **Avalonia.Themes.Fluent** | 11.2.8 | Fluent 主题 |
 
-### 为什么选择 .NET Framework 4.8？
+来源：`SVL.Avalonia/SVL.Avalonia.csproj`。
 
-- **Windows 兼容性** - Windows 10+ 内置，无需额外安装
-- **WPF 成熟度** - 桌面应用开发的稳定选择
-- **生态系统** - 丰富的 NuGet 包支持
+### 为什么是 Avalonia + .NET 10？
 
-## 主要依赖项
+- 同一套 UI 跑 Windows / Linux / macOS
+- 现代 BCL 与发布模型（自包含 / framework-dependent）
+- 与启动器 README 及 `package-avalonia.yml` 发布流水线一致
 
-### MVVM 框架
+## 主要依赖
 
-| 包 | 版本 | 用途 |
-|------|------|------|
-| **CommunityToolkit.Mvvm** | 8.x | MVVM 模式实现 |
+| 包 | 版本（修订时） | 用途 |
+|------|----------------|------|
+| **CommunityToolkit.Mvvm** | 8.4.0 | MVVM（`ObservableObject`、`RelayCommand` 等） |
+| **SharpZipLib** | 1.4.2 | ZIP 等压缩处理 |
+| **SharpCompress** | 0.49.1 | 更多归档格式（Avalonia 与 Core.Platform 均引用） |
+| **AnimatedImage.Avalonia** | 2.1.4 | 动图 |
+| **Tmds.DBus.Protocol** | 0.21.3 | Linux 桌面相关（如协议/会话集成，**待核实**具体调用面） |
 
-**功能：**
-- `ObservableObject` - 属性变更通知
-- `RelayCommand` - 命令绑定
-- `ObservableCollection` - 集合通知
+来源：`SVL.Avalonia/SVL.Avalonia.csproj`、`SVL.Core.Platform/SVL.Core.Platform.csproj`。
 
-### 数据处理
+> **待核实**：是否仍使用 LiteDB / YamlDotNet / Newtonsoft.Json。旧 Wiki 按 WPF 列出；Avalonia 配置侧可见 `System.Text.Json`（如 `AppUserSettingsStore`）。请以各项目 `PackageReference` 与 `using` 为准，勿照搬下表旧假设。
 
-| 包 | 版本 | 用途 |
-|------|------|------|
-| **LiteDB** | 5.x | 嵌入式数据库 |
-| **YamlDotNet** | 15.x | YAML 配置解析 |
-| **Newtonsoft.Json** | 13.x | JSON 序列化 |
-
-### 文件处理
-
-| 包 | 版本 | 用途 |
-|------|------|------|
-| **SharpZipLib** | 1.x | ZIP 文件处理 |
-
-## UI 框架
-
-### WPF 组件
+## UI
 
 | 技术 | 用途 |
 |------|------|
-| **XAML** | UI 布局定义 |
-| **Data Binding** | 数据绑定 |
-| **Styles & Templates** | 样式和模板 |
-| **ResourceDictionary** | 资源管理 |
+| **AXAML** | 视图布局（`Views/`、`Controls/`） |
+| **Fluent 主题** | 深色 / 浅色等 |
+| **DynamicResource** | 主题配色（见启动器 README「界面与主题」） |
+| **数据绑定 + MVVM** | View ↔ ViewModel |
 
-### 主题系统
+资源与样式大致在 `SVL.Avalonia/Resources/`、`Assets/`。**待核实**主题文件树是否与旧 `Themes/*.xaml` 一一对应（旧结构已不适用）。
 
-SVL 使用自定义主题系统：
+## 数据与配置
 
-```
-Themes/
-├── Light.xaml      # 浅色主题
-├── Dark.xaml       # 深色主题
-└── Colors/
-    ├── Blue.xaml
-    ├── Green.xaml
-    └── ...
-```
-
-### 值转换器
-
-| 转换器 | 功能 |
-|--------|------|
-| `BoolToVisibilityConverter` | 布尔值转可见性 |
-| `InverseBooleanConverter` | 布尔值取反 |
-| `NullToVisibilityConverter` | 空值转可见性 |
-
-## 数据存储
-
-### LiteDB
-
-嵌入式 NoSQL 数据库，用于存储：
-
-- 实例配置
-- Mod 信息缓存
-- 下载历史
-- 应用设置
-
-```csharp
-// 数据模型示例
-public class GameInstance
-{
-    public Guid Id { get; set; }
-    public string Name { get; set; }
-    public string Path { get; set; }
-    public bool IsVersionIsolated { get; set; }
-    public List<ModInfo> Mods { get; set; }
-}
-```
-
-### 配置文件
-
-| 文件 | 格式 | 用途 |
+| 内容 | 说明 | 来源 |
 |------|------|------|
-| `config.yaml` | YAML | 应用配置 |
-| `instances.json` | JSON | 实例列表 |
-| `settings.json` | JSON | 用户设置 |
+| 用户设置 | `LocalApplicationData/SVL/Avalonia/settings.json`（`System.Text.Json`） | `AppUserSettingsStore.cs` |
+| 实例注册等 | 同目录树下其它 JSON / 存储服务 | `InstanceRegistryStore.cs` 等 |
+| 崩溃日志 | `.../SVL/Avalonia/logs/crash.log` | `App.axaml.cs` |
 
-## 网络通信
+网络：`HttpClient` 类服务（下载、Nexus / CurseForge / 更新检查等）。OAuth、`nxm://` 仍存在；具体类名见 `SVL.Avalonia/Services/`、`SVL.Core.Platform/Services/`（如 `LinuxNxmProtocolRegistration.cs`）。
 
-### HTTP 客户端
+## 平台层
 
-使用 `HttpClient` 进行网络请求：
+`SVL.Core.Platform`（`net10.0`）提供 Windows / Linux / macOS 差异实现，例如：
 
-- NexusMods API 调用
-- Mod 文件下载
-- 更新检查
+- 游戏安装路径探测（`GameInstallPathLocator.cs`）
+- Linux NXM / XDG 相关注册
+- 其它平台服务（回收站、协议等）
 
-### OAuth 认证
+**待核实**：完整服务清单以该项目 `Services/` 目录为准。
 
-NexusMods OAuth 2.0 流程：
+## 测试
 
-```
-1. 打开授权页面
-2. 用户登录授权
-3. 回调获取 code
-4. 交换 access_token
-5. 存储 token
-```
+| 项目 | 框架 | 说明 |
+|------|------|------|
+| **SVL.Migration.Tests** | MSTest + Avalonia.Headless | 在默认 `SVL.sln` 中 |
+| **SVL.Tests** | **待核实** | 仓库内存在；是否纳入默认 sln / CI 以当前 `SVL.sln` 与 workflow 为准 |
 
-### NXM 协议
+来源：`SVL.Migration.Tests/SVL.Migration.Tests.csproj`、`SVL.sln`。
 
-处理 `nxm://` 协议链接：
+## 遗留代码
 
-```
-nxm://StardewValley/mods/12345/files/67890
-```
-
-## 日志系统
-
-使用自定义日志系统：
-
-| 级别 | 用途 |
+| 路径 | 状态 |
 |------|------|
-| **Debug** | 开发调试信息 |
-| **Info** | 一般信息 |
-| **Warning** | 警告信息 |
-| **Error** | 错误信息 |
-
-日志文件位置：`%AppData%\SVL\Logs\`
-
-## 外部工具
-
-### SMAPI
-
-Stardew Modding API 集成：
-
-- 自动下载安装
-- 版本管理
-- 日志解析
-
-### 游戏集成
-
-- 游戏路径检测
-- 启动参数管理
-- 进程监控
+| `SVL.Desktop/`、`SVL.Core/` | 旧 WPF / Core，暂留对照，**非**新版默认构建依赖 |
+| `legacy-wpf` 等分支 | 历史线；日常开发看 `main` + Avalonia |
 
 ---
 
-## NuGet 包列表
+## NuGet 快照（修订时）
 
 ```xml
-<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-<PackageReference Include="LiteDB" Version="5.0.21" />
-<PackageReference Include="YamlDotNet" Version="15.1.0" />
-<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+<!-- SVL.Avalonia.csproj 摘录 -->
+<PackageReference Include="AnimatedImage.Avalonia" Version="2.1.4" />
+<PackageReference Include="Avalonia" Version="11.2.8" />
+<PackageReference Include="Avalonia.Desktop" Version="11.2.8" />
+<PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.8" />
+<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+<PackageReference Include="SharpCompress" Version="0.49.1" />
 <PackageReference Include="SharpZipLib" Version="1.4.2" />
+<PackageReference Include="Tmds.DBus.Protocol" Version="0.21.3" />
 ```
+
+升级后请以仓库文件为准更新本页。
 
 ---
 

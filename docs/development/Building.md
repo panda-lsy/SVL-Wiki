@@ -1,210 +1,127 @@
 # 构建项目
 
-本指南介绍如何从源代码构建 SVL 启动器。
+从源码构建 **Avalonia** 版 SVL。步骤对齐启动器仓库根目录 `README.md` 与 `build.ps1`。
 
-## 📋 目录
+## 目录
 
 - [环境要求](#环境要求)
-- [获取源代码](#获取源代码)
-- [构建步骤](#构建步骤)
-- [运行调试](#运行调试)
-- [发布构建](#发布构建)
+- [获取源码](#获取源码)
+- [本地构建与运行](#本地构建与运行)
+- [打包发布（build.ps1）](#打包发布buildps1)
+- [产物与注意事项](#产物与注意事项)
+- [常见问题](#常见问题)
 
 ## 环境要求
 
-### 必需软件
-
-| 软件 | 版本 | 说明 |
-|------|------|------|
-| **Visual Studio** | 2022 | 推荐 IDE |
-| **.NET Framework** | 4.8 SDK | 目标框架 |
-| **Git** | 最新版 | 版本控制 |
-
-### Visual Studio 工作负载
-
-安装 Visual Studio 时，确保选择：
-
-- ✅ **.NET 桌面开发** 工作负载
-- ✅ **NuGet 包管理器**
-
-### 可选工具
-
-| 工具 | 用途 |
+| 软件 | 说明 |
 |------|------|
-| **dotnet CLI** | 命令行构建 |
-| **VS Code** | 轻量级编辑 |
+| **.NET 10 SDK** | 必需；[下载](https://dotnet.microsoft.com/download/dotnet/10.0) |
+| **Git** | 克隆仓库 |
+| **PowerShell** | 跑 `build.ps1`（Windows 自带；Linux/macOS 可用 `pwsh`） |
+| **可选 IDE** | Visual Studio 2022 / Rider / VS Code + C# 扩展 |
 
-## 获取源代码
+额外工具（按目标）：
 
-### 克隆仓库
+| 目标 | 额外要求 |
+|------|----------|
+| Linux DEB | 构建机有 `dpkg-deb` 时才会打出 `.deb` |
+| macOS DMG | **在 macOS 上**跑 macos 目标；布局文件见 `packaging/macos/` |
+
+旧文档中的「.NET Framework 4.8 / 仅 MSBuild WPF」**已不适用**于主线。
+
+## 获取源码
 
 ```bash
-# HTTPS
-git clone https://github.com/panda-lsy/SVL-StardewValleyLauncher.git
-
-# SSH
-git clone git@github.com:panda-lsy/SVL-StardewValleyLauncher.git
-```
-
-### 进入目录
-
-```bash
+git clone --branch main --single-branch https://github.com/panda-lsy/SVL-StardewValleyLauncher.git
 cd SVL-StardewValleyLauncher
 ```
 
-### 切换分支
+默认开发分支为 `main`（Avalonia）。需要对照旧 UI 时再看仓库内 `SVL.Desktop` / 历史分支，不要当作默认启动项目。
+
+## 本地构建与运行
 
 ```bash
-# 查看所有分支
-git branch -a
+# Debug
+dotnet build SVL.Avalonia/SVL.Avalonia.csproj --configuration Debug
 
-# 切换到开发分支（如有）
-git checkout develop
+# Release
+dotnet build SVL.Avalonia/SVL.Avalonia.csproj --configuration Release
+
+# 运行
+dotnet run --project SVL.Avalonia/SVL.Avalonia.csproj
 ```
 
-## 构建步骤
+也可打开 `SVL.sln`，将 **SVL.Avalonia** 设为启动项目后调试。
 
-### 方法一：Visual Studio
-
-1. 打开 `SVL.sln` 解决方案文件
-2. 等待 NuGet 还原完成
-3. 选择构建配置：
-   - **Debug** - 调试版本
-   - **Release** - 发布版本
-4. 按 `Ctrl+Shift+B` 构建解决方案
-
-### 方法二：命令行 (MSBuild)
+测试（迁移测试项目）：
 
 ```bash
-# 还原 NuGet 包
-nuget restore SVL.sln
-
-# Debug 构建
-msbuild SVL.sln /p:Configuration=Debug
-
-# Release 构建
-msbuild SVL.sln /p:Configuration=Release
+dotnet test SVL.Migration.Tests/SVL.Migration.Tests.csproj
 ```
 
-### 方法三：dotnet CLI
+## 打包发布（build.ps1）
+
+根目录统一脚本，支持 Windows / Linux / macOS，以及 Debug / Release；加 `-FrameworkDependent` 打轻量包（文件名带 `requires_dotnet10`）。
+
+```powershell
+# Windows x64 Debug 单文件相关产物
+.\build.ps1 -Config Debug -Targets windows
+
+# Windows x64 Release（自包含）
+.\build.ps1 -Config Release -Targets windows
+
+# 轻量（目标机需预装对应架构 .NET 10 Runtime）
+.\build.ps1 -Config Release -Targets windows -FrameworkDependent
+.\build.ps1 -Config Release -Targets linux -FrameworkDependent
+.\build.ps1 -Config Release -Targets macos -FrameworkDependent
+
+# Linux x64
+.\build.ps1 -Config Release -Targets linux
+
+# 仅 macOS（建议在 macOS 上执行以生成 .dmg）
+.\build.ps1 -Config Release -Targets macos
+
+# 全部目标双配置（耗时长）
+.\build.ps1 -Config all -Targets all
+```
+
+CI 参考：`.github/workflows/package-avalonia.yml`。
+
+Linux 也可对已有 ZIP 单独打 DEB：
 
 ```bash
-# 还原依赖
-dotnet restore
-
-# 构建
-dotnet build --configuration Release
+sh scripts/package-linux-deb.sh <Linux ZIP> <输出目录> 1.2.0.0
+# 轻量 ZIP 末尾再加 framework-dependent；输出目录勿已有同名包
 ```
 
-## 运行调试
+来源：启动器 `README.md`。
 
-### Visual Studio 调试
+## 产物与注意事项
 
-1. 设置 `SVL.Desktop` 为启动项目
-2. 按 `F5` 启动调试
-3. 或按 `Ctrl+F5` 运行（不调试）
-
-### 调试配置
-
-在 `App.config` 中可以配置调试选项：
-
-```xml
-<appSettings>
-  <add key="DebugMode" value="true" />
-  <add key="VerboseLogging" value="true" />
-</appSettings>
-```
-
-### 调试技巧
-
-| 技巧 | 说明 |
-|------|------|
-| **断点** | 在代码行左侧点击设置断点 |
-| **条件断点** | 右键断点 → 条件 |
-| **即时窗口** | 调试时 `Ctrl+I` |
-| **监视窗口** | 调试 → 窗口 → 监视 |
-
-## 发布构建
-
-### Release 配置
-
-确保使用 Release 配置构建：
-
-```bash
-msbuild SVL.sln /p:Configuration=Release
-```
-
-### 输出目录
-
-构建输出位于：
-
-```
-src/SVL.Desktop/bin/Release/
-├── SVL.Desktop.exe
-├── SVL.Desktop.exe.config
-├── SVL.Core.dll
-├── SVL.Infrastructure.dll
-└── [依赖 DLL]
-```
-
-### 打包发布
-
-1. 创建发布目录：
-
-```bash
-mkdir publish
-```
-
-2. 复制必要文件：
-
-```bash
-xcopy src\SVL.Desktop\bin\Release\* publish\ /E /I
-```
-
-3. 移除调试文件：
-
-```bash
-del publish\*.pdb
-del publish\*.xml
-```
-
-4. 创建 ZIP 包：
-
-```bash
-# PowerShell
-Compress-Archive -Path publish\* -DestinationPath SVL.Desktop_v1.0.0.zip
-```
-
-### 版本号管理
-
-在 `AssemblyInfo.cs` 中管理版本号：
-
-```csharp
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
-```
+- 默认输出目录：`artifacts/`（可用 `-OutputDirectory` 覆盖）。
+- 命名大致：`SVL_v{版本}_{config}_{platform}_{arch}.{ext}`；DEB 为 `svl-launcher_*_amd64.deb`。
+- **自包含**还可能生成 `SVL.Desktop_v{版本}_{Debug|Release}.exe`：给**旧版更新器**用的单文件 EXE，不是新用户主安装包。详见 [安装指南](../tutorials/Installation#旧版-exe--更新器兼容)。
+- 轻量包**不能**当作旧版直接更新文件。
+- macOS：DMG 含 app 与 Applications 链接；当前多为临时 ad-hoc 签名，正式分发需 Developer ID + 公证。
+- SteamCMD：按系统拉官方包；Apple 芯片上官方 macOS SteamCMD 启动包为 Intel，可能需要 Rosetta 2。来源：`README.md`。
 
 ## 常见问题
 
+### Q: 提示找不到 net10.0 / SDK
+
+**A:** 安装 .NET 10 SDK，执行 `dotnet --list-sdks` 确认。
+
+### Q: 还在构建 SVL.Desktop？
+
+**A:** 改用 `SVL.Avalonia` 项目或当前 `SVL.sln`。旧 WPF 项目不在新版默认发布路径。
+
+### Q: Linux 没有生成 .deb？
+
+**A:** 需要环境里有 `dpkg-deb`；或用 `scripts/package-linux-deb.sh` 对 ZIP 后处理。
+
 ### Q: NuGet 还原失败
 
-**A:** 检查网络连接，或配置 NuGet 源：
-
-```bash
-nuget sources add -name nuget.org -source https://api.nuget.org/v3/index.json
-```
-
-### Q: 找不到 .NET Framework 4.8
-
-**A:** 安装 .NET Framework 4.8 Developer Pack：
-https://dotnet.microsoft.com/download/dotnet-framework/net48
-
-### Q: 构建错误 "找不到类型"
-
-**A:** 
-1. 清理解决方案：`Build` → `Clean Solution`
-2. 重新还原 NuGet 包
-3. 重新构建
+**A:** 检查网络与 `nuget.org` 源；必要时 `dotnet restore SVL.Avalonia/SVL.Avalonia.csproj`。
 
 ---
 
