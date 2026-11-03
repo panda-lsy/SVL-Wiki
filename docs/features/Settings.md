@@ -60,16 +60,16 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 | **启用下载缓存** | 复用已下文件 |
 | **启用下载代理** | HTTP 代理；可填地址与可选用户名/密码 |
 | **启用任务浮动按钮** | 下载任务浮钮 |
-| **Collection 冲突策略** | 整合包/Collection 冲突处理 |
-| **下载任务并发上限** | `CollectionDownloadParallelism`（默认 **3**，约 1–10；含 Collection/整合包） |
+| **Collection 冲突策略** | `CollectionInstallConflictStrategy` 下拉原文：「覆盖」「跳过」「仅备份」（默认「覆盖」） |
+| **下载任务并发上限（含 Collection/整合包）** | `CollectionDownloadParallelism`（默认 **3**，约 1–10） |
 | **下载线程数** | `DownloadSegmentThreads`（默认 **4**；分片线程） |
 | **接管下载** | 说明「粘贴 http/https 下载地址，另存为本地文件。适用于非 Nexus/CurseForge 来源的 Mod 或资源。」；水印 `https://example.com/mod.zip`；按钮 **另存为并下载**（另存对话框标题「接管下载 - 另存为」） |
 | **NexusMods 账户** | 登录态显示头像/用户名/会员类型；**API 统计**（每日/每小时请求）；「状态:」「账号:」行；未登录引导见 [NexusMods 集成](./NexusMods-Integration)；按钮随态：**登录**/相关动作、**验证状态**、**退出登录** |
 | **Nexus 登录失效提醒** | `EnableNexusAuthNotification`；ToolTip「关闭后下载页将不再提示 Nexus 登录失效」 |
 | **NXM 协议** | **启动时尝试注册 NXM 协议**；按钮 **重新注册 NXM 协议**（平台能力因 OS 而异；无首启强制弹窗） |
-| **社区汉化数据源** | GitHub / Gitee |
+| **社区汉化数据源** | 下拉 `Gitee` / `GitHub`；提示「GitHub 为国际源，Gitee 为国内加速源。首选源失败时自动尝试备用源。」 |
 | **缓存管理** | 分类清理、保留时长、打开缓存目录 |
-| **检测并发** | UI：**Mod 更新检测线程数** / **Mod 汉化检测线程数**（`MaxConcurrentModUpdateChecks` / `MaxConcurrentModLocalizationChecks`，默认各 **4**） |
+| **检测并发** | 原文 **Mod 更新检测线程数** / **Mod 汉化检测线程数**（`MaxConcurrentModUpdateChecks` / `MaxConcurrentModLocalizationChecks`，默认各 **4**） |
 | **默认 SMAPI / Mod 源** | 仅 `settings.json` 字段 `DefaultSmapiSource`（默认 GitHub）、`DefaultModSource`（默认 NexusMods）；**设置页 UI 无对应控件**（迁移/目录逻辑会读） |
 
 
