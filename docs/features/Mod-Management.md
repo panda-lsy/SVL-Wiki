@@ -90,7 +90,7 @@ Mods 分栏可见（文案以界面为准）：
 
 - **依赖启用对话框**：启用带依赖 Mod 时走 `ShowDependencyEnableDialogAsync` → `DependencyEnableDialog`。标题默认「启用依赖」；说明「检测到当前资源依赖以下模组，建议一并启用。」；列表 + **取消** / **启用依赖**。这是列表确认框，**不是**独立依赖树可视化页面；勿画假树状图。本地详情另有「依赖项」区块（`LocalModDetailDialog`）。
 - **拖放安装**：`InstallModFromDropAsync` 接受文件/文件夹路径；需 `ModArchiveDetector.LooksLikeModInstallSource`（含 `manifest.json` 的压缩包或文件夹）。无可用 SMAPI/Base 时弹「无法安装 Mod」。否则先弹 **选择 Mod 安装目标**（标题同此；说明「选择要安装 Mod 的 SMAPI/Base 版本」；按钮 **确定** / **另存为** / **取消**）。同名则覆盖更新。勿编造未出现的右键菜单。
-- **下载页安装目标实例**：切换控件文案随下载页状态变化；本批截图无实例，未拍到完整目标切换条（仍 **待实机截图**）。原版实例 Mod 管理会提示：「这是原版版本，不支持使用 MOD。请先安装并切换到 SMAPI 版本。」
+- **下载页路径状态**：无有效目录时仅显示黄条（见 [安装 Mods](../tutorials/Installing-Mods)）；有目录后黄条隐藏。`DownloadPageView.axaml` **未见**常驻「切换安装目标」条——目标在点 **安装** 时由对话框选择（如 **选择 Mod 安装目标** / SMAPI 选 Base+实例名）。原版实例的 Mod 管理页提示：「这是原版版本，不支持使用 MOD。请先安装并切换到 SMAPI 版本。」
 
 ---
 
