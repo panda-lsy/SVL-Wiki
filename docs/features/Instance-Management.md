@@ -101,6 +101,16 @@
 
 数据在 `instance-launch-settings.json`（与全局 `settings.json` 分离）。源码：`VersionSettingsPageView.axaml` 设置区。
 
+### 写入 Steam 启动参数
+
+`WriteSteamLaunchOptionsAsync`：若检测到 Steam 正在运行，先 `ShowConfirmAsync` 标题「需要关闭 Steam」，正文「检测到 Steam 正在运行。
+
+需要先关闭 Steam 才能可靠写入启动参数。
+
+是否允许 SVL 自动关闭 Steam，写入后再尝试重启 Steam？」。关闭失败或写入失败弹「写入失败」。成功弹「写入完成」：「已写入 Steam 启动参数（修改 n 个配置，匹配 m 个账号）。」；若启动器关过 Steam 但自动重启失败，会追加「启动参数已写入，但自动重启 Steam 失败：…
+请手动启动 Steam。」。无法生成默认参数时：「写入失败」+「无法生成 Steam 启动参数，请确认实例路径和启动参数配置。」
+
+
 ## 启动相关
 
 1. 版本选择中点选实例 → 回启动页 → **启动游戏**。  

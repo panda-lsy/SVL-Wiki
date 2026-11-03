@@ -63,7 +63,7 @@ SMAPI（Stardew Modding API）是星露谷主流 Mod 加载器。SVL 负责下�
 1. 打开对应实例 **版本设置 → 自动安装**  
 2. **安装 / 更改 SMAPI**  
 3. 弹出 `SmapiVersionPickerDialog`：标题区「选择要安装的 SMAPI 版本」；只读「当前版本:」「安装路径:」；「下载源:」下拉；加载中「正在获取版本列表...」；列表项显示「SMAPI」+ 版本号，预发布标「预发布」；**上一页** / **下一页**；底部 **确认安装** / **取消**  
-4. 若需命名隔离实例，另弹 `InstanceNameDialog`（标签「实例名称」，水印「输入实例名称」，**取消** / **确认**）；选 Base 时用 `InstanceSelectionDialog`（「选择 Base 路径」）  
+4. 若需命名隔离实例，另弹 `InstanceNameDialog`（标签「实例名称」，水印「输入实例名称」，**取消** / **确认**）；选 Base 时用 `InstanceSelectionDialog`：Title 属性默认「选择实例」；控件内另有固定标签「选择 Base 路径」+ 路径下拉；**取消** / **确认**  
 5. 看任务/页内进度（如「正在安装 SMAPI...」）
 
 装完后卡片应显示 SMAPI 标签与版本号；图标可能随运行时刷新。

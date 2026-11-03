@@ -80,6 +80,10 @@ Avalonia 主入口是导航 **「任务」**（`Nav.Tasks`），列表 + 详情�
 
 侧有 **SteamCMD 日志**。账号登录与下载未在本批截图中演示（`notes.txt` blockers）。
 
+状态文案（`DownloadPageViewModel`，节选）：「SteamCMD 安装完成」/「SteamCMD 安装失败: …」；登录前「请先下载 SteamCMD」；「正在检查 SteamCMD 更新；首次运行可能需要几分钟，请稍候。」；超时「SteamCMD 更新超时（10 分钟），请检查网络后重试」；「正在登录 Steam...若开启手机令牌，请在 Steam 手机 APP 中批准登录；若为邮箱验证码，请填入验证码。等待可能耗时（SteamCMD 日志缓冲，非实时）。」
+
+Avalonia 另有 `DownloadProgressDialog`（默认标题「下载进度」；进度条；状态默认「等待中」；**取消任务** / **关闭**），但业务调用仅见于 WPF `SVL.Desktop`——Avalonia 任务进度以 **「任务」** 页与浮钮为准，勿写「下载必弹独立进度窗」。
+
 ## 相关设置
 
 **设置 → 下载设置**：缓存目录、代理、下载并发、检测并发、Nexus 账户、NXM 协议注册、缓存清理、**接管下载**（http/https 另存为）等。详见 [设置与配置](./Settings)。
