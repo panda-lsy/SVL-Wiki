@@ -109,7 +109,7 @@
 ## 隔离说明
 
 - **不要**再写「设置页打开实例隔离」。
-- 存档**不**随 Versions 目录隔离。
+- 存档**不**随 Versions 目录隔离；概览 **存档文件夹** → `ApplicationData/StardewValley/Saves`（全实例共享）。
 - 删版本 ≠ 删存档；删前备份 Mods 与存档。
 
 ---

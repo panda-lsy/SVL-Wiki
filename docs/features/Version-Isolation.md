@@ -73,7 +73,7 @@ Content 等大资源尽量通过链接/共用，避免每实例整盘复制（�
 |------|----------|------|
 | **Mods** | 是 | `GetIsolatedModsPath` → `versions/<名>/Mods` |
 | **SMAPI 运行时（隔离实例）** | 是 | 安装到该版本目录；Base 也可装 SMAPI，语义不同 |
-| **存档** | 否 | 注释写明：存档用系统默认路径 |
+| **存档** | 否 | `SaveFolderPath` = `SpecialFolder.ApplicationData` + `StardewValley/Saves`（各实例共用） |
 | **游戏 Content** | 共用 | 链接或共用 Base Content |
 | **启动器全局设置** | 否 | `settings.json` |
 
@@ -98,7 +98,7 @@ CHANGELOG：
 |--------|--------|
 | 「独立存档」为默认卖点 | **存档共享**；Mods 独立 |
 | 「进入设置 → 启用实例隔离」 | **无此开关** |
-| 可隔离「SMAPI 配置 / prefs」成套勾选表 | **无此勾选表**。实例 Mods 在 `versions/<名>/Mods`；**存档**固定打开 `%AppData%/StardewValley/Saves`（`SaveFolderPath`），非按实例隔离 |
+| 可隔离「SMAPI 配置 / prefs」成套勾选表 | **无此勾选表**。实例 Mods 在 `versions/<名>/Mods`；概览 **存档文件夹** 打开共享路径 `ApplicationData/StardewValley/Saves`（Windows `%AppData%\StardewValley\Saves`；Linux 常见 `~/.config/StardewValley/Saves`；macOS `~/Library/Application Support/StardewValley/Saves`） |
 | Creating-Instance 写共享存档，本页写独立存档 | **以本页 + 源码为准：存档共享** |
 
 ## 删除隔离实例
