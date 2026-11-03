@@ -18,7 +18,9 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 
 ## 打开设置
 
-![设置页（Linux · v1.2.0.0）](../tutorials/image/avalonia/settings.png)
+![设置 · 基本设置（Linux · v1.2.0.0）](../tutorials/image/avalonia/settings.png)
+
+左侧选项卡：**基本设置** / **下载设置** / **个性化** / **其他** / **关于**。顶栏显示 `settings.json` 路径；按钮 **保存设置** / **打开 JSON** / **恢复默认设置**。
 
 
 1. 左侧导航点 **「设置」**（本地化键 `Nav.Settings`）。
@@ -87,6 +89,9 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 **社区汉化数据源** 下拉为 `Gitee` / `GitHub`（提示：GitHub 国际源，Gitee 国内加速；首选失败自动备用）。
 
 ## 个性化
+
+![设置 · 个性化（Linux · v1.2.0.0）](../tutorials/image/avalonia/theme.png)
+
 
 | 界面文案 | 说明 |
 |----------|------|

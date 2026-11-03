@@ -4,7 +4,9 @@
 
 源码：`SettingsPageView.axaml`（下载设置）、`DownloadPageView` / Mod 搜索相关页、`OpenNexusLoginCommand`。
 
-![设置页（Linux · v1.2.0.0）](../tutorials/image/avalonia/settings.png)
+![设置入口示意 · 基本设置（Linux · v1.2.0.0）](../tutorials/image/avalonia/settings.png)
+
+> Nexus 登录在同页左侧切到 **「下载设置」** 卡片（本批截图停在基本设置）。
 
 ## 目录
 
@@ -49,6 +51,8 @@
 下载页还可粘贴 `nxm://…`（见下）。
 
 ![下载页（Linux · v1.2.0.0）](../tutorials/image/avalonia/downloads.png)
+
+![下载 · Mod（含 Nexus 登录失效提示）（Linux · v1.2.0.0）](../tutorials/image/avalonia/mods.png)
 
 ## NXM 协议
 

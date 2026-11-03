@@ -6,7 +6,10 @@
 > 配置在 `LocalApplicationData/SVL/Avalonia/`（见安装指南）。  
 > 按钮文案以本机界面为准。
 
-![启动页（Linux · v1.2.0.0）](image/avalonia/main.png)
+![启动页空状态（Linux · v1.2.0.0）](image/avalonia/main.png)
+
+顶栏导航（从左到右）：**启动**、**下载**、**任务**、**设置**。
+无实例时左侧可见 **启动游戏**（禁用）、**版本选择**、**版本设置**（禁用）；主区为「欢迎使用星露谷物语启动器 / 尚未配置游戏实例」引导。
 
 ## 目录
 
@@ -34,7 +37,7 @@
 3. 路径操作里点 **「添加」**，选游戏根目录（可粘贴路径）。  
 4. 左栏出现路径，右栏 **Base** 分组可见卡片。
 
-![版本选择（Linux · v1.2.0.0）](image/avalonia/instances.png)
+![版本选择 · 路径列表空状态（Linux · v1.2.0.0）](image/avalonia/instances.png)
 
 多平台探测逻辑见启动器 `GameInstallPathLocator`（路径因 Steam/GOG 而异）。
 
@@ -54,7 +57,9 @@
 4. 在 **「任务」** 看进度。  
 5. 回到版本选择：**Versions** 下应出现新卡片（带 SMAPI 标签）。
 
-![下载页（Linux · v1.2.0.0）](image/avalonia/downloads.png)
+![下载 · SMAPI 类别（Linux · v1.2.0.0）](image/avalonia/downloads.png)
+
+下载侧栏类别：**游戏本体**（SteamCMD 登录下载）、**SMAPI**、**Mod**、**Modpack**；下方为进行中/历史任务摘要。
 
 也可在 **版本设置 → 自动安装 → 安装 / 更改 SMAPI** 对已有路径操作。详见 [创建游戏实例](./Creating-Instance)、[SMAPI 管理](../features/SMAPI-Management)。
 
@@ -69,6 +74,10 @@
 - 需要装 Mod：启动页 **「Mod管理」** 或版本设置 → **Mod 管理**（见 [安装 Mods](./Installing-Mods)）。
 
 Nexus 自动下载前： **设置 → 下载设置 → NexusMods 账户** 登录。
+
+![下载 · Mod 搜索（Linux · v1.2.0.0）](image/avalonia/mods.png)
+
+![设置 · 基本设置（Linux · v1.2.0.0）](image/avalonia/settings.png)
 
 ## 下一步
 

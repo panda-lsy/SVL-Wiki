@@ -17,7 +17,9 @@
 
 ## 打开入口
 
-![Mod 管理（Linux · v1.2.0.0）](../tutorials/image/avalonia/mods.png)
+> **截图说明**：`mods.png` 实为导航 **下载 → Mod 搜索**（见 [安装 Mods](../tutorials/Installing-Mods)），**不是**版本设置里的 Mod 管理页。本批因无本地实例未拍到实例 Mod 管理；下文工具栏/筛选以 `VersionSettingsPageView.axaml` 为准。
+
+![下载 · Mod 搜索参考（Linux · v1.2.0.0）](../tutorials/image/avalonia/mods.png)
 
 
 1. **版本选择** → 实例齿轮；或启动页 **「Mod管理」** / **「版本设置」**。

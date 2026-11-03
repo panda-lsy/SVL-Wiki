@@ -4,7 +4,9 @@
 
 源码：`SettingsPageView.axaml` 个性化卡片、`ThemeService`、`AppUserSettings`。
 
-![个性化（Linux · v1.2.0.0）](../tutorials/image/avalonia/theme.png)
+![设置 · 个性化（Linux · v1.2.0.0）](../tutorials/image/avalonia/theme.png)
+
+实机可见：主题模式 **跟随系统**、配色 **星露谷（默认）**、强调色示例 `#D47748`、**启用动画**、主窗口透明 **25%**、字号 **14**、语言 **zh-CN**。
 
 ## 目录
 

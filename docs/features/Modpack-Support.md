@@ -25,7 +25,9 @@
 
 ## 导入
 
-![整合包相关（Linux · v1.2.0.0）](../tutorials/image/avalonia/modpack.png)
+![下载 · Modpack 搜索（Linux · v1.2.0.0）](../tutorials/image/avalonia/modpack.png)
+
+下载页类别 **Modpack**：搜索框 + 资源列表（空则「暂无资源，可尝试搜索关键词」）。本地导入见下方「导入」。
 
 
 1. **版本选择** → 路径操作 **「导入整合包」**。  

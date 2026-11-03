@@ -4,7 +4,9 @@
 
 界面文案以 Avalonia 本地化与 axaml 为准。
 
-![主界面示意（Linux · v1.2.0.0）](image/avalonia/main.png)
+![启动页（Linux · v1.2.0.0）](image/avalonia/main.png)
+
+顶栏：**启动** / **下载** / **任务** / **设置**。创建前先经 **版本选择** 添加路径。
 
 ## 目录
 
@@ -30,9 +32,13 @@
 
 ## 添加 Base（版本选择）
 
-![添加 / 创建实例（Linux · v1.2.0.0）](image/avalonia/add-instance.png)
+![版本选择 · 路径列表（Linux · v1.2.0.0）](image/avalonia/instances.png)
 
-![版本选择（Linux · v1.2.0.0）](image/avalonia/instances.png)
+路径操作：**添加**、**导入整合包**、**刷新**、**打开文件夹**。
+
+![添加实例对话框（Linux · v1.2.0.0）](image/avalonia/add-instance.png)
+
+对话框标题 **「添加实例」**：游戏目录 + **浏览** / **取消** / **确认**。
 
 
 1. 启动页点 **「版本选择」**（`Launch.VersionSelect`）。
@@ -47,7 +53,7 @@
 
 ## 方法一：安装 SMAPI 创建实例
 
-![SMAPI（Linux · v1.2.0.0）](image/avalonia/smapi.png)
+![下载 · SMAPI（Linux · v1.2.0.0）](image/avalonia/smapi.png)
 
 
 适合：从 Base **新建**隔离 SMAPI 实例。
@@ -75,7 +81,9 @@
 
 ## 方法二：导入整合包
 
-![导入整合包（Linux · v1.2.0.0）](image/avalonia/modpack.png)
+![下载 · Modpack 搜索（Linux · v1.2.0.0）](image/avalonia/modpack.png)
+
+> 上图为导航 **下载 → Modpack**。本地 zip 导入仍用版本选择 **「导入整合包」** 或拖放。
 
 
 1. **版本选择** → **「导入整合包」**；或把包拖入窗口。

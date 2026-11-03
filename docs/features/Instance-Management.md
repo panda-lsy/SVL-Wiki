@@ -4,7 +4,9 @@
 
 主界面示意（Linux · v1.2.0.0）：
 
-![启动页](../tutorials/image/avalonia/main.png)
+![启动页空状态（Linux · v1.2.0.0）](../tutorials/image/avalonia/main.png)
+
+顶栏导航：**启动**、**下载**、**任务**、**设置**。
 
 ## 目录
 
@@ -41,9 +43,9 @@
 
 ## 路径与卡片
 
-![版本选择（Linux · v1.2.0.0）](../tutorials/image/avalonia/instances.png)
+![版本选择 · 路径列表（Linux · v1.2.0.0）](../tutorials/image/avalonia/instances.png)
 
-![添加路径示意（Linux · v1.2.0.0）](../tutorials/image/avalonia/add-instance.png)
+![添加实例对话框（Linux · v1.2.0.0）](../tutorials/image/avalonia/add-instance.png)
 
 版本选择页（`InstancesPageView`）：
 

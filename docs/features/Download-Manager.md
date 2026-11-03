@@ -4,7 +4,9 @@ Avalonia 主入口是导航 **「任务」**（`Nav.Tasks`），列表 + 详情�
 
 源码：`TaskStatusPageView.axaml`、`DownloadManagerWindow.axaml`（标注「兼容旧视图入口」）、`MainWindowViewModel` 任务红点逻辑。
 
-![下载页（Linux · v1.2.0.0）](../tutorials/image/avalonia/downloads.png)
+![下载页侧栏与任务摘要（Linux · v1.2.0.0）](../tutorials/image/avalonia/downloads.png)
+
+> 上图为导航 **「下载」**（侧栏含进行中/历史任务摘要）。完整 **「任务」** 页空状态文案：**任务列表**、「当前没有任务」、**前往下载**（本批未单独存 tasks 截图，以 axaml / 实机笔记为准）。
 
 ## 目录
 
@@ -56,7 +58,7 @@ Avalonia 主入口是导航 **「任务」**（`Nav.Tasks`），列表 + 详情�
 | Mod 管理 **批量更新** | 入队下载 |
 | 拖放安装 | 可能进入安装任务流 |
 
-下载页类别文案：`SMAPI` / `Mod` / `Modpack`。
+下载页侧栏类别（实机）：**游戏本体**（副文案「SteamCMD 登录下载」）、**SMAPI**（模组启动器）、**Mod**（单个模组）、**Modpack**（整合包）；并显示进行中/历史任务摘要。
 
 ## 相关设置
 

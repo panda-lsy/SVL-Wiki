@@ -4,6 +4,8 @@
 
 ![启动页（Linux · v1.2.0.0）](image/avalonia/main.png)
 
+有实例后，启动页可进 **版本选择** / **版本设置**；帮助文案也会提到 **「Mod管理」** 快捷入口（无实例时该入口不可用）。
+
 ## 目录
 
 - [前置条件](#前置条件)
@@ -31,7 +33,11 @@
 
 ## 从 NexusMods / CurseForge
 
-![下载页（Linux · v1.2.0.0）](image/avalonia/downloads.png)
+![下载 · SMAPI 侧栏示意（Linux · v1.2.0.0）](image/avalonia/downloads.png)
+
+![下载 · Mod 搜索（Linux · v1.2.0.0）](image/avalonia/mods.png)
+
+Mod 搜索含来源/版本/类型筛选；未登录 Nexus 时可能提示「Nexus OAuth 登录已失效」→ **去登录**。
 
 
 1. 导航 **「下载」**，进入 Mod 搜索（或从下载类别进入）。
@@ -52,7 +58,7 @@
 
 ## 启用 / 禁用
 
-1. **版本设置 → Mod 管理**  
+1. **版本设置 → Mod 管理**（需已有实例；本批 Avalonia 截图未覆盖该页，以 axaml 工具栏文案为准）  
 2. 用行内操作或底栏 **启用已选** / **禁用已选**  
 3. 筛选可只看启用/禁用
 
