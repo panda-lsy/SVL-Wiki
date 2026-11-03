@@ -11,6 +11,7 @@
 启动瞬间先显示 `SplashWindow`（居中透明窗、128×128 图标、约 2 秒，无进度条文案）；仓库另有 `SplashScreen` 控件（默认 AppName「Stardew Valley Launcher」、状态「正在初始化...」+ 进度条），**现行 `App.ShowSplashThenMainAsync` 未挂载该控件**。若勾选「启动时最小化到托盘」且托盘可用，主窗 Show 后立即 Hide。
 
 顶栏导航（从左到右）：**启动**、**下载**、**任务**、**设置**。`MainWindowViewModel` 另有侧栏迁移提示键（`Sidebar.CurrentPage` / `MigrationStatus` / `MigrationPoint1–3`，如「正在逐页迁移原 WPF 视图」），现行主窗 axaml **未见**绑定——勿写启动页侧栏有迁移进度卡。
+**任务** 页空状态（`TaskStatusPageView.axaml` / `notes.txt`）：标题「任务列表」；「进行中: n  历史已完成: m」；**清空已完成**（空时禁用）；「当前没有任务」+「去下载页发起任务后，这里会实时显示进度。」+ **前往下载**。细节见 [下载管理器](../features/Download-Manager)（本批无独立 tasks 截图）。
 无实例时左侧可见 **启动游戏**（禁用）、**版本选择**、**版本设置**（禁用）；左侧卡「暂无实例 / 请先添加游戏实例 / 未找到版本」。
 主区标题「欢迎使用星露谷物语启动器」/ `Stardew Valley Launcher`；副文案「尚未配置游戏实例」及「请先点击左侧版本选择进入实例管理，再返回启动页。」。
 

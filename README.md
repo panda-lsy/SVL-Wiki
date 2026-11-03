@@ -29,8 +29,8 @@
 
 ## 文档开发进度
 
-> 未标注「已按 Avalonia 修订」的页面，内容可能仍残留 WPF / Win7 表述。**一切以启动器实机与源码为准。**  
-> 新截图目录：`docs/tutorials/image/avalonia/`（标注 Linux · v1.2.0.0）。
+> 正文页均已按 Avalonia / .NET 10 修订；标注「已修订」只表示文档对齐过，**不是**功能 100% 完工。**一切以启动器实机与源码为准。**  
+> 新截图目录：`docs/tutorials/image/avalonia/`（标注 Linux · v1.2.0.0）。尚缺：有游戏实例后的启动就绪态、实例内 **Mod管理**、**任务** 页独立截图（需本机 Stardew Valley 目录）。
 
 | 章节 | 进度 | 状态 | 最后更新 |
 |------|------|------|----------|
@@ -58,7 +58,7 @@
 | ├─[对 Wiki 进行贡献](./docs/community/Contributing) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 对话框确定/确认主钮分流表 | 2026-11-04 |
 | └─[社区资源本地化](./docs/community/Localization-Contributing) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 两处贡献本地化 i 正文分流对齐 | 2026-11-04 |
 
-> **说明**：不要把「未校对的旧稿」标成 100%。本表只反映文档状态，不代表启动器功能完成度。
+> **说明**：本表只反映 Wiki 是否已按 Avalonia 改过，不代表启动器功能完成度，也不要把「已修订」读成 100%。归档旧稿见 `docs/archive/`（不入 SUMMARY / 侧栏）。
 
 ## 文档导航
 

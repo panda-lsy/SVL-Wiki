@@ -7,7 +7,7 @@
 - [安装指南](./docs/tutorials/Installation)
 - [初次使用](./docs/tutorials/Getting-Started)
 - [创建实例](./docs/tutorials/Creating-Instance)
-- [安装 Mods](./docs/tutorials/Installing-Mods)
+- [安装 Mod](./docs/tutorials/Installing-Mods)
 
 ## 📦 功能文档
 
@@ -35,7 +35,7 @@
 - [对 Wiki 进行贡献](./docs/community/Contributing)
 - [社区资源本地化](./docs/community/Localization-Contributing)
 
-##  外部链接
+## 外部链接
 
 - [GitHub 仓库](https://github.com/panda-lsy/SVL-StardewValleyLauncher)
 - [问题反馈](https://github.com/panda-lsy/SVL-StardewValleyLauncher/issues)
