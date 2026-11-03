@@ -98,7 +98,7 @@ CHANGELOG：
 |--------|--------|
 | 「独立存档」为默认卖点 | **存档共享**；Mods 独立 |
 | 「进入设置 → 启用实例隔离」 | **无此开关** |
-| 可隔离「SMAPI 配置 / prefs」成套勾选表 | **待核实**细项；勿再画假勾选表 |
+| 可隔离「SMAPI 配置 / prefs」成套勾选表 | **无此勾选表**。实例 Mods 在 `versions/<名>/Mods`；**存档**固定打开 `%AppData%/StardewValley/Saves`（`SaveFolderPath`），非按实例隔离 |
 | Creating-Instance 写共享存档，本页写独立存档 | **以本页 + 源码为准：存档共享** |
 
 ## 删除隔离实例

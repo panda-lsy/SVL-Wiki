@@ -42,7 +42,7 @@ MVVM + 平台抽象：UI 在 Avalonia，系统差异在 `SVL.Core.Platform`。
 | 路径 | 说明 |
 |------|------|
 | `SVL.Desktop/`、`SVL.Core/` | 旧 WPF / Core，迁移对照 |
-| `SVL.Tests/` | **待核实**是否仍维护、是否进 CI |
+| `SVL.Tests/` | 仓库仍有（如 `CoreTests.cs`）；**未**列入 `SVL.sln`，CI（`package-avalonia.yml`）只跑 `SVL.Migration.Tests` |
 
 来源：`SVL.sln`、启动器 `README.md`「项目结构」。
 
@@ -67,7 +67,7 @@ SVL-StardewValleyLauncher/
 ├── SVL.Migration.Tests/
 ├── SVL.Core/                  # 旧代码（参考）
 ├── SVL.Desktop/               # 旧 WPF UI（参考）
-├── SVL.Tests/                 # 待核实
+├── SVL.Tests/                 # 遗留；未进默认 sln/CI
 ├── packaging/                 # 如 macOS DMG 布局
 ├── scripts/                   # 打包辅助（如 package-linux-deb.sh）
 ├── .github/workflows/         # 含 package-avalonia.yml
@@ -99,7 +99,7 @@ SVL-StardewValleyLauncher/
 | 下载页 VM | `SVL.Avalonia/ViewModels/DownloadPageViewModel.cs` |
 | 下载安装服务 | `SVL.Avalonia/Services/DownloadInstallService.cs`、`HttpDownloadService.cs` |
 | Nexus / CurseForge 缓存等 | `SVL.Avalonia/Services/*DownloadCache*.cs` 等 |
-| 功能页大 VM | `SVL.Avalonia/ViewModels/FeaturePagesViewModels.cs`（**待核实**拆分情况） |
+| 功能页大 VM | `SVL.Avalonia/ViewModels/FeaturePagesViewModels.cs`（仍集中约 1.6 万行；任务/版本设置/导出等） |
 
 ### 设置 / 更新 / 遥测
 
@@ -112,7 +112,11 @@ SVL-StardewValleyLauncher/
 
 ### 主题
 
-主题与资源在 `SVL.Avalonia/Resources/`、`Assets/`。**待核实**具体文件名列表（勿再写旧 `Themes/Light.xaml` 结构）。
+主题与资源：
+
+- `SVL.Avalonia/Resources/Theme.axaml`
+- `SVL.Avalonia/Assets/Icons/`（含 `icon.png` / `icon.ico`、`Junimo.png`、`author-icon.png`、`Vanilla.png` / `Modded.png`、`Stardew/` 等）
+- 运行时配色由 `ThemeService` + 设置页「配色方案」驱动（勿再写旧 `Themes/Light.xaml`）
 
 ---
 
