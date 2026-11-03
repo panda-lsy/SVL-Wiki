@@ -45,6 +45,9 @@
 
 ## 方法一：安装 SMAPI 创建实例
 
+![SMAPI（Linux · v1.2.0.0）](image/avalonia/smapi.png)
+
+
 适合：从 Base **新建**隔离 SMAPI 实例。
 
 ### 来源对比

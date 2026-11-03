@@ -18,6 +18,9 @@ SMAPI（Stardew Modding API）是星露谷主流 Mod 加载器。SVL 负责下�
 
 ## 安装入口
 
+![SMAPI（Linux · v1.2.0.0）](../tutorials/image/avalonia/smapi.png)
+
+
 | 入口 | 路径 |
 |------|------|
 | 下载页 | **下载** → SMAPI 详情 → **安装** → 选 Base → 起实例名 |
