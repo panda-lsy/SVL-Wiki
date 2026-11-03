@@ -11,15 +11,15 @@
 
 ## 功能文档
 
-* [实例管理](docs/features/Instance-Management.md)
+* [游戏实例管理](docs/features/Instance-Management.md)
 * [Mod 管理](docs/features/Mod-Management.md)
 * [NexusMods 集成](docs/features/NexusMods-Integration.md)
 * [Modpack 整合包](docs/features/Modpack-Support.md)
 * [下载管理器](docs/features/Download-Manager.md)
 * [SMAPI 管理](docs/features/SMAPI-Management.md)
-* [主题系统](docs/features/Theming.md)
+* [主题与外观](docs/features/Theming.md)
 * [版本隔离](docs/features/Version-Isolation.md)
-* [设置选项](docs/features/Settings.md)
+* [设置与配置](docs/features/Settings.md)
 
 ## 开发文档
 

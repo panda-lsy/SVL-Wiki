@@ -65,19 +65,20 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 | **NXM 协议** | 启动时注册、立即注册（平台能力因 OS 而异） |
 | **社区汉化数据源** | GitHub / Gitee |
 | **缓存管理** | 分类清理、保留时长、打开缓存目录 |
-| **检测并发** | Mod 更新检测 / 汉化检测线程数 |
+| **检测并发** | Mod 更新检测 / 汉化检测线程数（`MaxConcurrentModUpdateChecks` / `MaxConcurrentModLocalizationChecks`，默认 4） |
+| **默认 SMAPI / Mod 源** | 仅 `settings.json` 字段 `DefaultSmapiSource`（默认 GitHub）、`DefaultModSource`（默认 NexusMods）；**设置页 UI 无对应控件**（迁移/目录逻辑会读） |
 
 ## 个性化
 
 | 界面文案 | 说明 |
 |----------|------|
-| **主题模式** | 如「跟随系统」等 |
-| **配色方案** | 如 Stardew 等样式名 |
-| **自定义强调色** | `#RGB` / `#RRGGBB`，可清空 |
+| **主题模式** | 浅色 / 深色 / 跟随系统 |
+| **配色方案** | 星露谷（默认）、天空蓝、森林绿、薰衣紫、海洋青、樱花粉、夕阳橙 |
+| **自定义强调色** | `#RGB` / `#RRGGBB`，可「应用」「恢复默认」 |
 | **动画** | 开/关 |
-| **背景透明度** | 0–100 滑条 |
-| **字体大小** | pt |
-| **界面语言** | 如 `zh-CN` |
+| **背景透明度** | 0–100 滑条（默认约 25） |
+| **字体大小** | 12–20 档（默认 14） |
+| **界面语言** | `zh-CN` / `en-US` |
 
 ## 其他
 
@@ -125,6 +126,7 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 - `UiLanguage`、`ThemeMode`、`ThemeStyleName`、`PrimaryColor`
 - `EnableDownloadCache`、`EnableDownloadProxy`、`DownloadProxyUrl`
 - `CollectionDownloadParallelism`、`DownloadSegmentThreads`
+- `DefaultSmapiSource`、`DefaultModSource`（无设置页控件）
 - `NexusOAuthAccessToken` / Refresh / 用户信息（敏感，勿分享）
 - `RegisterNxmProtocolOnStartup`、`EnableAutoUpdateCheck`、`UpdateChannel`
 - `DebugMode`、`MinimizeToTrayOnClose`、`BackgroundTransparencyPercent`
