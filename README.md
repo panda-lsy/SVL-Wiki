@@ -35,7 +35,7 @@
 | 章节 | 进度 | 状态 | 最后更新 |
 |------|------|------|----------|
 | **快速开始** | | | |
-| ├─[安装指南](./docs/tutorials/Installation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia/.NET 10 重写 | 2026-11-03 |
+| ├─[安装指南](./docs/tutorials/Installation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ NXM 无首启弹窗；macOS ad-hoc/Rosetta 说明 | 2026-11-03 |
 | ├─[初次使用](./docs/tutorials/Getting-Started) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已对齐导航文案；配 Avalonia 截图 | 2026-11-04 |
 | ├─[创建游戏实例](./docs/tutorials/Creating-Instance) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 对齐 versions 流程；去掉隔离开关 | 2026-11-04 |
 | └─[安装 Mods](./docs/tutorials/Installing-Mods) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 下载·Mod 截图；实例 Mod 管理页未拍到 | 2026-11-04 |

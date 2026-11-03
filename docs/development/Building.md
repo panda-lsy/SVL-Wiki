@@ -61,7 +61,7 @@ dotnet test SVL.Migration.Tests/SVL.Migration.Tests.csproj
 
 ## 打包发布（build.ps1）
 
-根目录统一脚本，支持 Windows / Linux / macOS，以及 Debug / Release；加 `-FrameworkDependent` 打轻量包（文件名带 `requires_dotnet10`）。
+根目录统一脚本，支持 Windows / Linux / macOS，以及 Debug / Release；加 `-FrameworkDependent` 打轻量包（文件名带 `requires_dotnet10`）。脚本内 `PackageVersion` 现为 **1.2.0.0**；macOS 最低系统版本常量 `MacOSMinimumSystemVersion` = **14.0**。
 
 ```powershell
 # Windows x64 Debug 单文件相关产物

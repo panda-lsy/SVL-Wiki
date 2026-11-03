@@ -69,7 +69,7 @@
 | Intel 自包含 | `SVL_v1.2.0.0_release_macOS_x64.dmg` | 同上 |
 | 轻量 | 文件名含 `requires_dotnet10` 的对应 DMG | 需先装对应架构 .NET 10 Runtime |
 
-> 正式分发签名 / 公证：当前构建多为临时 ad-hoc 签名；Gatekeeper 可能拦截。处理步骤以启动器 `README.md` 与系统提示为准（**待核实**具体 UI 文案）。来源：`README.md`。
+> 正式分发签名 / 公证：启动器 README / 发布稿写明当前为 **临时 ad-hoc 签名**，正式分发仍需 Developer ID + Apple 公证。预发布说明：「首次打开可能需要在系统设置中允许」；Apple Silicon 上跑 Intel SteamCMD 需 **Rosetta 2**。系统「隐私与安全性」具体按钮文案因 macOS 版本而异，以本机提示为准。来源：启动器 `README.md`、`docs/release/v1.2.0.0-预发布草稿.md`。
 
 ### 下载源
 
@@ -206,7 +206,7 @@ Avalonia 用户数据目录（`LocalApplicationData/SVL/Avalonia/`）：
 
 ### Q: macOS 提示无法打开未验证的开发者？
 
-**A:** 与 ad-hoc 签名有关。按系统「隐私与安全性」提示处理，或等待正式 Developer ID / 公证包。**待核实**官方推荐绕过步骤文案。
+**A:** 与 ad-hoc 签名、未公证有关。按系统「隐私与安全性」提示允许打开，或等待正式 Developer ID / 公证包。发布说明亦提示首次打开可能需在系统设置中允许（见上文 macOS 节）。
 
 ---
 
