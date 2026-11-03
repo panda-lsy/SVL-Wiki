@@ -44,7 +44,7 @@
 | ├─[Mod 管理](./docs/features/Mod-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 底栏删标/备份恢复与搜索水印对齐 axaml | 2026-11-04 |
 | ├─[NexusMods 集成](./docs/features/NexusMods-Integration) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ BrowserDownloadGuideDialog 默认文案对齐 | 2026-11-04 |
 | ├─[Modpack 整合包](./docs/features/Modpack-Support) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 导出「打开导出目录」与策略全文对齐 | 2026-11-04 |
-| ├─[下载管理器](./docs/features/Download-Manager) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 任务页「进行中」优先于 OCR「运行中」 | 2026-11-04 |
+| ├─[下载管理器](./docs/features/Download-Manager) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 完成/取消态卡片与冲突预览/任务日志 | 2026-11-04 |
 | └─[主题与外观](./docs/features/Theming) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 个性化页对齐 ThemeService | 2026-11-04 |
 | **高级功能** | | | |
 | ├─[版本隔离](./docs/features/Version-Isolation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 跨平台共享 Saves 路径示例 | 2026-11-04 |
