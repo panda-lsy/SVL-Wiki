@@ -35,11 +35,11 @@
 
 Mod 搜索等处可能出现：「Nexus OAuth 登录已失效，请在设置页重新登录。」
 
-| 按钮 | 行为 |
-|------|------|
-| **去登录** | 隐藏条幅并跳转设置页（`GoToNexusLogin`） |
-| **本次使用期间不提示** | 仅本会话抑制（`_suppressNexusAuthNotificationThisSession`）；退出/重新登录后可恢复 |
-| **不再提示** | 写入 `settings.json` 的 `SuppressNexusAuthNotification=true` 并隐藏 |
+| 按钮 | 行为 | ToolTip（axaml） |
+|------|------|------------------|
+| **不再提示** | 写入 `settings.json` 的 `SuppressNexusAuthNotification=true` 并隐藏 | 「持久化隐藏，直到在设置页重新开启」 |
+| **本次使用期间不提示** | 仅本会话抑制（`_suppressNexusAuthNotificationThisSession`） | 「仅在本次运行期间隐藏」 |
+| **去登录** | 跳转设置页 Nexus 登录区（`GoToNexusLogin`） | 「跳转到设置页 Nexus 登录区」 |
 
 设置页勾选 **「Nexus 登录失效提醒」** 对应 `EnableNexusAuthNotification`（与 `SuppressNexusAuthNotification` 取反保存；ToolTip：「关闭后下载页将不再提示 Nexus 登录失效」）。
 

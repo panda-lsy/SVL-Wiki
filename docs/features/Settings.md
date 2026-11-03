@@ -58,13 +58,13 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 | 界面文案 | 说明 |
 |----------|------|
 | **启用下载缓存** | 复用已下文件 |
-| **启用下载代理** | HTTP 代理；可填地址与可选用户名/密码 |
+| **启用下载代理** | 地址水印「例如: http://127.0.0.1:7890」；提示「Clash 等本地代理通常无需填写用户名/密码。」；可选 **代理用户名** / **代理密码** |
 | **启用任务浮动按钮** | 下载任务浮钮 |
 | **Collection 冲突策略** | `CollectionInstallConflictStrategy` 下拉原文：「覆盖」「跳过」「仅备份」（默认「覆盖」） |
-| **下载任务并发上限（含 Collection/整合包）** | `CollectionDownloadParallelism`（默认 **3**，约 1–10） |
-| **下载线程数** | `DownloadSegmentThreads`（默认 **4**；分片线程） |
+| **下载任务并发上限（含 Collection/整合包）** | `CollectionDownloadParallelism`（下拉 1–10，默认 **3**） |
+| **下载线程数** | `DownloadSegmentThreads`（下拉 `1/2/3/4/6/8/12/16`，默认 **4**）；说明「多线程分片下载可提升大文件速度，任务进度条将按线程分块显示；失败重试支持断点续传。」 |
 | **接管下载** | 说明「粘贴 http/https 下载地址，另存为本地文件。适用于非 Nexus/CurseForge 来源的 Mod 或资源。」；水印 `https://example.com/mod.zip`；按钮 **另存为并下载**（另存对话框标题「接管下载 - 另存为」） |
-| **NexusMods 账户** | 登录态显示头像/用户名/会员类型；**API 统计**（每日/每小时请求）；「状态:」「账号:」行；未登录引导见 [NexusMods 集成](./NexusMods-Integration)；按钮随态：**登录**/相关动作、**验证状态**、**退出登录** |
+| **NexusMods 账户** | 登录态显示头像/用户名/会员类型；**API 统计**（每日/每小时请求）；「状态:」「账号:」行；未登录引导见 [NexusMods 集成](./NexusMods-Integration)；按钮：**登录 Nexus** / **重新登录 Nexus**（`NexusLoginActionText`）、**验证状态**、**刷新 Token**、**退出登录** |
 | **Nexus 登录失效提醒** | `EnableNexusAuthNotification`；ToolTip「关闭后下载页将不再提示 Nexus 登录失效」 |
 | **NXM 协议** | **启动时尝试注册 NXM 协议**；按钮 **重新注册 NXM 协议**（平台能力因 OS 而异；无首启强制弹窗） |
 | **社区汉化数据源** | 下拉 `Gitee` / `GitHub`；提示「GitHub 为国际源，Gitee 为国内加速源。首选源失败时自动尝试备用源。」 |
@@ -107,13 +107,17 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 
 ## 其他
 
+副标题「运行时行为与调试选项」（`Settings.Other.Subtitle`）。
+
 | 界面文案（本地化键） | 说明 |
 |----------|------|
 | **显示通知** | `Settings.Other.ShowNotifications` |
-| **来源为全部时提示类型筛选不可用** | `Settings.Other.TypeFilterNotice` |
-| **启用调试模式** | 需**重启启动器**后生效 |
-| **启动时最小化到托盘** | |
-| **关闭窗口时最小化到托盘** | |
+| **来源为全部时提示类型筛选不可用** | `Settings.Other.TypeFilterNotice` / `ShowModTypeFilterDisabledNotice` |
+| **启用调试模式** | 下方硬编码提示：「调试模式在重启启动器后生效。」 |
+| **启动时最小化到托盘** | `MinimizeToTrayOnStartup` |
+| **关闭窗口时最小化到托盘** | `MinimizeToTrayOnClose` |
+
+`Settings.Other.LogLevel`（「日志级别」）与 `settings.json` 的 `LogLevel`（默认 `Info`）仍存在，但 `SettingsPageView.axaml` **其他**页**未见**对应下拉——勿写「设置里可改日志级别」。
 
 ## 关于
 

@@ -38,18 +38,18 @@
 | ├─[安装指南](./docs/tutorials/Installation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Gitee v1.2.0.0 已同步；匿名统计 FAQ | 2026-11-04 |
 | ├─[初次使用](./docs/tutorials/Getting-Started) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 空状态欢迎四步与信息卡对齐 notes | 2026-11-04 |
 | ├─[创建游戏实例](./docs/tutorials/Creating-Instance) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 添加实例水印与路径空状态对齐截图 | 2026-11-04 |
-| └─[安装 Mods](./docs/tutorials/Installing-Mods) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 路径黄条与选目录对话框对齐源码 | 2026-11-04 |
+| └─[安装 Mods](./docs/tutorials/Installing-Mods) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Mod 筛选 ToolTip 与 OAuth 条幅对齐 axaml | 2026-11-04 |
 | **功能文档** | | | |
-| ├─[游戏实例管理](./docs/features/Instance-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 设置区水印/占位符/Steam 默认命令与预览 | 2026-11-04 |
+| ├─[游戏实例管理](./docs/features/Instance-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 自动安装页覆盖指引与切换到 SMAPI 黄条 | 2026-11-04 |
 | ├─[Mod 管理](./docs/features/Mod-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 底栏删标/备份恢复与搜索水印对齐 axaml | 2026-11-04 |
-| ├─[NexusMods 集成](./docs/features/NexusMods-Integration) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 澄清下载页无 NXM 粘贴框；接管下载在设置 | 2026-11-04 |
+| ├─[NexusMods 集成](./docs/features/NexusMods-Integration) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ OAuth 失效条幅三按钮 ToolTip 对齐 axaml | 2026-11-04 |
 | ├─[Modpack 整合包](./docs/features/Modpack-Support) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 澄清导入整合包跳搜索页；无 URL 粘贴卡 | 2026-11-04 |
-| ├─[下载管理器](./docs/features/Download-Manager) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 任务详情空态文案 + 路径黄条/对话框 | 2026-11-04 |
+| ├─[下载管理器](./docs/features/Download-Manager) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 任务页「进行中」优先于 OCR「运行中」 | 2026-11-04 |
 | └─[主题与外观](./docs/features/Theming) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 个性化页对齐 ThemeService | 2026-11-04 |
 | **高级功能** | | | |
 | ├─[版本隔离](./docs/features/Version-Isolation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 跨平台共享 Saves 路径示例 | 2026-11-04 |
-| ├─[SMAPI 管理](./docs/features/SMAPI-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ SMAPI 版本选择器与实例命名对话框对齐 axaml | 2026-11-04 |
-| └─[设置与配置](./docs/features/Settings) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 更新状态文案 + UpdateDialog 按钮对齐源码 | 2026-11-04 |
+| ├─[SMAPI 管理](./docs/features/SMAPI-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 自动安装覆盖指引 + 切换到 SMAPI 黄条 | 2026-11-04 |
+| └─[设置与配置](./docs/features/Settings) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 其他页无日志级别 UI；代理/分片线程选项对齐 | 2026-11-04 |
 | **开发文档** | | | |
 | ├─[项目结构](./docs/development/Project-Structure) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia 仓库结构重写 | 2026-11-03 |
 | ├─[技术栈](./docs/development/Tech-Stack) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia/.NET 10 重写 | 2026-11-03 |
