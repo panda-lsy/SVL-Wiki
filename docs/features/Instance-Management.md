@@ -96,8 +96,13 @@
 ## 启动相关
 
 1. 版本选择中点选实例 → 回启动页 → **启动游戏**。  
-2. 启动页会显示当前 **启动模式**、**安全启动** 状态（值来自设置 / `PreferredLaunchMode`、`EnableSafeLaunch`）。  
-3. 实例级参数在版本设置 → **设置**（`instance-launch-settings.json`）。
+2. 启动页信息卡**只读**展示：  
+   - **启动模式**：自动 / SMAPI / 原版（`Launch.ModeValue.*`）  
+   - **安全启动**：已开启 / 已关闭  
+   - **状态**：如「未探测到本机游戏目录」  
+   对应全局 `settings.json` 的 `PreferredLaunchMode`（默认「自动」）、`EnableSafeLaunch`。安装 SMAPI / 选实例等流程会改写；启动页本身不是编辑器。  
+3. 实例级参数在版本设置 → **设置**（`instance-launch-settings.json`）。  
+4. 仓库另有 `VersionSettingsContentView.axaml` 占位文案提到启动模式/安全启动，**不是**主版本设置页（主页为 `VersionSettingsPageView`）。
 
 旧「双击卡片直接启动」：`InstancesPageView` **未见** DoubleTapped 绑定；请用启动页按钮。
 
