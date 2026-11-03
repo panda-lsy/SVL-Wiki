@@ -41,7 +41,7 @@
 | └─[安装 Mods](./docs/tutorials/Installing-Mods) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Mod 筛选 ToolTip 与 OAuth 条幅对齐 axaml | 2026-11-04 |
 | **功能文档** | | | |
 | ├─[游戏实例管理](./docs/features/Instance-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 写入 Steam 关客户端确认与完成文案 | 2026-11-04 |
-| ├─[Mod 管理](./docs/features/Mod-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ ConflictResolutionDialog 覆盖确认文案 | 2026-11-04 |
+| ├─[Mod 管理](./docs/features/Mod-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 标签/卸载/备份回收站确认对话框 | 2026-11-04 |
 | ├─[NexusMods 集成](./docs/features/NexusMods-Integration) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ NexusLoginDialog 控件与 OAuth 状态文案 | 2026-11-04 |
 | ├─[Modpack 整合包](./docs/features/Modpack-Support) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ ModpackFailureDialog 结果窗对齐 | 2026-11-04 |
 | ├─[下载管理器](./docs/features/Download-Manager) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 任务详情交叉引用冲突覆盖对话框 | 2026-11-04 |
@@ -49,7 +49,7 @@
 | **高级功能** | | | |
 | ├─[版本隔离](./docs/features/Version-Isolation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 跨平台共享 Saves 路径示例 | 2026-11-04 |
 | ├─[SMAPI 管理](./docs/features/SMAPI-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ InstanceSelectionDialog Base 路径文案 | 2026-11-04 |
-| └─[设置与配置](./docs/features/Settings) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ UpdateComplete/NestedFolderFix 未接线缺口 | 2026-11-04 |
+| └─[设置与配置](./docs/features/Settings) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 关于页作者/版本号/技术栈字段对齐 | 2026-11-04 |
 | **开发文档** | | | |
 | ├─[项目结构](./docs/development/Project-Structure) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia 仓库结构重写 | 2026-11-03 |
 | ├─[技术栈](./docs/development/Tech-Stack) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia/.NET 10 重写 | 2026-11-03 |
