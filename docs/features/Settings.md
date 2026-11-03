@@ -61,15 +61,15 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 | **启用下载代理** | HTTP 代理；可填地址与可选用户名/密码 |
 | **启用任务浮动按钮** | 下载任务浮钮 |
 | **Collection 冲突策略** | 整合包/Collection 冲突处理 |
-| **下载任务并发上限** | 含 Collection/整合包，约 1–10 |
-| **下载线程数** | 分片线程 |
+| **下载任务并发上限** | `CollectionDownloadParallelism`（默认 **3**，约 1–10；含 Collection/整合包） |
+| **下载线程数** | `DownloadSegmentThreads`（默认 **4**；分片线程） |
 | **接管下载** | 粘贴 http(s) 地址后点 **另存为并下载**；说明：适用于非 Nexus/CurseForge 来源 |
 | **NexusMods 账户** | 登录 / 验证状态 / 刷新 Token / 退出；可看配额 |
 | **Nexus 登录失效提醒** | 可关 |
 | **NXM 协议** | **启动时尝试注册 NXM 协议**；按钮 **重新注册 NXM 协议**（平台能力因 OS 而异；无首启强制弹窗） |
 | **社区汉化数据源** | GitHub / Gitee |
 | **缓存管理** | 分类清理、保留时长、打开缓存目录 |
-| **检测并发** | Mod 更新检测 / 汉化检测线程数（`MaxConcurrentModUpdateChecks` / `MaxConcurrentModLocalizationChecks`，默认 4） |
+| **检测并发** | UI：**Mod 更新检测线程数** / **Mod 汉化检测线程数**（`MaxConcurrentModUpdateChecks` / `MaxConcurrentModLocalizationChecks`，默认各 **4**） |
 | **默认 SMAPI / Mod 源** | 仅 `settings.json` 字段 `DefaultSmapiSource`（默认 GitHub）、`DefaultModSource`（默认 NexusMods）；**设置页 UI 无对应控件**（迁移/目录逻辑会读） |
 
 
