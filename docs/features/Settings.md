@@ -151,6 +151,8 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 
 `UpdateDialog`（窗口标题「启动器更新」）发现新版本时：标题「发现新版本」；字段「版本」「来源」「发布时间」；「当前包体：」取 `DescribeRuntimeMode`（「自带运行环境」/「轻量版（需要 .NET 10）」等）；无匹配包体时警告「未找到与当前包体一致的更新文件，请前往发布页手动选择。」；「更新日志」区默认「暂无更新日志」；按钮 **忽略此版本** / **稍后** / **前往发布页** / **应用内下载**（下载中可 **取消下载**）。
 
+仓库另有 Avalonia `UpdateCompleteDialog`（默认标题「更新完成」；摘要「已下载并应用最新版本。可立即重启以生效。」；按钮 **查看更新日志** / **稍后重启** / **立即重启**），但 `DialogService` **未见**对应 Show 方法——当前完整「更新完成」流程仍以 WPF `SVL.Desktop` 为准；Avalonia 勿写「下载后必弹更新完成三按钮窗」。同理 `NestedFolderFixDialog`（「嵌套目录修复」/ **跳过** / **自动修复**）仅在 `DialogService.ShowNestedFolderFixDialogAsync` 定义，**未见**业务调用方。
+
 ## 匿名活跃统计
 
 启动时 `App.axaml.cs` 会 fire-and-forget 调用 `AnonymousUsageTelemetryService.ReportDailyActiveAsync()`：
