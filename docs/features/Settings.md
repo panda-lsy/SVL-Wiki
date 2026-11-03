@@ -64,8 +64,8 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 | **下载任务并发上限** | `CollectionDownloadParallelism`（默认 **3**，约 1–10；含 Collection/整合包） |
 | **下载线程数** | `DownloadSegmentThreads`（默认 **4**；分片线程） |
 | **接管下载** | 说明「粘贴 http/https 下载地址，另存为本地文件。适用于非 Nexus/CurseForge 来源的 Mod 或资源。」；水印 `https://example.com/mod.zip`；按钮 **另存为并下载**（另存对话框标题「接管下载 - 另存为」） |
-| **NexusMods 账户** | 登录 / 验证状态 / 刷新 Token / 退出；可看配额 |
-| **Nexus 登录失效提醒** | 可关 |
+| **NexusMods 账户** | 登录态显示头像/用户名/会员类型；**API 统计**（每日/每小时请求）；「状态:」「账号:」行；未登录引导见 [NexusMods 集成](./NexusMods-Integration)；按钮随态：**登录**/相关动作、**验证状态**、**退出登录** |
+| **Nexus 登录失效提醒** | `EnableNexusAuthNotification`；ToolTip「关闭后下载页将不再提示 Nexus 登录失效」 |
 | **NXM 协议** | **启动时尝试注册 NXM 协议**；按钮 **重新注册 NXM 协议**（平台能力因 OS 而异；无首启强制弹窗） |
 | **社区汉化数据源** | GitHub / Gitee |
 | **缓存管理** | 分类清理、保留时长、打开缓存目录 |
