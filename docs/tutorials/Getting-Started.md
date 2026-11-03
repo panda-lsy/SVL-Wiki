@@ -69,7 +69,7 @@
 | 来源 | 登录 | 备注 |
 |------|------|------|
 | GitHub | 通常不需要 | 常见默认源 |
-| CurseForge | 需要 | 需已登录 |
+| CurseForge | 否 | 走 `api.curse.tools` 代理，设置页**无**独立登录；遇 Cloudflare 拦截时详情会提示改用其他来源 |
 | NexusMods | 需要 | 受限下载依赖账号；非 Premium 常需浏览器 **Slow Download** 再回传（见 [NexusMods 集成](../features/NexusMods-Integration)） |
 
 步骤：

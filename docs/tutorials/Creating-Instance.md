@@ -63,7 +63,7 @@
 | 来源 | 登录 | 备注 |
 |------|------|------|
 | GitHub | 否 | 版本较全；网速看地区 |
-| CurseForge | 是 | 可能更快；版本列表可能不全 |
+| CurseForge | 否 | 走 `api.curse.tools`，设置页无登录；可能更快，版本列表可能不全 |
 | NexusMods | 是 | 自动下载可能需 Premium（以平台规则为准） |
 
 ### 步骤（下载页）
@@ -105,7 +105,7 @@
 
 ## 方法三：下载页安装整合包
 
-1. **「下载」** → 整合包分类/搜索（需配置 CurseForge / Nexus 时部分源才完整）。
+1. **「下载」** → 整合包分类/搜索（Nexus Collection 等受限源需登录；CurseForge 搜索一般无需用户登录）。
 2. 打开详情 → **「安装」** → 确认 Base 与实例名。
 
 旧图：`modpacklist.png`、`modpackdetail.png`。

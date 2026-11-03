@@ -36,8 +36,8 @@
 |------|------|------|----------|
 | **快速开始** | | | |
 | ├─[安装指南](./docs/tutorials/Installation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Gitee v1.2.0.0 已同步；匿名统计 FAQ | 2026-11-04 |
-| ├─[初次使用](./docs/tutorials/Getting-Started) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Launch.Status 无实例标题与 ActionStatus 对齐 Localization | 2026-11-04 |
-| ├─[创建游戏实例](./docs/tutorials/Creating-Instance) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 添加实例与路径操作 Instances.Status 全文 | 2026-11-04 |
+| ├─[初次使用](./docs/tutorials/Getting-Started) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 纠正 CurseForge 无需用户登录（curse.tools） | 2026-11-04 |
+| ├─[创建游戏实例](./docs/tutorials/Creating-Instance) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ SMAPI 来源登录表对齐 curse.tools（无用户登录） | 2026-11-04 |
 | └─[安装 Mods](./docs/tutorials/Installing-Mods) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 搜索详情 DetailsStatus 与本地安装分流 | 2026-11-04 |
 | **功能文档** | | | |
 | ├─[游戏实例管理](./docs/features/Instance-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 删除版本/卸载 Base SMAPI 与实例设置保存状态 | 2026-11-04 |
@@ -49,7 +49,7 @@
 | **高级功能** | | | |
 | ├─[版本隔离](./docs/features/Version-Isolation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 跨平台共享 Saves 路径示例 | 2026-11-04 |
 | ├─[SMAPI 管理](./docs/features/SMAPI-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ SMAPI 来源卡片状态与安装/更新状态句 | 2026-11-04 |
-| └─[设置与配置](./docs/features/Settings) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 基本设置 Steam 大厅提示对齐 axaml（仍需） | 2026-11-04 |
+| └─[设置与配置](./docs/features/Settings) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 语言/字号/打开 JSON/调试控制台导出状态 | 2026-11-04 |
 | **开发文档** | | | |
 | ├─[项目结构](./docs/development/Project-Structure) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia 仓库结构重写 | 2026-11-03 |
 | ├─[技术栈](./docs/development/Tech-Stack) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia/.NET 10 重写 | 2026-11-03 |

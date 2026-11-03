@@ -93,7 +93,7 @@
 |----|------|
 | **默认启动模式** | 下拉三项原文（`LaunchModes`）：「自动」「SMAPI」「原版」 |
 | **启用安全启动（保守参数）** | 勾选文案；与启动页只读「安全启动」联动全局 `EnableSafeLaunch` |
-| **窗口标题** | 水印「例如: Stardew Valley &lt;ver&gt; - &lt;name&gt;」；旁「?」ToolTip「查看窗口标题占位符说明」→ 对话框标题「窗口标题占位符帮助」：`<name>` / `<ver>` / `<smver>` / `<modscount>`；留空或 `<default>` 恢复默认 |
+| **窗口标题** | 水印「例如: Stardew Valley &lt;ver&gt; - &lt;name&gt;」；旁「?」ToolTip「查看窗口标题占位符说明」→ 对话框标题「窗口标题占位符帮助」：`<name>` 实例名 / `<ver>` 游戏版本 / `<smver>` SMAPI 版本 / `<modscount>` 已加载 Mod 数；留空或 `<default>` 恢复默认（启动时替换） |
 | **启动参数** | 水印「例如: --debug --loglevel trace」 |
 | **启动时尝试加入 Steam 大厅** | + **Steam 大厅 ID（64 位数字）**（水印「例如: 109775241234567890」）；提示「仅支持 Steam 大厅数字 ID；游戏内字母邀请码和 IP 地址仍需在联机菜单手动输入。」 |
 | **重置默认** / **保存实例设置** | 同卡底部按钮（后者 `VersionSettings.Settings.Save`）。重置确认标题「恢复实例默认设置」：正文「将清空当前实例的窗口标题、启动参数、服务器连接和 Steam 覆写设置。\n\n实例路径和 Mod 文件不会被删除。是否继续？」；成功状态「实例设置已恢复默认值（未删除实例数据）」。自动保存中「实例设置已自动保存」；手工保存「实例设置已保存（HH:mm:ss）」；失败「保存实例设置失败：…」。概览 **保存个性化** 亦走 `SaveInstanceSettings`（名称空则回落 `Default Instance`） |
