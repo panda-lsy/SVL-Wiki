@@ -58,7 +58,7 @@ Localization 另有 `Download.Modpack.Title/Description/UrlWatermark/Import/Open
 | **导出 Mod 配置文件（config/*.json、根目录自定义 JSON）**（`IncludeModSettings`，默认开） | 勾选文案已核 axaml；写入 `settings/Mods/...` 等 |
 | **导出当前 SVL 启动器文件**（默认关） | 外层带启动器的增强包格式 |
 | **保存配置** / **读取配置** | 表单配置（`.svlexport` / `.json`），与正式导出分开 |
-| **导出当前整合包** | 系统另存为对话框标题「另存为整合包」→ `.zip` |
+| **导出当前整合包** | 系统另存为对话框标题「另存为整合包」→ `.zip`；无 Mod 时状态「当前实例没有可导出的 Mod」；进度「导出进度 n%」；完成后摘要「最近导出: {路径}」或「尚未导出」 |
 | **打开导出目录** | `OpenExportFolderCommand` |
 
 策略全文：「导出策略：为遵循来源平台分发规则，导出包不直接包含 Mod 本体，仅导出清单及可选配置。」`sources` 里 `Bundled = false`。导入端按来源再下载。
