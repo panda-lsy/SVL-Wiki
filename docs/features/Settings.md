@@ -119,6 +119,10 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 
 `Settings.Other.LogLevel`（「日志级别」）与 `settings.json` 的 `LogLevel`（默认 `Info`）仍存在，但 `SettingsPageView.axaml` **其他**页**未见**对应下拉——勿写「设置里可改日志级别」。
 
+### 调试控制台（`DebugMode`）
+
+勾选 **启用调试模式** 并**重启**后，启动流程会自动打开 `DebugConsoleWindow`（窗口标题「SVL Debug Console」；顶栏「Debug 日志输出」；按钮 **导出** / **清空**；「级别过滤:」**DEBUG** / **INFO** / **WARN** / **ERROR**）。此为运行时日志窗，**不是**设置页「日志级别」下拉的替代 UI。
+
 ### 系统托盘（`TrayIconService`）
 
 勾选上述托盘相关项且平台支持时生效：托盘 ToolTip「SVL 启动器」；菜单 **显示主窗口** / **退出**。无桌面托盘实现时注册失败会静默回退窗口模式（不阻断启动）。关闭主窗口是否进托盘由 **关闭窗口时最小化到托盘** 与 `IsAvailable` 共同决定。
