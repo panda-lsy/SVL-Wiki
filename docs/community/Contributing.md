@@ -13,6 +13,39 @@
 - 通用确认/输入框按钮默认 **取消** / **确定**（`ConfirmDialog` / `InputDialog`）；具体业务对话框以各自 axaml 为准。路径/命名类常用 **取消** / **确认**（`GamePathSelectionDialog` / `InstanceNameDialog` / `InstanceSelectionDialog`）；`ModInstallTargetDialog` 主钮为 **确定**（另有 **另存为**）；`ModUpdateConfirmDialog` 为 **确认更新**；`GamePathConfirmDialog` 为 **确认使用此路径**；`SmapiVersionPickerDialog` 为 **确认安装**；`SvlMessageBox` 仅 **确定**；`DependencyEnableDialog` 主钮 **启用依赖**；`NestedFolderFixDialog` 为 **跳过** / **自动修复**（业务调用未见）；勿把「确定」「确认」混写成同一控件。
 - 维护者可直接向 `SVL-Wiki` 的 `main` 提交；对外贡献仍走 Fork + PR。旧 WPF 表述请改掉或移到 `docs/archive/`。
 
+### DialogService 速查（维护者）
+
+源码：`SVL.Avalonia/Services/DialogService.cs`。写文档时按 **Show 方法 → 控件** 核对默认标题；业务调用常覆盖 message。控件在 `SVL.Avalonia/Controls/`。
+
+| Show 方法 | 控件 | 默认标题 / 备注 |
+|-----------|------|-----------------|
+| `ShowConfirmAsync` | `ConfirmDialog` | 调用方标题；**取消** / **确定** |
+| `ShowInputAsync` | `InputDialog` | 同上 |
+| `ShowMessageAsync` | `SvlMessageBox` | 仅 **确定** |
+| `ShowConflictResolutionDialogAsync` | `ConflictResolutionDialog` | 调用方标题；默认打开钮「打开备份文件夹」/「打开原有 Mod 文件夹」；替换「替换（先备份）」 |
+| `ShowNexusLoginAsync` | `NexusLoginDialog` | Nexus 登录 |
+| `ShowUpdateDialogAsync` | `UpdateDialog` | 启动器更新；无主窗时返回 Later |
+| `ShowInstanceSelectionDialogAsync` | `InstanceSelectionDialog` | 默认「选择实例」；**取消** / **确认** |
+| `ShowModInstallTargetDialogAsync` | `ModInstallTargetDialog` | 默认「没有选择游戏版本，请选择」；**确定** / **另存为** / **取消** |
+| `ShowGamePathSelectionDialogAsync` | `GamePathSelectionDialog` | 默认「选择游戏路径」；描述默认「未自动探测到 Stardew Valley，请手动选择游戏目录。」（下载页等会覆盖） |
+| `ShowGamePathConfirmDialogAsync` | `GamePathConfirmDialog` | 默认「确认游戏路径」；默认正文「请确认此目录为 Stardew Valley **游戏**安装目录。」；下载流程覆盖为「…安装目录。确认后将作为下载与安装目标路径。」；主钮 **确认使用此路径** |
+| `ShowInstanceNameDialogAsync` | `InstanceNameDialog` | 调用方标题；重名「实例名称已存在: {名}」 |
+| `ShowDependencyEnableDialogAsync` | `DependencyEnableDialog` | 默认「启用依赖」；主钮 **启用依赖** |
+| `ShowModUpdateConfirmDialogAsync` | `ModUpdateConfirmDialog` | 默认「确认更新 Mod」；主钮 **确认更新** |
+| `ShowModpackDropDialogAsync` | `ModpackDropDialog` | 默认「导入 Modpack」 |
+| `PickModpackFileAsync` | 系统文件选择器 | 标题「选择 Modpack 整合包文件」 |
+| `ShowNestedFolderFixDialogAsync` | `NestedFolderFixDialog` | 默认「嵌套目录修复」；**跳过** / **自动修复**（**未见**业务调用） |
+| `ShowModpackFailureDialogAsync` | `ModpackFailureDialog` | 默认「Modpack 安装失败」；Close / Retry |
+| `ShowBrowserDownloadGuideDialogAsync` | `BrowserDownloadGuideDialog` | 默认「浏览器下载指引」 |
+| `ShowIconPickerDialogAsync` | `IconPickerDialog` | 默认「选择图标」；预设「经典」「模组」「祝尼魔」「绿色祝尼魔」「上传」 |
+| `ShowSmapiVersionPickerAsync` | `SmapiVersionPickerDialog` | 主钮 **确认安装** |
+| `ShowWindowTitleHelpDialogAsync` | `WindowTitleHelpDialog` | 窗口标题占位符帮助 |
+| `ShowLocalModDetailDialogAsync` | `LocalModDetailDialog` | 本地 Mod 详情 |
+| `BrowseFolderPathAsync` / `BrowseFilePathAsync` / `SaveFilePathAsync` | 系统选择器 | 调用方 title |
+
+另有 axaml：`DownloadProgressDialog`、`UpdateCompleteDialog`——**不**经上表 Show 方法挂到 Avalonia 主流程（见 [设置](../features/Settings)、[下载管理器](../features/Download-Manager)）。勿另开 `Dialogs.md`；功能页已写清的具体正文以功能页为准。
+
+
 ## 贡献类型
 
 Wiki 接受以下几种类型的贡献：
