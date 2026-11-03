@@ -13,6 +13,7 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 - [个性化](#个性化)
 - [其他](#其他)
 - [关于](#关于)
+- [匿名活跃统计](#匿名活跃统计)
 - [配置文件](#配置文件)
 - [与旧版差异](#与旧版差异)
 
@@ -135,6 +136,17 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 | **立即检查更新** | `CheckLauncherUpdateCommand` |
 
 页内提示：「关闭更新提示后仍会在后台下载，安装需手动确认。」自动下载**不会**自动安装并重启；需用户确认安装。
+
+## 匿名活跃统计
+
+启动时 `App.axaml.cs` 会 fire-and-forget 调用 `AnonymousUsageTelemetryService.ReportDailyActiveAsync()`：
+
+- 端点：`https://api.svl.qzz.io/api/stats/usage/report`
+- 内容：匿名 ID（安装 GUID 的 SHA-256）、启动器版本、`net10.0`、`OSVersion`、UTC 时间戳；**不**采用户名 / 游戏路径等
+- 频率：UTC 日最多一次；状态文件 `LocalApplicationData/SVL/telemetry/usage-state.json`（兼容旧 WPF PascalCase）
+- **关闭方式**：环境变量 `SVL_DISABLE_ANON_TELEMETRY=1`（或 `true`）。设置页**无**对应开关
+
+来源：`AnonymousUsageTelemetryService.cs`。
 
 ## 配置文件
 

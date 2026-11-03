@@ -189,6 +189,11 @@ Avalonia 用户数据目录（`LocalApplicationData/SVL/Avalonia/`）：
 
 ## 常见问题
 
+### 如何关闭匿名活跃统计？
+
+设置页无开关。启动前设置环境变量 `SVL_DISABLE_ANON_TELEMETRY=1`（或 `true`）。详见 [设置与配置 · 匿名活跃统计](../features/Settings#匿名活跃统计)。
+
+
 ### Q: 轻量包打不开 / 提示缺运行时
 
 **A:** 安装与系统架构一致的 [.NET 10 Runtime](https://dotnet.microsoft.com/download/dotnet/10.0)，或改下自包含包。
