@@ -6,6 +6,10 @@
 
 社区资源本地化是指为星露谷物语相关的 Mod、整合包（Modpack）和合集（Collection）在 Curseforge/NexusMods 上的信息添加中文翻译，让更多中文玩家能够方便地了解和使用这些资源。
 
+
+> **Avalonia 对齐（v1.2.0.0）**：贡献页正式地址为 [`https://svl.qzz.io/contribute.html`](https://svl.qzz.io/contribute.html)（源码常量 / 对话框跳转）。启动器内可从 **Mod 详情** 的 **「贡献本地化」** 带参打开（`uniqueid` / `rawtitle` / `rawdescription` / `auto=1`）。设置 → **下载设置** → **缓存管理** 可切换 **社区汉化数据源**（`Gitee` / `GitHub`，默认偏好 Gitee）并清理 **社区汉化** 缓存。数据仓库仍为 [StardewValley-Community-Localization](https://github.com/panda-lsy/StardewValley-Community-Localization)。
+
+
 ## 贡献平台
 
 我们支持对以下平台的资源进行本地化贡献：
@@ -18,7 +22,7 @@
 
 ## 快速贡献入口
 
-👉 [前往本地化贡献页面](https://svl-launcher.com/contribute.html)
+👉 [前往本地化贡献页面](https://svl.qzz.io/contribute.html)
 
 该页面提供了可视化的贡献界面，包含：
 
@@ -41,7 +45,7 @@
   ![contributor.png](image/Localization-Contributing/contributor.png)
 - 点击"确定并加载信息"按钮获取平台原始信息与仓库现有内容
 
-在启动器更新至 1.1.8 版本后，可在资源详情页或 Mod 本地信息页点击「贡献本地化 」按钮，快速跳转到汉化提交页面，此时资源信息会被一键填充解析，无需再手动录入。
+Avalonia 版可在 **Mod 详情** 点击 **「贡献本地化」**（或查看贡献者说明），浏览器打开贡献页并尽量预填 Unique ID / 标题 / 描述；也可在下载页资源详情走同类入口。网页端仍可手动选平台与 ID。
 
 ![faster1.png](image/Localization-Contributing/faster1.png)
 
@@ -120,6 +124,18 @@
 ![success.png](image/Localization-Contributing/success.png)
 
 这样就代表着已经将成果提交，只需要等待维护者审核并并入仓库，就完成了！
+
+
+## 启动器内相关设置
+
+| 位置 | 作用 |
+|------|------|
+| **设置 → 下载设置 → 社区汉化数据源** | `Gitee`（国内加速）/ `GitHub`；首选失败会试备用源（`CommunityLocalizationService`） |
+| **设置 → 下载设置 → 缓存管理 → 社区汉化 → 清理** | 清本地汉化 JSON 缓存；状态提示「社区汉化缓存已清理」 |
+| **检测汉化** / **刷新选中汉化**（版本设置 → Mod 管理） | 拉取/刷新列表中的社区译名 |
+| **检测冲突** | 使用社区冲突关系数据；摘要可提示前往贡献页补充 |
+
+源码：`CommunityLocalizationService.cs`、`DialogService`（贡献 URL）、`SettingsPageView.axaml` 缓存卡片。
 
 ## 数据格式说明
 

@@ -24,7 +24,7 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 1. 左侧导航点 **「设置」**（本地化键 `Nav.Settings`）。
 2. 页顶会显示当前 `settings.json` 路径。
 
-> 快捷键 `Ctrl + ,`：**待核实**（Avalonia 版 axaml 未看到等价绑定）。
+> 快捷键 `Ctrl + ,`：Avalonia 版 **未见** 等价 KeyGesture 绑定；请用左侧导航 **「设置」**。
 
 ## 选项卡一览
 
@@ -67,6 +67,24 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 | **缓存管理** | 分类清理、保留时长、打开缓存目录 |
 | **检测并发** | Mod 更新检测 / 汉化检测线程数（`MaxConcurrentModUpdateChecks` / `MaxConcurrentModLocalizationChecks`，默认 4） |
 | **默认 SMAPI / Mod 源** | 仅 `settings.json` 字段 `DefaultSmapiSource`（默认 GitHub）、`DefaultModSource`（默认 NexusMods）；**设置页 UI 无对应控件**（迁移/目录逻辑会读） |
+
+
+### 缓存管理（下载设置内）
+
+界面文案（`SettingsPageView.axaml`）：
+
+| 分类 | 清理按钮效果（状态栏） |
+|------|------------------------|
+| **社区汉化** | 「社区汉化缓存已清理」 |
+| **SMAPI 下载** | 清 SMAPI 安装包缓存 |
+| **下载安装** | 清安装过程缓存 |
+| **图片/图标** | 清图片缓存 |
+| **下载文件缓存** | 清通用下载缓存 |
+| **游戏本体下载缓存** | 清游戏本体下载缓存 |
+| **Nexus 下载缓存** | 清 Nexus 相关下载缓存 |
+
+另有：**总缓存大小** / **缓存文件数**、**搜索/汉化缓存保留时长（分钟）**、打开缓存目录。  
+**社区汉化数据源** 下拉为 `Gitee` / `GitHub`（提示：GitHub 国际源，Gitee 国内加速；首选失败自动备用）。
 
 ## 个性化
 
@@ -139,7 +157,7 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 |--------|------|
 | WPF `instances.json`（程序目录旁等） | 首次启动可由迁移服务读入 |
 | `YamlConfigProvider` / `*.yaml` | Core 仍有通用实现；**Avalonia 用户设置不以 yaml 为主** |
-| LiteDB | **待核实**：Avalonia 主路径未见作为设置存储 |
+| LiteDB | Avalonia / Core.Platform **未引用**；设置不以 LiteDB 存储 |
 
 ## 与旧版差异
 
@@ -147,7 +165,7 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 |--------------------|---------------|
 | `%LocalAppData%\SVL\config.yaml` | **`…\SVL\Avalonia\settings.json`** |
 | 强调色等写在 yaml 示例里 | JSON 字段 + 设置页 |
-| 「开机自启动」等 | **待核实**：当前设置页未见该项 |
+| 「开机自启动」等 | 设置页 **无** 开机自启项；仅有托盘相关（启动/关闭最小化到托盘） |
 | 实例 `enableIsolation` 开关 | **1.1.8.2 起版本设置页已移除隔离开关**；见 [版本隔离](./Version-Isolation) |
 
 ---

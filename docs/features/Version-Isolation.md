@@ -42,7 +42,11 @@
 - **新布局**：直接用 `versions/<名>`
 - **旧布局**：若存在有效的 `versions/<名>/game`，则用该子目录
 
-解析逻辑见 `InstanceRuntimePathResolver`。
+解析逻辑见 `InstanceRuntimePathResolver`：
+
+- `Resolve(versionRoot)`：若 `versions/<名>/game` 含游戏标记文件则用旧布局，否则用 `versions/<名>` 本身。
+- `ResolveBasePath(path)`：从候选路径向上找到 `versions` 的父目录作为 Base；**安装整合包时必须追加到 Base/versions，禁止在实例目录下再套一层 versions**。
+- 游戏标记示例：`Stardew Valley.dll` / `Stardew Valley.exe` / `StardewValley` / `Stardew Valley.app` 等。
 
 > Core `InstanceIsolationService` 注释里还有 `instances/<名>/versions` 说法；**Avalonia 日常路径以 Base 下 `versions/<名>` 为准**（与 CHANGELOG / 安装流程一致）。扫描时可能兼容旧 `versions/<名>/game`。
 

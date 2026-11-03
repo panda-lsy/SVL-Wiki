@@ -162,6 +162,8 @@ Get-FileHash .\SVL_v1.2.0.0_release_Windows_x64.zip -Algorithm SHA256
 | 资源 | 用途 |
 |------|------|
 | `SVL.Desktop_v{版本}_Release.exe` / `_Debug.exe` | 自包含构建额外产出的**单文件 EXE**。旧版更新器要求发布资产是真正的单文件 EXE，不能把 ZIP 改名为 EXE。需要给旧版在线更新用时，仍须把该 EXE 挂到 Release 资产上。 |
+| `SVL_v{版本}_Windows_x64_requires_dotnet10.exe` / `_diagnostic.exe` | 轻量 / 诊断向单文件；**日常新装优先 ZIP/DEB/DMG**，勿与自包含 Desktop EXE 混淆 |
+| 无扩展名的 `SVL_v*_Linux_x64`（及 debug 变体） | 与 ZIP 并列的可执行文件资产；Linux 也可直接下载后 `chmod +x` 运行 |
 | 名称含 `requires_dotnet10` 的轻量包 | **不能**作为旧版的直接更新文件。 |
 
 新版会识别当前包体类型，检查更新时只选**同类型**安装包；Windows 支持应用内替换，macOS / Linux 当前需到发布页手动安装。无法识别或没有同类型文件时，会提示手动选择，不会自动换类型。来源：启动器 `README.md`。

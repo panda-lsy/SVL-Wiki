@@ -40,11 +40,11 @@
 | **SharpZipLib** | 1.4.2 | ZIP 等压缩处理 |
 | **SharpCompress** | 0.49.1 | 更多归档格式（Avalonia 与 Core.Platform 均引用） |
 | **AnimatedImage.Avalonia** | 2.1.4 | 动图 |
-| **Tmds.DBus.Protocol** | 0.21.3 | Linux 桌面相关（如协议/会话集成，**待核实**具体调用面） |
+| **Tmds.DBus.Protocol** | 0.21.3 | Linux 桌面 / D-Bus 相关（随 Avalonia 桌面场景引入；业务调用面以 `using Tmds` 检索为准） |
 
 来源：`SVL.Avalonia/SVL.Avalonia.csproj`、`SVL.Core.Platform/SVL.Core.Platform.csproj`。
 
-> **待核实**：是否仍使用 LiteDB / YamlDotNet / Newtonsoft.Json。旧 Wiki 按 WPF 列出；Avalonia 配置侧可见 `System.Text.Json`（如 `AppUserSettingsStore`）。请以各项目 `PackageReference` 与 `using` 为准，勿照搬下表旧假设。
+> **Avalonia 主线依赖核查（修订时）**：`SVL.Avalonia` / `SVL.Core.Platform` **无** LiteDB、**无** Newtonsoft.Json、**无** YamlDotNet。用户设置与社区汉化均用 **`System.Text.Json`**（`AppUserSettingsStore`、`CommunityLocalizationService`）。`YamlDotNet` 仅出现在遗留 `SVL.Core`（net48）包引用中，**不是** Avalonia 配置路径。
 
 ## UI
 
@@ -55,7 +55,7 @@
 | **DynamicResource** | 主题配色（见启动器 README「界面与主题」） |
 | **数据绑定 + MVVM** | View ↔ ViewModel |
 
-资源与样式大致在 `SVL.Avalonia/Resources/`、`Assets/`。**待核实**主题文件树是否与旧 `Themes/*.xaml` 一一对应（旧结构已不适用）。
+资源与样式：`SVL.Avalonia/Resources/Theme.axaml`、`Assets/`；配色运行时由 `ThemeService` 写入 `Application.Resources`（`AccentBrush` 等）。**不再**使用旧 WPF `Themes/*.xaml` 树。
 
 ## 数据与配置
 
@@ -69,20 +69,26 @@
 
 ## 平台层
 
-`SVL.Core.Platform`（`net10.0`）提供 Windows / Linux / macOS 差异实现，例如：
+`SVL.Core.Platform`（`net10.0`）提供 Windows / Linux / macOS 差异实现。修订时 `Services/` 含：
 
-- 游戏安装路径探测（`GameInstallPathLocator.cs`）
-- Linux NXM / XDG 相关注册
-- 其它平台服务（回收站、协议等）
+| 类型 | 说明 |
+|------|------|
+| `GameInstallPathLocator` | 探测 Steam/GOG 等游戏安装路径 |
+| `NxmProtocolRegistrationService` + `LinuxNxmProtocolRegistration` / `MacOSNxmProtocolRegistration` | `nxm://` 协议注册 |
+| `NxmLinkParser` | 解析 NXM 链接 |
+| `RecycleBinService` | 平台回收站 |
+| `FileExplorerService` / `ExternalProcessService` | 打开文件夹 / 外链 |
+| `SmapiInstallService` | SMAPI 安装相关平台逻辑 |
+| `PlatformInfoService` / `SingleInstanceService` / `WindowTitleService` | 平台信息、单实例、窗口标题 |
 
-**待核实**：完整服务清单以该项目 `Services/` 目录为准。
+以仓库目录为准；新增服务时同步本表。
 
 ## 测试
 
 | 项目 | 框架 | 说明 |
 |------|------|------|
 | **SVL.Migration.Tests** | MSTest + Avalonia.Headless | 在默认 `SVL.sln` 中 |
-| **SVL.Tests** | **待核实** | 仓库内存在；是否纳入默认 sln / CI 以当前 `SVL.sln` 与 workflow 为准 |
+| **SVL.Tests** | （遗留） | 仓库有 `SVL.Tests/`；**未**列入默认 `SVL.sln`（修订时）。Avalonia 相关测例在 **SVL.Migration.Tests** |
 
 来源：`SVL.Migration.Tests/SVL.Migration.Tests.csproj`、`SVL.sln`。
 

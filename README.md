@@ -56,7 +56,7 @@
 | └─[构建指南](./docs/development/Building) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已对齐 `build.ps1` / `SVL.Avalonia` | 2026-11-03 |
 | **贡献指南** | | | |
 | ├─[对 Wiki 进行贡献](./docs/community/Contributing) | ![100%](https://img.shields.io/badge/进度-100%25-brightgreen) | ✅ 完成 | 2026-03 |
-| └─[社区资源本地化](./docs/community/Localization-Contributing) | ![进行中](https://img.shields.io/badge/进度-进行中-yellow) | 📝 编写中 | - |
+| └─[社区资源本地化](./docs/community/Localization-Contributing) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 贡献 URL / 启动器入口 / 汉化源对齐 | 2026-11-04 |
 
 > **说明**：不要把「未校对的旧稿」标成 100%。本表只反映文档状态，不代表启动器功能完成度。
 
@@ -67,6 +67,7 @@
 - [安装指南](./docs/tutorials/Installation) - 下载和安装 SVL（Win / Linux / macOS）
 - [初次使用](./docs/tutorials/Getting-Started) - 第一次使用 SVL
 - [创建游戏实例](./docs/tutorials/Creating-Instance) - 创建和管理游戏实例
+- [安装 Mods](./docs/tutorials/Installing-Mods) - 下载、拖放与本地安装
 
 ### 功能文档
 
