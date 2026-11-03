@@ -99,7 +99,7 @@ SVL-StardewValleyLauncher/
 | 下载页 VM | `SVL.Avalonia/ViewModels/DownloadPageViewModel.cs` |
 | 下载安装服务 | `SVL.Avalonia/Services/DownloadInstallService.cs`、`HttpDownloadService.cs` |
 | Nexus / CurseForge 缓存等 | `SVL.Avalonia/Services/*DownloadCache*.cs` 等 |
-| 功能页大 VM | `SVL.Avalonia/ViewModels/FeaturePagesViewModels.cs`（仍集中约 1.6 万行；任务/版本设置/导出等） |
+| 功能页大 VM | `SVL.Avalonia/ViewModels/FeaturePagesViewModels.cs`（修订时约 **16676** 行；任务/版本设置/导出等） |
 
 ### 设置 / 更新 / 遥测
 
