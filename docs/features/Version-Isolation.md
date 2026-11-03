@@ -44,6 +44,8 @@
 
 解析逻辑见 `InstanceRuntimePathResolver`。
 
+> Core `InstanceIsolationService` 注释里还有 `instances/<名>/versions` 说法；**Avalonia 日常路径以 Base 下 `versions/<名>` 为准**（与 CHANGELOG / 安装流程一致）。扫描时可能兼容旧 `versions/<名>/game`。
+
 ## 目录布局
 
 示意（简化）：
