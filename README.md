@@ -49,15 +49,15 @@
 |------|------|------|----------|
 | **快速开始** | | | |
 | ├─[安装指南](./docs/tutorials/Installation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Gitee v1.2.0.0 已同步；匿名统计 FAQ | 2026-11-04 |
-| ├─[初次使用](./docs/tutorials/Getting-Started) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 未挂载侧栏迁移提示键 | 2026-11-04 |
+| ├─[初次使用](./docs/tutorials/Getting-Started) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 实机缺口节（需 Base 才能补任务/启动就绪图） | 2026-11-04 |
 | ├─[创建游戏实例](./docs/tutorials/Creating-Instance) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ SMAPI 命名对话框标题变体 | 2026-11-04 |
 | └─[安装 Mods](./docs/tutorials/Installing-Mods) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Mod 搜索水印与类型筛选提示 | 2026-11-04 |
 | **功能文档** | | | |
 | ├─[游戏实例管理](./docs/features/Instance-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ SMAPI 命名校验交叉引用 | 2026-11-04 |
 | ├─[Mod 管理](./docs/features/Mod-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 下载页安装目标两路对话框文案 | 2026-11-04 |
-| ├─[NexusMods 集成](./docs/features/NexusMods-Integration) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ API 配额文案与补丁结果句 | 2026-11-04 |
+| ├─[NexusMods 集成](./docs/features/NexusMods-Integration) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Collection 行 Phase/跳过条件交叉引用 | 2026-11-04 |
 | ├─[Modpack 整合包](./docs/features/Modpack-Support) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Collection StepText 交叉引用 | 2026-11-04 |
-| ├─[下载管理器](./docs/features/Download-Manager) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 路径黄条原文与未挂载导入键 | 2026-11-04 |
+| ├─[下载管理器](./docs/features/Download-Manager) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 任务页 AdviceTitle / 行操作启用表 | 2026-11-04 |
 | └─[主题与外观](./docs/features/Theming) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ GameCursor 星露谷指针素材表 | 2026-11-04 |
 | **高级功能** | | | |
 | ├─[版本隔离](./docs/features/Version-Isolation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 删除延后 .svl-delete- 清理 | 2026-11-04 |
@@ -68,7 +68,7 @@
 | ├─[技术栈](./docs/development/Tech-Stack) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia/.NET 10 重写 | 2026-11-03 |
 | └─[构建指南](./docs/development/Building) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已对齐 `build.ps1` / `SVL.Avalonia` | 2026-11-03 |
 | **贡献指南** | | | |
-| ├─[对 Wiki 进行贡献](./docs/community/Contributing) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 对话框确定/确认主钮分流表 | 2026-11-04 |
+| ├─[对 Wiki 进行贡献](./docs/community/Contributing) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ DialogService Show 方法速查表 | 2026-11-04 |
 | └─[社区资源本地化](./docs/community/Localization-Contributing) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 两处贡献本地化 i 正文分流对齐 | 2026-11-04 |
 
 > **说明**：本表只反映 Wiki 是否已按 Avalonia 改过，不代表启动器功能完成度，也不要把「已修订」读成 100%。归档旧稿见 `docs/archive/`（不入 SUMMARY / 侧栏）。

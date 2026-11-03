@@ -225,3 +225,9 @@ Theme was not changed.
 - Mod and Modpack lists are empty until a keyword search; Mod shows Nexus OAuth 登录已失效. Login was not attempted.
 - Creating an instance needs a Stardew Valley install directory (浏览 / 确认). None was selected.
 - 游戏本体 is labeled SteamCMD 登录下载; Steam login was not attempted.
+
+
+== NOT CAPTURED (needs real Base / active tasks) ==
+- tasks.png: 导航「任务」非空列表 + 右栏详情（本批无游戏目录，无法发起真实下载/安装任务）
+- launch-ready.png: 有实例后「启动游戏」启用态
+- version-mod-manage.png: 版本设置内 Mod管理 / 启动页「Mod管理」
