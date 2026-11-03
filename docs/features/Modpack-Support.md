@@ -52,7 +52,7 @@
 |-------------|------|
 | 整合包名称 / 版本 / 作者 | 写入清单 |
 | **导出 Mod 清单**（`IncludeMods`，默认开） | 写入 `modpack.json` + `sources.json` 条目；**不是**打包 dll/资源本体；列表可 **全选/反选**，旁注「来源优先导出清单，无来源条目仅保留安装提示」 |
-| **导出 Mod 配置文件（config/*.json、根目录自定义 JSON）** | 勾选文案已核 axaml；写入 `settings/Mods/...` 等 |
+| **导出 Mod 配置文件（config/*.json、根目录自定义 JSON）**（`IncludeModSettings`，默认开） | 勾选文案已核 axaml；写入 `settings/Mods/...` 等 |
 | **导出当前 SVL 启动器文件**（默认关） | 外层带启动器的增强包格式 |
 | **保存配置** | 保存导出表单（`SaveExportConfigCommand`），与正式导出按钮分开 |
 | **导出当前整合包** | 另存为 `.zip` |
