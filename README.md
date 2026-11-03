@@ -36,15 +36,15 @@
 |------|------|------|----------|
 | **快速开始** | | | |
 | ├─[安装指南](./docs/tutorials/Installation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Gitee v1.2.0.0 已同步；匿名统计 FAQ | 2026-11-04 |
-| ├─[初次使用](./docs/tutorials/Getting-Started) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 空状态欢迎四步与信息卡对齐 notes | 2026-11-04 |
+| ├─[初次使用](./docs/tutorials/Getting-Started) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ SplashWindow 与未挂载 SplashScreen | 2026-11-04 |
 | ├─[创建游戏实例](./docs/tutorials/Creating-Instance) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 添加实例水印与路径空状态对齐截图 | 2026-11-04 |
 | └─[安装 Mods](./docs/tutorials/Installing-Mods) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Mod 筛选 ToolTip 与 OAuth 条幅对齐 axaml | 2026-11-04 |
 | **功能文档** | | | |
 | ├─[游戏实例管理](./docs/features/Instance-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 写入 Steam 关客户端确认与完成文案 | 2026-11-04 |
-| ├─[Mod 管理](./docs/features/Mod-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 批量更新确认与 ModUpdateConfirm 文案 | 2026-11-04 |
+| ├─[Mod 管理](./docs/features/Mod-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ ConflictResolutionDialog 覆盖确认文案 | 2026-11-04 |
 | ├─[NexusMods 集成](./docs/features/NexusMods-Integration) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ NexusLoginDialog 控件与 OAuth 状态文案 | 2026-11-04 |
 | ├─[Modpack 整合包](./docs/features/Modpack-Support) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ ModpackFailureDialog 结果窗对齐 | 2026-11-04 |
-| ├─[下载管理器](./docs/features/Download-Manager) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ SteamCMD 状态串与 DownloadProgress 缺口 | 2026-11-04 |
+| ├─[下载管理器](./docs/features/Download-Manager) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 任务详情交叉引用冲突覆盖对话框 | 2026-11-04 |
 | └─[主题与外观](./docs/features/Theming) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 个性化页对齐 ThemeService | 2026-11-04 |
 | **高级功能** | | | |
 | ├─[版本隔离](./docs/features/Version-Isolation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 跨平台共享 Saves 路径示例 | 2026-11-04 |
