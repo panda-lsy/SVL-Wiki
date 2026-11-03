@@ -2,7 +2,7 @@
 
 说明如何添加 Base、用 SMAPI/整合包生成 **versions** 隔离实例，以及进入版本设置。
 
-界面文案以 Avalonia 本地化与 axaml 为准；旧截图仅作参考。
+界面文案以 Avalonia 本地化与 axaml 为准。
 
 ![主界面示意（Linux · v1.2.0.0）](image/avalonia/main.png)
 
@@ -42,8 +42,6 @@
 4. 路径右键：**重命名** / **打开文件夹** / **刷新信息** / **删除**（删登记，非删游戏本体——**待核实**删除是否仅移除列表项）。
 
 首次启动也会探测常见安装路径（`GameInstallPathLocator`）。
-
-旧截图：`image/Creating-Instance/main.png`、`list.png` 等仍可能来自 WPF，按钮位置以现版为准。
 
 ## 方法一：安装 SMAPI 创建实例
 

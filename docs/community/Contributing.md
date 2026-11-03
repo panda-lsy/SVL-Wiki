@@ -2,6 +2,14 @@
 
 感谢你有兴趣为 SVL Wiki 做出贡献！本文档将帮助你了解如何参与 Wiki 的编写和改进。
 
+## 文档现状（Avalonia）
+
+- 启动器主线是 **.NET 10 + Avalonia**，跨 Win / Linux / macOS。
+- 写功能页时对照 `SVL.Avalonia` 的 axaml / ViewModel / `LocalizationService`，**不要编造菜单名**。
+- 不确定就写 **待核实** 并标源码路径。
+- 截图优先放 `docs/tutorials/image/avalonia/`，注明平台与版本号。
+- 直接向 `SVL-Wiki` 的 `main` 提交；旧 WPF 表述请改掉或移到 `docs/archive/`。
+
 ## 贡献类型
 
 Wiki 接受以下几种类型的贡献：

@@ -1,96 +1,78 @@
 # 初次使用
 
-> 欢迎使用 SVL（Stardew Valley Launcher）！如果你是第一次接触这个启动器，本章节会快速带你：把《星露谷物语》添加为 Base，并创建第一个**版本隔离**的 SMAPI 游戏实例。
+第一次打开 Avalonia 版 SVL：添加 Base，再用 SMAPI 建第一个 **versions** 隔离实例。
 
-> **跨平台提示**  
-> 请先按 [安装指南](./Installation) 在 Windows / Linux / macOS 装好 **Avalonia** 版再往下做。  
-> 下文流程（Base → 下 SMAPI → 建实例）在各平台一致；**界面按钮原文以你本机为准**。旧截图来自早期版本，若与现版不一致，以现版为准，勿死记截图里的旧文案。  
-> 配置目录见安装指南中的 `SVL/Avalonia/` 说明。
+> 先按 [安装指南](./Installation) 装好 Win / Linux / macOS 包。  
+> 配置在 `LocalApplicationData/SVL/Avalonia/`（见安装指南）。  
+> 按钮文案以本机界面为准。
 
-![启动页示意（Linux · v1.2.0.0）](image/avalonia/main.png)
+![启动页（Linux · v1.2.0.0）](image/avalonia/main.png)
 
-## 小科普
+## 目录
 
-**什么是 Base？**
+- [概念](#概念)
+- [添加 Base](#添加-base)
+- [用 SMAPI 建实例](#用-smapi-建实例)
+- [拖放 SMAPI / 整合包](#拖放-smapi--整合包)
+- [确认成功](#确认成功)
+- [下一步](#下一步)
 
-**Base** 指的是通过 **传统的游戏安装方式** 安装的星露谷物语（以及 SMAPI）所在的安装文件夹（例如 Steam 默认的 `...\Steam\steamapps\common\Stardew Valley`；Linux / macOS 上则为对应 Steam/GOG 目录）。
+## 概念
 
-**什么是游戏实例？**
+| 名词 | 含义 |
+|------|------|
+| **Base** | Steam / GOG 等装好的游戏目录 |
+| **隔离实例** | `Base/versions/<名>/`，独立 Mods / 常独立 SMAPI |
+| **存档** | **共享**系统默认存档目录（见 [版本隔离](../features/Version-Isolation)） |
 
-**实例** 是 SVL **最核心的创新**，它让你拥有多个完全独立的游戏环境。
+没有「启用隔离」开关：装 SMAPI / 整合包时默认写入 `versions`。
 
-* 拥有自己独立的 **Mods 文件夹** 和 SMAPI 版本。
-* 共享同一份游戏本体文件（避免重复占用硬盘空间）。
+## 添加 Base
 
-> 注：版本隔离的实例不同于传统的 Mod 组合，前者对整合包系统适配性更佳。你可以在一个《星露谷物语》下，通过更加系统的管理方式来共存许多整合包。![Modpacks.png](image/Getting-Started/Modpacks.png)
->
-> 这些 Modpacks 使用的都是同一个游戏本体！但是可以随意切换。
+1. 启动后若已探测到安装目录，可直接用。  
+2. 没有则点 **「版本选择」**。  
+3. 路径操作里点 **「添加」**，选游戏根目录（可粘贴路径）。  
+4. 左栏出现路径，右栏 **Base** 分组可见卡片。
 
-## 添加你的 Base 文件夹
+![版本选择（Linux · v1.2.0.0）](image/avalonia/instances.png)
 
-启动器进行版本隔离管理的基础是需要一个安装好的《星露谷物语》，它会基于这个作为 Base，然后进行游戏实例的管理与启动。
+多平台探测逻辑见启动器 `GameInstallPathLocator`（路径因 Steam/GOG 而异）。
 
-当你第一次打开 SVL，它会自动检测你现有的 Base 游戏目录（例如 Steam 安装的 Stardew Valley）。探测逻辑覆盖多平台常见路径（见源码 `SVL.Core.Platform/Services/GameInstallPathLocator.cs`）。
-![1773845589261](image/Getting-Started/1773845589261.png)
+## 用 SMAPI 建实例
 
-如果并没有自动检测到 Base，或者你的游戏安装到其他文件夹的话，可以手动添加到版本列表中：
+| 来源 | 登录 | 备注 |
+|------|------|------|
+| GitHub | 通常不需要 | 常见默认源 |
+| CurseForge | 需要 | 需已登录 |
+| NexusMods | 需要 | 受限下载依赖账号；Premium 行为 **待核实** 产品文案 |
 
-在主页面点 **「版本选择」**，然后在版本选择页用 **「添加」** 选择游戏所在的文件夹就可以了。
+步骤：
 
-（注意：文件夹输入框可以复制路径进去并自动进行解析，可以先在文件管理器找到游戏的位置，然后一键复制游戏路径过去。）
+1. 导航 **「下载」** → 类别 **SMAPI**。  
+2. 打开详情 → **安装**。  
+3. 选 **Base**，输入实例名。  
+4. 在 **「任务」** 看进度。  
+5. 回到版本选择：**Versions** 下应出现新卡片（带 SMAPI 标签）。
 
-![1773845817621](image/Getting-Started/1773845817621.png)
+![下载页（Linux · v1.2.0.0）](image/avalonia/downloads.png)
 
-## 创建第一个游戏实例
+也可在 **版本设置 → 自动安装 → 安装 / 更改 SMAPI** 对已有路径操作。详见 [创建游戏实例](./Creating-Instance)、[SMAPI 管理](../features/SMAPI-Management)。
 
-通过在启动器里 **安装一个新的 SMAPI**（或者直接把 SMAPI 的压缩包拖进去），它就会自动引导你 **创建一个新的游戏实例**。
+## 拖放 SMAPI / 整合包
 
-### 下载 SMAPI
+把官方 SMAPI zip 或整合包拖进窗口，按提示选 Base / 起名。版本选择页也有 **「导入整合包」**。
 
-SVL 提供三个源的 SMAPI 自动化安装支持
+## 确认成功
 
-| 来源 | Github   | Curseforge | NexusMods                           |
-| ---- | -------- | ---------- | ----------------------------------- |
-| 登录 | 无需登录 | 需要登录   | 需要登录                            |
-| 优势 | 版本齐全 | 下载速度快 | 版本齐全                            |
-| 劣势 | 网速受限 | 版本不全   | 网速受限，需要 premium 才能自动下载 |
+- 版本选择里能看到新 **Versions** 实例。  
+- 启动页选中该实例后点 **「启动游戏」**。  
+- 需要装 Mod：启动页 **「Mod管理」** 或版本设置 → **Mod 管理**（见 [安装 Mods](./Installing-Mods)）。
 
-在导航打开 **「下载」**，选择对应的源然后打开详情/安装流程。
-
-根据支持的游戏版本在对应的 SMAPI 版本下执行安装。
-
-![SMAPIlist](image/Creating-Instance/SMAPIList.png)
-
-此时需要确认游戏本体，确认完毕后使用该路径；启动器将会创建使用此文件夹下游戏资源的游戏实例。
-
-![ChoiceBase](image/Creating-Instance/ChoiceBase.png)
-
-输入实例的名称（版本名字）然后确认。
-
-![Input.png](image/Creating-Instance/Input.png)
-
-SVL 会自动创建实例并安装 SMAPI；进度可在导航 **「任务」** 中查看。
-
-![Downloading.png](image/Creating-Instance/Downloading.png)
-
-### 从本地的 SMAPI ZIP 文件导入安装
-
-选择整合包或 SMAPI 压缩包（`.svlpack`、`.zip` 等），并直接拖入启动器窗口。其余操作同上。
-
-![1773846726756](image/Getting-Started/1773846726756.png)
-
-### 检测是否成功安装
-
-提示安装完成后，回到版本/实例列表。
-
-![1773846938389](image/Getting-Started/1773846938389.png)
-
-在这里就能发现新的游戏实例。
-
-![1773846993218](image/Getting-Started/1773846993218.png)
+Nexus 自动下载前： **设置 → 下载设置 → NexusMods 账户** 登录。
 
 ## 下一步
 
-- [创建游戏实例](./Creating-Instance) - 学习如何创建和管理实例
-- [安装 Mod](./Installing-Mods) - 学习如何安装和管理 Mod
-- [创建整合包](../features/Modpack-Support)
+- [创建游戏实例](./Creating-Instance)
+- [安装 Mods](./Installing-Mods)
+- [Modpack 整合包](../features/Modpack-Support)
+- [设置与配置](../features/Settings)
