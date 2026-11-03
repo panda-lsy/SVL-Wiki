@@ -1,5 +1,7 @@
 # Mod 管理
 
+> 版本设置侧栏按钮原文为 **「Mod管理」**（无空格，`VersionSettings.Nav.ModManage`）。
+
 在版本设置 → **「Mod 管理」** 中管理当前实例 Mods 目录内的模组。
 
 源码：`VersionSettingsPageView.axaml`（Mod 管理段）、`FeaturePagesViewModels` 中 Mod 相关命令。

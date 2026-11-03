@@ -19,7 +19,10 @@
 |------|----------|
 | **SVL** | 含 `modpack.json`（常配合 `sources.json`）；zip 或已解压目录 |
 | **CurseForge** | `manifest.json`；`.zip` / `.cfmodpack`（仍按 zip 处理） |
+| **`.7z`** | 文件选择器与拖放白名单包含；解压能力随实现 |
 | **Nexus Collection** | Collection 安装链路（并行度等受设置约束） |
+
+本地文件选择器筛选：**整合包文件** = `*.zip` / `*.cfmodpack` / `*.7z`。
 
 第三方变体若缺 `sources.json`，安装器会尝试与 `modpack.json.mods` 合并来源字段（兼容逻辑以源码为准）。
 
