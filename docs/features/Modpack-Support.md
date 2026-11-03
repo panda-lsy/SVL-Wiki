@@ -1,164 +1,82 @@
 # Modpack 整合包
 
-SVL 支持多种整合包格式，让你可以轻松分享和导入 Mod 配置。
+导入、搜索安装与**导出**整合包。导出默认按来源清单分发，**不含 Mod 本体文件**。
 
-## 📋 目录
+源码：`ModpackInstallService`、`VersionSettingsPageView` 导出段、`InstancesPageView` **「导入整合包」**、下载页 Modpack 类别。
+
+## 目录
 
 - [支持的格式](#支持的格式)
-- [创建整合包](#创建整合包)
-- [导入整合包](#导入整合包)
-- [整合包内容](#整合包内容)
-- [分享整合包](#分享整合包)
+- [导入](#导入)
+- [从下载页安装](#从下载页安装)
+- [导出](#导出)
+- [包内结构（SVL）](#包内结构svl)
+- [注意](#注意)
 
 ## 支持的格式
 
-SVL 支持以下整合包格式：
+| 类型 | 识别要点 |
+|------|----------|
+| **SVL** | 含 `modpack.json`（常配合 `sources.json`）；zip 或已解压目录 |
+| **CurseForge** | `manifest.json`；`.zip` / `.cfmodpack`（仍按 zip 处理） |
+| **Nexus Collection** | Collection 安装链路（并行度等受设置约束） |
 
-| 格式                       | 扩展名                    | 说明                                |
-| -------------------------- | ------------------------- | ----------------------------------- |
-| **SVL Modpack**      | `.zip`                  | SVL 原生格式，包含 `modpack.json` |
-| **CurseForge**       | `.zip` / `.cfmodpack` | 包含 `manifest.json`              |
-| **Nexus Collection** | `.7z`                   | 包含 `collection.json`            |
+第三方变体若缺 `sources.json`，安装器会尝试与 `modpack.json.mods` 合并来源字段（兼容逻辑以源码为准）。
 
-## 创建整合包
+## 导入
 
-> **⚠️ 重要提示：关于“打包 Mod 文件”功能的说明**
-> 目前 Wiki 内容（除在主页标注进度为 100% 的内容外）还需进行人工审核修订，一切请以启动器实际功能为准。
->
-> **导出整合包功能已不支持直接打包 Mod 文件**。启动器目前在开发阶段，但以尊重创作者的劳动成果为准，正式移除了“打包 Mod 文件”选项，只保留注明来源的 Modlist 导出，直到后续有更合理的以创作者为主的传播方式。
->
-> 整合包导出的内容为：游戏实例中可以检测到来源的 Mod 将作为一份清单（内含模组的来源 ID），实际打包的只有配置文件（`config.json`）以及该 Mod 清单。在别人导入该整合包后，启动器会自动解析清单中的 Mod 并进行在线下载。
+1. **版本选择** → 路径操作 **「导入整合包」**。  
+2. 或把整合包 zip **拖入**启动器（若当前版本支持该拖放路径）。  
+3. 按向导选 Base / 实例名等。  
+4. 进度在 **「任务」** 查看。
 
-### 步骤
+装完后通常得到 `versions/<名>/` 隔离实例（Mods 独立；存档仍共享，见 [版本隔离](./Version-Isolation)）。
 
-1. 选择要导出的实例
-2. 进入实例设置 → **「导出」** 选项卡
-3. 选择要包含的内容：
-   - ✅ Mod 配置文件
-   - ✅ 游戏设置
-   - ✅ SMAPI 版本信息
-4. 点击 **「导出」**
-5. 选择保存位置
+## 从下载页安装
 
-### 导出选项
+导航 **「下载」** → 类别 **Modpack** → 搜索页或 URL 导入（文案：`Download.Modpack.*`）。
 
-| 选项                     | 说明                                                                     |
-| ------------------------ | ------------------------------------------------------------------------ |
-| **仅保存下载链接** | 生成 Mod 清单，只保存 Mod 的下载源信息（导入时启动器自动解析清单并下载） |
-| **包含截图**       | 添加整合包预览图                                                         |
-| **压缩级别**       | 选择压缩质量                                                             |
+## 导出
 
-### modpack.json 结构
+**版本设置 →「导出」**：
 
-```json
-{
-  "name": "我的整合包",
-  "version": "1.0.0",
-  "author": "作者名",
-  "description": "整合包描述",
-  "gameVersion": "1.6.8",
-  "smapiVersion": "4.1.1",
-  "mods": [
-    {
-      "id": "Pathoschild.SMAPI",
-      "name": "SMAPI",
-      "version": "4.1.1",
-      "enabled": true
-    }
-  ]
-}
+| 字段 / 勾选 | 说明 |
+|-------------|------|
+| 整合包名称 / 版本 / 作者 | 写入清单 |
+| **导出 Mod 清单**（`IncludeMods`，默认开） | 写入 `modpack.json` + `sources.json` 条目；**不是**打包 dll/资源本体 |
+| **导出 Mod 配置文件** | `settings/Mods/...` 下 config 等 |
+| **导出当前 SVL 启动器文件**（默认关） | 外层带启动器的增强包格式 |
+| **导出当前整合包** | 另存为 `.zip` |
+| 保存/读取配置 | `.svlexport` / `.json` |
+
+源码注明：`导出包不包含 Mod 本体，仅包含清单与可选配置`；`sources` 里 `Bundled = false`。导入端按来源再下载。
+
+无完整来源凭证的条目会标需手动安装 / 导入时兼容处理。
+
+## 包内结构（SVL）
+
+典型可回导包：
+
+```text
+modpack.json          # 名称、版本、SMAPI 提示、mods 列表
+sources.json          # 平台 / projectId / fileId 等
+export-manifest.json  # 导出审计信息（安装以 modpack+sources 为准）
+settings/Mods/...     # 可选：Mod 配置
+icon.png              # 可选：实例图标
 ```
 
-## 导入整合包
+带启动器的包：外层启动器 + 内层 `modpack.zip`（与普通平铺包不同）。
 
-### 拖放导入
+## 注意
 
-1. 将整合包文件拖放到启动器窗口
-2. 输入新实例名称
-3. 等待安装完成
-
-### 菜单导入
-
-1. 点击主页的 **「+」** 按钮
-2. 选择 **「导入整合包」**
-3. 选择整合包文件
-4. 输入实例名称
-5. 等待安装完成
-
-### 安装流程
-
-```
-1. 解析整合包清单
-      ↓
-2. 安装 SMAPI（如需要）
-      ↓
-3. 解压/下载 Mod 文件
-      ↓
-4. 应用 Mod 配置
-      ↓
-5. 保存实例信息
-      ↓
-6. 完成！
-```
-
-## 整合包内容
-
-### SVL Modpack 结构
-
-```
-my-modpack.zip
-├── modpack.json          # 整合包清单
-├── sources.json          # Mod 下载源（可选）
-├── preview.png           # 预览图（可选）
-└── settings/             # 配置文件（可选）
-    └── config.json
-```
-
-### CurseForge 格式
-
-```
-curseforge-pack.zip
-├── manifest.json         # CurseForge 清单
-├── modlist.html          # Mod 列表（HTML）
-└── override/             # 覆盖文件
-```
-
-### Nexus Collection 格式
-
-```
-collection.7z
-├── collection.json       # Collection 元数据
-├── modlist.json          # Mod 列表
-└── ...                   # 其他文件
-```
-
-## 分享整合包
-
-### 上传到 GitHub
-
-1. 创建 GitHub Release
-2. 上传整合包文件
-3. 添加描述和截图
-4. 发布
-
-### 分享到社区
-
-- NexusMods Collections
-- CurseForge Modpacks
-- QQ群 / Discord
-- 论坛帖子
-
-### 注意事项
-
-- ⚠️ 确保所有 Mod 允许重新分发
-- ⚠️ 检查 Mod 许可证
-- ⚠️ 注明原作者信息
-- ⚠️ 提供支持的 SMAPI / 游戏版本
+- 分享清单包需接收方能访问 Nexus/CF 等来源，并遵守平台条款。  
+- 导出前宜登录 Nexus，便于补全缺失 FileID。  
+- 删改 Base / 实例前先备份。
 
 ---
 
 ## 相关文档
 
-- [Mod 管理](./Mod-Management)
-- [NexusMods 集成](./NexusMods-Integration)
 - [创建游戏实例](../tutorials/Creating-Instance)
+- [版本隔离](./Version-Isolation)
+- [下载管理器](./Download-Manager)
