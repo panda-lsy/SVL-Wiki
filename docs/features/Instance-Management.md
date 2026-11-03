@@ -91,13 +91,15 @@
 
 | 项 | 说明 |
 |----|------|
-| **默认启动模式** | 下拉三项原文（`LaunchModes`）：「自动」「SMAPI」「原版」 |
-| **启用安全启动（保守参数）** | 勾选文案；与启动页只读「安全启动」联动全局 `EnableSafeLaunch` |
 | **窗口标题** | 水印「例如: Stardew Valley &lt;ver&gt; - &lt;name&gt;」；旁「?」ToolTip「查看窗口标题占位符说明」→ 对话框标题「窗口标题占位符帮助」：`<name>` 实例名 / `<ver>` 游戏版本 / `<smver>` SMAPI 版本 / `<modscount>` 已加载 Mod 数；留空或 `<default>` 恢复默认（启动时替换） |
 | **启动参数** | 水印「例如: --debug --loglevel trace」 |
 | **启动时尝试加入 Steam 大厅** | + **Steam 大厅 ID（64 位数字）**（水印「例如: 109775241234567890」）；提示「仅支持 Steam 大厅数字 ID；游戏内字母邀请码和 IP 地址仍需在联机菜单手动输入。」 |
 | **重置默认** / **保存实例设置** | 同卡底部按钮（后者 `VersionSettings.Settings.Save`）。重置确认标题「恢复实例默认设置」：正文「将清空当前实例的窗口标题、启动参数、服务器连接和 Steam 覆写设置。\n\n实例路径和 Mod 文件不会被删除。是否继续？」；成功状态「实例设置已恢复默认值（未删除实例数据）」。自动保存中「实例设置已自动保存」；手工保存「实例设置已保存（HH:mm:ss）」；失败「保存实例设置失败：…」。概览 **保存个性化** 亦走 `SaveInstanceSettings`（名称空则回落 `Default Instance`） |
 | **Steam 启动参数覆写** | 说明「默认参数会自动指向当前实例的 SMAPI 可执行文件，你也可以手动编辑后写入 Steam。」；只读 **默认命令**；勾选 **覆盖 Steam 启动参数**；**编辑参数** 水印含 `StardewModdingAPI.exe` 与 `%command%`；只读 **参数预览**；按钮 **写入 Steam 启动参数** + **保存实例设置** |
+
+> **启动模式 / 安全启动**：VM 仍有 `LaunchModes`（「自动」「SMAPI」「原版」）、勾选文案「启用安全启动（保守参数）」与 `SaveVersionSettings`（写入全局 `settings.json` 的 `PreferredLaunchMode` / `EnableSafeLaunch`，状态「版本设置已保存（HH:mm:ss）」），但现行 `VersionSettingsPageView.axaml` **未见**对应下拉/勾选——安装 SMAPI、切换原版/SMAPI、选实例等流程会程序化改写；启动页仅只读展示。勿写「版本设置 → 设置里可改默认启动模式/安全启动」。`VersionSettingsContentView.axaml` 仅有占位说明，不是主页。
+
+进入设置区状态「当前处于实例设置」；改字段后「实例设置已更改，正在自动保存」→「实例设置已自动保存」。
 
 数据在 `instance-launch-settings.json`（与全局 `settings.json` 分离）。源码：`VersionSettingsPageView.axaml` 设置区。
 
@@ -120,7 +122,7 @@
    - **状态**：如「未探测到本机游戏目录」  
    对应全局 `settings.json` 的 `PreferredLaunchMode`（默认「自动」）、`EnableSafeLaunch`。安装 SMAPI / 选实例等流程会改写；启动页本身不是编辑器。  
 3. 实例级参数在版本设置 → **设置**（`instance-launch-settings.json`）。  
-4. 仓库另有 `VersionSettingsContentView.axaml` 占位文案提到启动模式/安全启动，**不是**主版本设置页（主页为 `VersionSettingsPageView`）。
+4. `VersionSettingsPageView.axaml` **未见**启动模式/安全启动编辑控件；`VersionSettingsContentView.axaml` 仅占位提及，**不是**主版本设置页。
 
 旧「双击卡片直接启动」：`InstancesPageView` **未见** DoubleTapped 绑定；请用启动页按钮。
 

@@ -199,7 +199,7 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 - `NexusOAuthAccessToken` / Refresh / 用户信息（敏感，勿分享）
 - `RegisterNxmProtocolOnStartup`、`EnableAutoUpdateCheck`、`AutoDownloadUpdate`、`ShowUpdateNotification`、`UpdateChannel`、`PreferredUpdateSource`
 - `DebugMode`、`MinimizeToTrayOnClose`、`BackgroundTransparencyPercent`
-- `PreferredLaunchMode`（默认「自动」）、`EnableSafeLaunch`（启动页只读展示；安装 SMAPI 等会改写）
+- `PreferredLaunchMode`（默认「自动」）、`EnableSafeLaunch`（启动页只读；现行版本设置 axaml **未见**编辑控件；安装 SMAPI 等流程程序化改写）
 
 完整字段见源码，勿手改未知键。
 
