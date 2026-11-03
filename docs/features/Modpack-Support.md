@@ -49,17 +49,19 @@ Localization 另有 `Download.Modpack.Title/Description/UrlWatermark/Import/Open
 
 **版本设置 →「导出」**：
 
+分区标题「导出内容」。字段与勾选：
+
 | 字段 / 勾选 | 说明 |
 |-------------|------|
 | 整合包名称 / 版本 / 作者 | 写入清单 |
 | **导出 Mod 清单**（`IncludeMods`，默认开） | 写入 `modpack.json` + `sources.json` 条目；**不是**打包 dll/资源本体；列表可 **全选/反选**，旁注「来源优先导出清单，无来源条目仅保留安装提示」 |
 | **导出 Mod 配置文件（config/*.json、根目录自定义 JSON）**（`IncludeModSettings`，默认开） | 勾选文案已核 axaml；写入 `settings/Mods/...` 等 |
 | **导出当前 SVL 启动器文件**（默认关） | 外层带启动器的增强包格式 |
-| **保存配置** | 保存导出表单（`SaveExportConfigCommand`），与正式导出按钮分开 |
-| **导出当前整合包** | 另存为 `.zip` |
-| 保存/读取配置 | `.svlexport` / `.json` |
+| **保存配置** / **读取配置** | 表单配置（`.svlexport` / `.json`），与正式导出分开 |
+| **导出当前整合包** | 系统另存为对话框标题「另存为整合包」→ `.zip` |
+| **打开导出目录** | `OpenExportFolderCommand` |
 
-界面提示：「来源优先导出清单，无来源条目仅保留安装提示」；策略说明：「导出包不直接包含 Mod 本体，仅导出清单及可选配置。」`sources` 里 `Bundled = false`。导入端按来源再下载。
+策略全文：「导出策略：为遵循来源平台分发规则，导出包不直接包含 Mod 本体，仅导出清单及可选配置。」`sources` 里 `Bundled = false`。导入端按来源再下载。
 
 无完整来源凭证的条目会标需手动安装 / 导入时兼容处理。
 

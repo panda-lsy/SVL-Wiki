@@ -94,7 +94,7 @@ Nexus Collection 可通过整合包安装链路处理（见 [Modpack 整合包](
 ## 免费 vs Premium（已核源码语义）
 
 - 登录态展示会员类型：`Premium` / `Free`（`NexusAuthService` 读 `is_premium`）。
-- **非 Premium**：部分 NXM / 自动直链会走 **浏览器下载回退**（`BrowserDownloadFallbackService`）；界面会提示在文件页点 **『Slow Download』**，完成后再回启动器；状态可见「浏览器下载回退：请在浏览器中点击 Manual Download」/「等待浏览器下载（非 Premium）」等（`BrowserDownloadFallbackService`）。
+- **非 Premium**：部分 NXM / 自动直链会走 **浏览器下载回退**（`BrowserDownloadFallbackService`）。等待文案示例：「请在浏览器中点击 Manual Download，启动器将自动接管...」/「…接管文件回调...」。可能弹出 `BrowserDownloadGuideDialog`（默认标题「浏览器下载指引」；默认说明「该资源需要在浏览器完成授权或手动下载。请打开链接并完成下载后返回。」；按钮 **复制链接** / **在浏览器打开**）。文件页需点 **Slow Download** / Manual Download 后回传。
 - **Premium**：更易走直接 API/NXM 自动流（仍受 Nexus 配额与登录态约束）。
 
 Flatpak / 纯便携包的 NXM 注册仍依赖上述桌面入口是否写得到，失败时以设置页状态文案为准。

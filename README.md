@@ -42,13 +42,13 @@
 | **功能文档** | | | |
 | ├─[游戏实例管理](./docs/features/Instance-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 自动安装页覆盖指引与切换到 SMAPI 黄条 | 2026-11-04 |
 | ├─[Mod 管理](./docs/features/Mod-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 底栏删标/备份恢复与搜索水印对齐 axaml | 2026-11-04 |
-| ├─[NexusMods 集成](./docs/features/NexusMods-Integration) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ OAuth 失效条幅三按钮 ToolTip 对齐 axaml | 2026-11-04 |
-| ├─[Modpack 整合包](./docs/features/Modpack-Support) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 澄清导入整合包跳搜索页；无 URL 粘贴卡 | 2026-11-04 |
+| ├─[NexusMods 集成](./docs/features/NexusMods-Integration) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ BrowserDownloadGuideDialog 默认文案对齐 | 2026-11-04 |
+| ├─[Modpack 整合包](./docs/features/Modpack-Support) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 导出「打开导出目录」与策略全文对齐 | 2026-11-04 |
 | ├─[下载管理器](./docs/features/Download-Manager) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 任务页「进行中」优先于 OCR「运行中」 | 2026-11-04 |
 | └─[主题与外观](./docs/features/Theming) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 个性化页对齐 ThemeService | 2026-11-04 |
 | **高级功能** | | | |
 | ├─[版本隔离](./docs/features/Version-Isolation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 跨平台共享 Saves 路径示例 | 2026-11-04 |
-| ├─[SMAPI 管理](./docs/features/SMAPI-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 自动安装覆盖指引 + 切换到 SMAPI 黄条 | 2026-11-04 |
+| ├─[SMAPI 管理](./docs/features/SMAPI-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 资源详情页状态/依赖/另存为文案对齐 | 2026-11-04 |
 | └─[设置与配置](./docs/features/Settings) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 其他页无日志级别 UI；代理/分片线程选项对齐 | 2026-11-04 |
 | **开发文档** | | | |
 | ├─[项目结构](./docs/development/Project-Structure) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia 仓库结构重写 | 2026-11-03 |
@@ -56,7 +56,7 @@
 | └─[构建指南](./docs/development/Building) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已对齐 `build.ps1` / `SVL.Avalonia` | 2026-11-03 |
 | **贡献指南** | | | |
 | ├─[对 Wiki 进行贡献](./docs/community/Contributing) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Avalonia 截图/notes.txt 贡献约定 | 2026-11-04 |
-| └─[社区资源本地化](./docs/community/Localization-Contributing) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 贡献 URL / 启动器入口 / 汉化源对齐 | 2026-11-04 |
+| └─[社区资源本地化](./docs/community/Localization-Contributing) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 贡献本地化 i 说明对话框对齐源码 | 2026-11-04 |
 
 > **说明**：不要把「未校对的旧稿」标成 100%。本表只反映文档状态，不代表启动器功能完成度。
 

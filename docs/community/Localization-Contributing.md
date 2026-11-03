@@ -45,7 +45,7 @@
   ![contributor.png](image/Localization-Contributing/contributor.png)
 - 点击"确定并加载信息"按钮获取平台原始信息与仓库现有内容
 
-Avalonia 版可在 **Mod 详情** 点击 **「贡献本地化」**（或查看贡献者说明），浏览器打开贡献页并尽量预填 Unique ID / 标题 / 描述；也可在下载页资源详情走同类入口。网页端仍可手动选平台与 ID。
+Avalonia 版可在 **Mod 详情** / 下载资源详情点 **「贡献本地化」**（旁 **i** 说明对话框标题「贡献本地化」，正文提示可跳转社区页补充中文译名与说明），浏览器打开贡献页并尽量预填 Unique ID / 标题 / 描述。网页端仍可手动选平台与 ID。
 
 ![faster1.png](image/Localization-Contributing/faster1.png)
 
