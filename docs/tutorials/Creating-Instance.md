@@ -95,8 +95,11 @@
 | 格式 | 备注 |
 |------|------|
 | `.zip` | 常见；含清单的通用包 |
-| CurseForge 导出 | 如 `.cfmodpack` 等（**待核实**现版筛选扩展名） |
+| `.cfmodpack` | CurseForge 导出；内部仍是 zip（`ZipExtractor` 会先拷成临时 `.zip`） |
+| `.7z` | 与上两项同属文件选择器「整合包文件」筛选 |
 | SVL 导出包 | 清单为主、不一定含 Mod 本体（见导出页说明） |
+
+文件选择器文案：**整合包文件**（`*.zip` / `*.cfmodpack` / `*.7z`）。拖放不支持时提示：「支持 .zip、.cfmodpack 和 .7z 整合包格式。」（`MainWindowViewModel`）
 
 旧图：`drop.png`、`import.png`、`input2.png`。
 

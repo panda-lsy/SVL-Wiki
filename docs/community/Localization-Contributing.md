@@ -7,7 +7,7 @@
 社区资源本地化是指为星露谷物语相关的 Mod、整合包（Modpack）和合集（Collection）在 Curseforge/NexusMods 上的信息添加中文翻译，让更多中文玩家能够方便地了解和使用这些资源。
 
 
-> **Avalonia 对齐（v1.2.0.0）**：贡献页正式地址为 [`https://svl.qzz.io/contribute.html`](https://svl.qzz.io/contribute.html)（源码常量 / 对话框跳转）。启动器内可从 **Mod 详情** 的 **「贡献本地化」** 带参打开（`uniqueid` / `rawtitle` / `rawdescription` / `auto=1`）。设置 → **下载设置** → **缓存管理** 可切换 **社区汉化数据源**（`Gitee` / `GitHub`，默认偏好 Gitee）并清理 **社区汉化** 缓存。数据仓库仍为 [StardewValley-Community-Localization](https://github.com/panda-lsy/StardewValley-Community-Localization)。
+> **Avalonia 对齐（v1.2.0.0）**：贡献页正式地址为 [`https://svl.qzz.io/contribute.html`](https://svl.qzz.io/contribute.html)（`DialogService` / 部分常量；另有短链 `https://svl.qzz.io/contribute` 出现在 `FeaturePagesViewModels`）。启动器内可从 **Mod 详情** 的 **「贡献本地化」** 带参打开（`uniqueid` / `rawtitle` / `rawdescription` / `auto=1`）。设置 → **下载设置** → **缓存管理** 可切换 **社区汉化数据源**（`Gitee` / `GitHub`，默认偏好 Gitee）并清理 **社区汉化** 缓存。数据仓库仍为 [StardewValley-Community-Localization](https://github.com/panda-lsy/StardewValley-Community-Localization)。
 
 
 ## 贡献平台

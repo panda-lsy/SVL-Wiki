@@ -127,9 +127,14 @@ sh run-svl.sh
 
 ### NXM 协议
 
-SVL 支持关联 `nxm://`，以便从 NexusMods 一键下载。各平台注册实现不同（Windows / Linux XDG 等，见 `SVL.Core.Platform`）。
+SVL 支持关联 `nxm://`，以便从 NexusMods 一键下载。实现见 `NxmProtocolRegistrationService`（Windows HKCU、`LinuxNxmProtocolRegistration` 写 `svl-avalonia-nxm.desktop` + mimeapps、macOS 专用路径）。
 
-**待核实**：Avalonia 版首次启动是否仍弹出「是否关联」对话框、以及按钮原文；请以实机为准，勿照搬旧 WPF 截图文案。
+Avalonia **没有**旧 WPF 式「首次启动是否关联」弹窗。改为：
+
+1. 设置项 **「启动时尝试注册 NXM 协议」**（默认随 `RegisterNxmProtocolOnStartup`；启动时静默 `TryRegister`，失败不阻塞）。
+2. 设置 → **下载设置** → NXM 卡片可看状态，并点 **「重新注册 NXM 协议」**。
+
+Linux 处理器桌面文件 ID：`svl-avalonia-nxm.desktop`（`x-scheme-handler/nxm`）。
 
 <p align="center">
   <a href="nxm://test/link">
