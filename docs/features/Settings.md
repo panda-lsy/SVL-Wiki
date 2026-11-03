@@ -63,7 +63,7 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 | **Collection 冲突策略** | 整合包/Collection 冲突处理 |
 | **下载任务并发上限** | `CollectionDownloadParallelism`（默认 **3**，约 1–10；含 Collection/整合包） |
 | **下载线程数** | `DownloadSegmentThreads`（默认 **4**；分片线程） |
-| **接管下载** | 粘贴 http(s) 地址后点 **另存为并下载**；说明：适用于非 Nexus/CurseForge 来源 |
+| **接管下载** | 说明「粘贴 http/https 下载地址，另存为本地文件。适用于非 Nexus/CurseForge 来源的 Mod 或资源。」；水印 `https://example.com/mod.zip`；按钮 **另存为并下载**（另存对话框标题「接管下载 - 另存为」） |
 | **NexusMods 账户** | 登录 / 验证状态 / 刷新 Token / 退出；可看配额 |
 | **Nexus 登录失效提醒** | 可关 |
 | **NXM 协议** | **启动时尝试注册 NXM 协议**；按钮 **重新注册 NXM 协议**（平台能力因 OS 而异；无首启强制弹窗） |

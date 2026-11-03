@@ -67,7 +67,7 @@ Mod 搜索等处可能出现：「Nexus OAuth 登录已失效，请在设置页�
 
 ## NXM 协议
 
-设置 → 下载设置 → **「NXM 协议」** 卡片：
+设置 → 下载设置 → **「NXM 协议」** 卡片（副文案「处理浏览器中的 nxm:// 协议跳转」；说明键「用于浏览器中的 nxm:// 链接快速回传到启动器下载页。」）：
 
 | 项 | 作用 |
 |----|------|
@@ -75,7 +75,7 @@ Mod 搜索等处可能出现：「Nexus OAuth 登录已失效，请在设置页�
 | **重新注册 NXM 协议** | 手动再注册 |
 | 说明 | 浏览器 `nxm://` 回传到启动器下载流 |
 
-下载页另有 **NXM 链接导入**（水印形如 `nxm://stardewvalley/mods/.../files/...`）与 **导入 NXM**。
+浏览器 `nxm://` 回调由协议注册承接（`Program` 解析命令行）。`LocalizationService` / `DownloadPageViewModel` 仍有「NXM 链接导入」「导入 NXM」等文案键，但现行 `DownloadPageView.axaml` **未见**粘贴导入控件；请用协议回调或设置页 NXM 注册，勿写「下载页必有粘贴框」。
 
 平台实现（`SVL.Core.Platform`）：
 
