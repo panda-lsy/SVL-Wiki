@@ -35,20 +35,20 @@
 |------|------|------|----------|
 | **快速开始** | | | |
 | ├─[安装指南](./docs/tutorials/Installation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia/.NET 10 重写 | 2026-11-03 |
-| ├─[初次使用](./docs/tutorials/Getting-Started) | ![轻修订](https://img.shields.io/badge/进度-轻修订-yellow) | 🔄 已补跨平台说明；菜单名仍待实机核对 | 2026-11-03 |
-| ├─[创建游戏实例](./docs/tutorials/Creating-Instance) | ![待改](https://img.shields.io/badge/进度-待Avalonia校对-orange) | ⏳ 未纳入本批；可能含旧截图/文案 | - |
-| └─[安装 Mods](./docs/tutorials/Installing-Mods) | ![待改](https://img.shields.io/badge/进度-待Avalonia校对-orange) | ⏳ 未纳入本批 | - |
+| ├─[初次使用](./docs/tutorials/Getting-Started) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已对齐导航文案；配 Avalonia 截图 | 2026-11-04 |
+| ├─[创建游戏实例](./docs/tutorials/Creating-Instance) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 对齐 versions 流程；去掉隔离开关 | 2026-11-04 |
+| └─[安装 Mods](./docs/tutorials/Installing-Mods) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 下载页/拖放/Mod 管理「+」；配截图 | 2026-11-04 |
 | **功能文档** | | | |
-| ├─[游戏实例管理](./docs/features/Instance-Management) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
-| ├─[Mod 管理](./docs/features/Mod-Management) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
+| ├─[游戏实例管理](./docs/features/Instance-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 版本选择 + 版本设置侧栏 | 2026-11-04 |
+| ├─[Mod 管理](./docs/features/Mod-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 工具栏/筛选/备份分栏对齐源码 | 2026-11-04 |
 | ├─[NexusMods 集成](./docs/features/NexusMods-Integration) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
 | ├─[Modpack 整合包](./docs/features/Modpack-Support) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
 | ├─[下载管理器](./docs/features/Download-Manager) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
 | └─[主题与外观](./docs/features/Theming) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
 | **高级功能** | | | |
-| ├─[版本隔离](./docs/features/Version-Isolation) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
-| ├─[SMAPI 管理](./docs/features/SMAPI-Management) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
-| └─[设置与配置](./docs/features/Settings) | ![50%](https://img.shields.io/badge/进度-待修订-yellow) | 📝 编写/校对中 | - |
+| ├─[版本隔离](./docs/features/Version-Isolation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 存档共享；1.1.8.2 无开关 | 2026-11-04 |
+| ├─[SMAPI 管理](./docs/features/SMAPI-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 下载/拖放/自动安装对齐 | 2026-11-04 |
+| └─[设置与配置](./docs/features/Settings) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ settings.json；去 yaml/LiteDB 主述 | 2026-11-04 |
 | **开发文档** | | | |
 | ├─[项目结构](./docs/development/Project-Structure) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia 仓库结构重写 | 2026-11-03 |
 | ├─[技术栈](./docs/development/Tech-Stack) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia/.NET 10 重写 | 2026-11-03 |

@@ -1,213 +1,151 @@
 # 创建游戏实例
 
-本指南详细介绍如何创建和管理游戏实例，以及 SMAPI 的安装。
+说明如何添加 Base、用 SMAPI/整合包生成 **versions** 隔离实例，以及进入版本设置。
 
-## 📋 目录
+界面文案以 Avalonia 本地化与 axaml 为准；旧截图仅作参考。
 
-- [什么是实例？](#什么是实例)
-- [创建新实例](#创建新实例)
-- [安装 SMAPI](#安装-smapi)
-- [实例设置](#实例设置)
+![主界面示意（Linux · v1.2.0.0）](image/avalonia/main.png)
+
+## 目录
+
+- [概念](#概念)
+- [添加 Base（版本选择）](#添加-base版本选择)
+- [方法一：安装 SMAPI 创建实例](#方法一安装-smapi-创建实例)
+- [方法二：导入整合包](#方法二导入整合包)
+- [方法三：下载页安装整合包](#方法三下载页安装整合包)
+- [已有实例上安装 / 更改 SMAPI](#已有实例上安装--更改-smapi)
+- [版本设置里能做什么](#版本设置里能做什么)
 - [删除实例](#删除实例)
+- [常见问题](#常见问题)
 
-## 什么是实例？
+## 概念
 
-实例是一个独立的游戏环境，拥有：
+| 名词 | 含义 |
+|------|------|
+| **Base** | 传统安装的游戏目录（Steam/GOG 等） |
+| **Versions / 隔离实例** | `Base/versions/<名称>/`，独立 Mods 与运行时 |
+| **存档** | **各实例共享**系统默认存档；详见 [版本隔离](../features/Version-Isolation) |
 
-- **独立的 Mod 列表** - 每个实例可以安装不同的 Mod
-- **独立的配置** - 游戏设置可以不同
-- **共享的存档** - 所有实例共用同一存档目录
+> **没有「启用版本隔离」开关**（CHANGELOG 1.1.8.2）。装 SMAPI / 整合包时默认写入 `versions`。
 
-> **注意**：当前版本中，所有实例共享存档目录。这意味着不同实例之间可以访问相同的游戏存档。
+## 添加 Base（版本选择）
 
-### 使用场景
+![版本选择（Linux · v1.2.0.0）](image/avalonia/instances.png)
 
-| 场景                  | 说明                                 |
-| --------------------- | ------------------------------------ |
-| **多 Mod 配置** | 一个实例玩农场 Mod，另一个玩冒险 Mod |
-| **版本测试**    | 测试新 Mod 不影响主力配置            |
-| **整合包管理**  | 每个整合包使用独立实例               |
 
-## 创建新实例
+1. 启动页点 **「版本选择」**（`Launch.VersionSelect`）。
+2. 左侧为路径列表；右侧为该路径下的 **Base** 与 **Versions** 卡片。
+3. **路径操作**：
+   - **「添加」** — 手动选游戏文件夹
+   - **「导入整合包」**
+   - **「刷新」** / **「打开文件夹」**
+4. 路径右键：**重命名** / **打开文件夹** / **刷新信息** / **删除**（删登记，非删游戏本体——**待核实**删除是否仅移除列表项）。
 
-SVL 提供多种创建实例的方式，你可以根据需求选择合适的方法。
+首次启动也会探测常见安装路径（`GameInstallPathLocator`）。
 
-### 方法一：创建实例时安装 SMAPI
+旧截图：`image/Creating-Instance/main.png`、`list.png` 等仍可能来自 WPF，按钮位置以现版为准。
 
-在创建实例时直接安装 SMAPI，一步到位。SVL 提供三个源的 SMAPI 安装支持
+## 方法一：安装 SMAPI 创建实例
 
-| 来源         | Github             | Curseforge | NexusMods                           |
-| ------------ | ------------------ | ---------- | ----------------------------------- |
-| 是否需要登录 | ❌                 | ✅         | ✅                                  |
-| 优势         | 无需登录，版本齐全 | 下载速度快 | 版本齐全                            |
-| 劣势         | 网速受限           | 版本不全   | 网速受限，需要 premium 才能自动下载 |
+适合：从 Base **新建**隔离 SMAPI 实例。
 
-#### 步骤
+### 来源对比
 
-1. 点击导航栏的 **「下载」** 按钮
-2. 选择对应的源然后点击 **「查看详情」![SMAPI](image/Creating-Instance/SMAPI.png)**
-3. 根据支持的游戏版本在对应的 SMAPI 版本下点击 **「安装」![SMAPIlist](image/Creating-Instance/SMAPIList.png)**
-4. 此时会自动使用用户设置的游戏路径，也可以自行重新选择，然后点击 **「使用此路径」![ChoiceBase](image/Creating-Instance/ChoiceBase.png)**
-5. 输入实例的名称（版本名）然后点击 **「确定」![Input.png](image/Creating-Instance/Input.png)**
-6. SVL 会自动创建实例并安装 SMAPI![Downloading.png](image/Creating-Instance/Downloading.png)
+| 来源 | 登录 | 备注 |
+|------|------|------|
+| GitHub | 否 | 版本较全；网速看地区 |
+| CurseForge | 是 | 可能更快；版本列表可能不全 |
+| NexusMods | 是 | 自动下载可能需 Premium（以平台规则为准） |
 
-### 方法二：从整合包导入
+### 步骤（下载页）
 
-如果你有整合包文件，可以直接导入创建实例。
+1. 导航 **「下载」**。
+2. 打开 SMAPI 相关条目/详情（旧图 `SMAPI.png` / `SMAPIList.png`）。
+3. 选兼容游戏版本的 SMAPI → **「安装」**。
+4. 选择 **Base 路径**（对话框只列 Base，过滤隔离子目录）→ 确认。
+5. 输入 **实例名称**（将作为 `versions/<名称>` 文件夹名）→ 确认。
+6. 在 **「任务」** 页看进度。
 
-#### 支持的整合包格式
+也可把官方 SMAPI zip **拖入窗口**，再走命名与路径确认。
 
-- **SVL 格式** - `.zip`文件
-- **通用格式** - `.zip` 文件（包含 `manifest.json`）
-- **CurseForge 格式** - `.cfmodpack` 文件（从 CurseForge 导出的整合包）
+> 在 Base 上执行安装时，流程会 **创建新隔离实例**；已在隔离目录上则多为 **更新当前实例运行时**（见源码注释，与旧 `IsUpdateMode` 对齐）。
 
-#### 导入步骤（A）
+## 方法二：导入整合包
 
-1. 点击主页左侧的 **「版本选择」** 按钮![main](image/Creating-Instance/main.png)
-2. 选择 **「导入整合包」![list](image/Creating-Instance/list.png)**
+1. **版本选择** → **「导入整合包」**；或把包拖入窗口。
+2. 选择 Base、填写实例名。
+3. 等待解压、装 Mods、装指定 SMAPI。
 
-#### 导入步骤（B）
+### 格式（以产品为准）
 
-1. 选择整合包文件（`.svlpack`、`.zip` 等），并直接拖入启动器窗口![drop.png](image/Creating-Instance/drop.png)
+| 格式 | 备注 |
+|------|------|
+| `.zip` | 常见；含清单的通用包 |
+| CurseForge 导出 | 如 `.cfmodpack` 等（**待核实**现版筛选扩展名） |
+| SVL 导出包 | 清单为主、不一定含 Mod 本体（见导出页说明） |
 
-#### 开始安装
+旧图：`drop.png`、`import.png`、`input2.png`。
 
-1. 选择游戏路径，点击 **「开始安装」**![import.png](image/Creating-Instance/import.png)
-2. 填写实例名称，点击 **「确定」**![input2](image/Creating-Instance/input2.png)
-3. 等待 SVL 自动：
+## 方法三：下载页安装整合包
 
-   - 解压整合包
-   - 安装所有 Mod
-   - 安装指定版本的 SMAPI
-   - 配置实例设置
+1. **「下载」** → 整合包分类/搜索（需配置 CurseForge / Nexus 时部分源才完整）。
+2. 打开详情 → **「安装」** → 确认 Base 与实例名。
 
-#### 方法三：从 SVL 下载并安装整合包
+旧图：`modpacklist.png`、`modpackdetail.png`。
 
-1. 点击 **「下载」**![Main](image\Creating-Instance\main.png)
-2. 点击 **「整合包」**，当配置好 Curseforge 的 API 与 NexusMods 的登陆后，SVL 会提供两种来源的整合包，也可以自行进行搜索，选中后进行点击。![modpacklist.png](image/Creating-Instance/modpacklist.png)
-3. 之后点击 **「安装」** 按钮，在进行确认游戏路径以及输入实例名称后，即可对整合包一键进行安装。![modpackdetail.png](image/Creating-Instance/modpackdetail.png)
+## 已有实例上安装 / 更改 SMAPI
 
-## 安装 SMAPI
+1. **版本选择** → 点实例旁齿轮（工具提示 **「版本设置」**）；或启动页 **「版本设置」**。
+2. 左侧进 **「自动安装」**。
+3. 点 **「安装 / 更改 SMAPI」**（`VersionSettings.AutoInstall.ChangeSmapi`）。
+4. 选版本并安装；进度区可能显示「正在安装 SMAPI...」。
 
-SMAPI（Stardew Modding API）是星露谷物语的 Mod 加载器，所有 Mod 都需要 SMAPI 才能运行。
+原版 Base 概览会提示：可到自动安装页执行 SMAPI 安装/切换。
 
-### 方式一：使用 SVL 自动安装
+## 版本设置里能做什么
 
-**推荐** - 最简单的方式。
+左侧导航（`VersionSettingsPageView`）：
 
-参考 [方法一:创建实例时安装 SMAPI](#方法一：创建实例时安装 SMAPI)
-
-### 方式二：手动安装/更改版本到现有实例
-
-如果实例已经创建，可以手动安装 SMAPI，或者对现有的 SMAPI  版本进行修改。
-
-#### 步骤
-
-1. 在主页面点击 **「版本选择」**，如果主页面的版本为你选择的版本，则直接点击 **「版本设置」**![Main](image\Creating-Instance\main.png)
-2. 选中需要修改的版本的 **「⚙（设置图标）」** ，进入版本设置页面![list](image\Creating-Instance\list.png)
-3. 点击 **「自动安装」![settings1.png](image/Creating-Instance/settings1.png)**
-4. 点击 **「安装/更改 SMAPI」**![AutoInstall.png](image/Creating-Instance/AutoInstall.png)
-5. 选择版本并点击 **「安装」**：![install.png](image/Creating-Instance/install.png)
-6. 等待下载和安装完成
-
-### 方式三：从整合包安装
-
-导入整合包时会自动安装指定版本的 SMAPI。
-
-### 常见问题
-
-#### SMAPI 安装失败
-
-**原因：**
-
-- 网络连接问题
-- 游戏路径不正确
-- 权限不足
-
-**解决方法：**
-
-1. 检查游戏路径是否正确
-2. 以管理员身份运行 SVL
-3. 检查网络连接
-4. 尝试手动下载 SMAPI 并指定本地路径
-
-#### 版本兼容性
-
-- 确保 SMAPI 版本与游戏版本兼容
-- 某些 Mod 可能需要特定版本的 SMAPI
-- 查看 Mod 页面的兼容性说明
-
-#### 多个 SMAPI 版本
-
-SVL 支持每个实例使用不同的 SMAPI 版本：
-
-- 实例 A 可以使用 SMAPI 3.18.0
-- 实例 B 可以使用 SMAPI 4.0.0
-- 版本之间完全隔离
-
-## 实例设置
-
-进入实例（版本设置页面）后，可以配置以下选项：![settings1.png](image/Creating-Instance/settings1.png)
-
-### 概览
-
-- 查看实例基本信息
-- 修改在启动器显示的图标、显示名称、描述、是否加入收藏夹
-- 一键打开版本文件夹、存档文件夹
-- 删除版本
-
-### 自动安装
-
-- 安装/修改 SMAPI 版本
-
-### 设置
-
-| 设置                   | 说明                                     |
-| ---------------------- | ---------------------------------------- |
-| **版本隔离**     | 是否开启版本隔离（WIP）                  |
-| **窗口标题**     | 修改游戏启动后显示的标题                 |
-| **启动参数**     | 修改游戏的启动参数（WIP）                |
-| **自动进入**     | 启动时自动进入服务器（WIP）              |
-| **服务器地址**   | 自动连接到服务器的 IP 地址（WIP）        |
-| **Steam 邀请码** | 自动进入到 Steam 多人联机的邀请码（WIP） |
-
-### Mod 管理
-
-- 查看所有已安装 Mod
-- 打开 Mods 文件夹
-- 检测 Mod 更新
-- 跳转到 Mod 下载页面
-- 启用/禁用 Mod
-- 查看 Mod 详情
-
-### 导出
-
-- 导出为整合包
-- 分享给其他玩家
+| 导航 | 作用 |
+|------|------|
+| **概览** | 名称/描述/图标/收藏；打开实例/存档/Mods 文件夹；删除当前版本或卸载 Base SMAPI |
+| **自动安装** | 安装/更改 SMAPI |
+| **Mod 管理** | 列表、启用禁用、更新/冲突/汉化检测等 |
+| **设置** | 窗口标题、启动参数、Steam 大厅、Steam 启动参数覆写（**无隔离开关**） |
+| **导出** | 导出清单类整合包（默认不含 Mod 本体） |
 
 ## 删除实例
 
-### 步骤
+1. 打开该隔离实例的版本设置 → **概览**。
+2. **「删除当前版本」** → 确认。
+3. Base **不能**用此按钮删除；Base 上可 **卸载 SMAPI**。
 
-1. 进入到需要删除的实例的设置页面
-2. 选择 **「删除版本」![Delete.png](image/Creating-Instance/Delete.png)**
-3. 确认删除
+删除内容：该版本目录（含 Mods 等）。**Base 游戏文件保留。存档在系统目录，不会随版本目录删除——仍建议先备份。**
 
-### 注意事项
+## 常见问题
 
-> ⚠️ **警告**：删除实例会删除：
->
-> - 实例配置
-> - Mods 文件夹
+### SMAPI 安装失败
 
-> ✅ 原版游戏文件（Base）不会被删除
+- 核对选的是 **Base** 且核心文件校验通过（不再死盯某一个 `.exe` 文件名）。
+- 查网络 / 代理（设置 → 下载设置）。
+- Linux/macOS：符号链接与权限；失败时看任务错误信息。
+- 可改用本地 SMAPI zip 拖入。
+
+### 版本兼容
+
+- SMAPI 需匹配游戏版本。
+- 部分 Mod 锁定 SMAPI 小版本。
+
+### 多 SMAPI 版本
+
+- 每个 `versions/<名>` 可有自己的 SMAPI。
+- Base 与隔离实例不要混用同一 Mods 文件夹。
 
 ---
-
-
 
 ## 相关文档
 
 - [版本隔离](../features/Version-Isolation)
+- [游戏实例管理](../features/Instance-Management)
 - [Mod 管理](../features/Mod-Management)
 - [Modpack 整合包](../features/Modpack-Support)
