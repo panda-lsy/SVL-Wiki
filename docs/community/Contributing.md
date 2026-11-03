@@ -10,7 +10,7 @@
 - 截图优先放 `docs/tutorials/image/avalonia/`，注明平台与版本号（推荐 caption：`Linux · v1.2.0.0`）。
 - 同目录 `notes.txt` 记录每张截图对应的真实页面与 UI 文案，改图注前先对一下，避免把「下载·Mod」误标成「实例 Mod 管理」。
 - 顶栏导航固定为：**启动**、**下载**、**任务**、**设置**（不要写旧「下载管理器」当顶栏项）。
-- 通用确认/输入框按钮默认 **取消** / **确定**（`ConfirmDialog` / `InputDialog`）；具体业务对话框以各自 axaml 为准。
+- 通用确认/输入框按钮默认 **取消** / **确定**（`ConfirmDialog` / `InputDialog`）；具体业务对话框以各自 axaml 为准。路径/命名类常用 **取消** / **确认**（`GamePathSelectionDialog` / `InstanceNameDialog` / `InstanceSelectionDialog`）；`ModInstallTargetDialog` 主钮为 **确定**（另有 **另存为**）；`ModUpdateConfirmDialog` 为 **确认更新**；`GamePathConfirmDialog` 为 **确认使用此路径**；`SmapiVersionPickerDialog` 为 **确认安装**；`SvlMessageBox` 仅 **确定**；`DependencyEnableDialog` 主钮 **启用依赖**；`NestedFolderFixDialog` 为 **跳过** / **自动修复**（业务调用未见）；勿把「确定」「确认」混写成同一控件。
 - 直接向 `SVL-Wiki` 的 `main` 提交；旧 WPF 表述请改掉或移到 `docs/archive/`。
 
 ## 贡献类型
