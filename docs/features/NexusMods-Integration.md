@@ -11,6 +11,7 @@
 ## 目录
 
 - [登录](#登录)
+- [下载页登录失效条幅](#下载页登录失效条幅)
 - [登录后能做什么](#登录后能做什么)
 - [搜索与下载](#搜索与下载)
 - [NXM 协议](#nxm-协议)
@@ -23,14 +24,24 @@
 入口在 **「设置」→「下载设置」→「NexusMods 账户」**（不是旧文独立顶栏「设置 → NexusMods」）。
 
 1. 打开上述卡片。  
-2. 点登录按钮（界面文案随状态变化，`NexusLoginActionText`）。  
+2. 点登录按钮：正常为 **登录 Nexus**；凭证失效但有本地档案时为 **重新登录 Nexus**（`NexusLoginActionText`）。  
 3. 在浏览器完成 OAuth。  
 4. 回到启动器；可点 **「验证状态」** / **「刷新 Token」**。  
 5. 退出用 **「退出登录」**。
 
 未登录时：非 Nexus 资源仍可用；NXM / 受限 Nexus 下载会受限。卡片上有对应提示。
 
-可选：**「Nexus 登录失效提醒」**（关闭后下载页少提示失效）。
+### 下载页登录失效条幅
+
+Mod 搜索等处可能出现：「Nexus OAuth 登录已失效，请在设置页重新登录。」
+
+| 按钮 | 行为 |
+|------|------|
+| **去登录** | 隐藏条幅并跳转设置页（`GoToNexusLogin`） |
+| **本次使用期间不提示** | 仅本会话抑制（`_suppressNexusAuthNotificationThisSession`）；退出/重新登录后可恢复 |
+| **不再提示** | 写入 `settings.json` 的 `SuppressNexusAuthNotification=true` 并隐藏 |
+
+设置页勾选 **「Nexus 登录失效提醒」** 对应 `EnableNexusAuthNotification`（与 `SuppressNexusAuthNotification` 取反保存；ToolTip：「关闭后下载页将不再提示 Nexus 登录失效」）。
 
 ## 登录后能做什么
 
