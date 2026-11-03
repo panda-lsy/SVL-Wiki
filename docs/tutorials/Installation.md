@@ -166,6 +166,19 @@ Get-FileHash .\SVL_v1.2.0.0_release_Windows_x64.zip -Algorithm SHA256
 
 新版会识别当前包体类型，检查更新时只选**同类型**安装包；Windows 支持应用内替换，macOS / Linux 当前需到发布页手动安装。无法识别或没有同类型文件时，会提示手动选择，不会自动换类型。来源：启动器 `README.md`。
 
+
+## 配置与日志目录
+
+Avalonia 用户数据目录（`LocalApplicationData/SVL/Avalonia/`）：
+
+| 平台 | 路径 |
+|------|------|
+| Windows | `%LocalAppData%\SVL\Avalonia\` |
+| Linux | `~/.local/share/SVL/Avalonia/` |
+| macOS | `~/Library/Application Support/SVL/Avalonia/` |
+
+常见文件：`settings.json`、`instances-registry.json`、`instance-launch-settings.json`。详见 [设置与配置](../features/Settings)。
+
 ## 常见问题
 
 ### Q: 轻量包打不开 / 提示缺运行时
