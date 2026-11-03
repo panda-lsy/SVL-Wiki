@@ -40,10 +40,10 @@
 | ├─[创建游戏实例](./docs/tutorials/Creating-Instance) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 添加实例无效/重复路径状态文案 | 2026-11-04 |
 | └─[安装 Mods](./docs/tutorials/Installing-Mods) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 本地安装确认框 zip/文件夹分流 | 2026-11-04 |
 | **功能文档** | | | |
-| ├─[游戏实例管理](./docs/features/Instance-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 添加实例对话框与重名实例报错 | 2026-11-04 |
+| ├─[游戏实例管理](./docs/features/Instance-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 更改图标状态与预设物化说明 | 2026-11-04 |
 | ├─[Mod 管理](./docs/features/Mod-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 汉化检测/刷新与恢复备份冲突文案 | 2026-11-04 |
 | ├─[NexusMods 集成](./docs/features/NexusMods-Integration) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Linux/Win/macOS NXM 注册路径与 Collection 任务态 | 2026-11-04 |
-| ├─[Modpack 整合包](./docs/features/Modpack-Support) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 导出进度/最近导出/无 Mod 状态 | 2026-11-04 |
+| ├─[Modpack 整合包](./docs/features/Modpack-Support) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 导出配置 .svlexport 与 FileID 补全文案 | 2026-11-04 |
 | ├─[下载管理器](./docs/features/Download-Manager) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 选择/确认游戏路径全文与无效目录状态 | 2026-11-04 |
 | └─[主题与外观](./docs/features/Theming) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 个性化页对齐 ThemeService | 2026-11-04 |
 | **高级功能** | | | |
