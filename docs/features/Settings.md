@@ -113,13 +113,19 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 
 | 界面文案（本地化键） | 说明 |
 |----------|------|
-| **显示通知** | `Settings.Other.ShowNotifications`；状态「已启用/已禁用通知（已自动保存）」 |
-| **来源为全部时提示类型筛选不可用** | `Settings.Other.TypeFilterNotice` / `ShowModTypeFilterDisabledNotice`；状态「已启用/已禁用类型筛选不可用提示（已自动保存）」 |
+| **显示通知** | `Settings.Other.ShowNotifications`；状态「已启用/已禁用通知（已自动保存）」；关闭后 `NotificationService.IsEnabled=false`，`Show` 直接丢弃（仍调 `onClosed`） |
+| **来源为全部时提示类型筛选不可用** | `Settings.Other.TypeFilterNotice` / `ShowModTypeFilterDisabledNotice`（默认开）；状态「已启用/已禁用类型筛选不可用提示（已自动保存）」；关闭后切到来源「全部」不再弹浮窗 |
 | **启用调试模式** | 下方硬编码提示：「调试模式在重启启动器后生效。」；状态「已启用/已禁用调试模式，重启后生效（正在自动保存）」 |
 | **启动时最小化到托盘** | `MinimizeToTrayOnStartup`；「已启用/已禁用启动时最小化到托盘（已自动保存）」 |
 | **关闭窗口时最小化到托盘** | `MinimizeToTrayOnClose`；「已启用/已禁用关闭时最小化到托盘（已自动保存）」 |
 
 `Settings.Other.LogLevel`（「日志级别」）与 `settings.json` 的 `LogLevel`（默认 `Info`）仍存在，但 `SettingsPageView.axaml` **其他**页**未见**对应下拉——勿写「设置里可改日志级别」。
+
+### 浮窗通知（`NotificationService`）
+
+主窗口浮窗（`ActiveNotifications`）。同时最多 **5** 条，超出关闭最早一条；默认自动关闭 **5000** ms（调用方可改；类型筛选提示用 **3500**）；退场动画约 **320** ms。无宿主时 `Show` 安全丢弃。
+
+来源切到「全部」且上述提示开关开启时：标题「类型筛选已关闭」；正文「来源为“全部”时无法按类型筛选，请先切换到 NexusMods 或 Curseforge。」（搜索页 `ModTypeFilterHint` 为「…请先选择 NexusMods 或 Curseforge」，措辞略异）。
 
 ### 调试控制台（`DebugMode`）
 
