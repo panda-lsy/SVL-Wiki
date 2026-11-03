@@ -30,10 +30,10 @@
 
 ![下载 · Modpack 搜索（Linux · v1.2.0.0）](../tutorials/image/avalonia/modpack.png)
 
-下载页类别 **Modpack**：搜索框 + 资源列表（空则「暂无资源，可尝试搜索关键词」）。本地导入见下方「导入」。
+下载页类别 **Modpack**（副文案「整合包」）：主区标题「搜索 Modpack」；水印「输入 Modpack 关键词」+ 来源下拉 + 搜索；空列表「暂无资源，可尝试搜索关键词」。版本选择 **导入整合包** 会跳到此搜索页（`OpenModpackSearchPage`）。`Download.Modpack.Description` / URL 导入相关键存在于 Localization 与 VM，但 `DownloadPageView.axaml` **未见** URL 粘贴卡片绑定（与 NXM 粘贴框同类缺口）——勿写「下载页可直接粘贴 Modpack URL」。本地文件导入走拖放 / 选择器（见下）。
 
 
-1. **版本选择** → 路径操作 **「导入整合包」**。  
+1. **版本选择** → 路径操作 **「导入整合包」**（跳到下载页 Modpack 搜索，非文件选择器）。  
 2. 或把整合包 zip **拖入**启动器（白名单见上；非白名单对话框标题「不支持的文件」，正文「支持 .zip、.cfmodpack 和 .7z 整合包格式。」）。  
 3. 拖放/导入对话框（`ModpackDropDialog`，默认标题「导入 Modpack」）：先显示「正在检测整合包类型...」；失败则「检测失败」+ 错误信息 + **关闭**。成功后可见名称/类型/版本、**作者**、Mod 数量、描述；**安装到路径**（下拉来自版本选择路径列表）；**版本实例名称**（水印「输入版本实例名称（用于版本隔离目录）」）；**取消** / **导入**。  
 4. 进度在 **「任务」** 查看。
@@ -42,7 +42,8 @@
 
 ## 从下载页安装
 
-导航 **「下载」** → 类别 **Modpack** → 搜索页或 URL 导入（文案：`Download.Modpack.*`）。
+导航 **「下载」** → 类别 **Modpack** → **搜索 Modpack** 列表安装。  
+Localization 另有 `Download.Modpack.Title/Description/UrlWatermark/Import/OpenSearch` 等键，且 VM 有 `QueueModpackUrlDownload`，但 **axaml 未挂载**对应输入框/按钮；实机勿按旧文寻找「导入 Modpack URL」卡片。文件导入：拖放或文件选择器（`*.zip` / `*.cfmodpack` / `*.7z`）。
 
 ## 导出
 

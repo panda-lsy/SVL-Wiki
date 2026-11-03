@@ -61,7 +61,7 @@ Avalonia 主入口是导航 **「任务」**（`Nav.Tasks`），列表 + 详情�
 
 无有效游戏路径时，下载主区黄条：**未设置游戏安装目录**（`Download.Path.*`）→ **前往实例管理**；探测前缀「探测结果: 」。若流程需要选目录：对话框「选择游戏路径」（说明「下载与安装需要有效的 Stardew Valley 目录…」）→「确认游戏路径」（按钮 **确认使用此路径**，写入 `PreferredInstancePath`）；详情见 [安装 Mods](../tutorials/Installing-Mods)。
 
-下载页侧栏类别（实机）：**游戏本体**（副文案「SteamCMD 登录下载」）、**SMAPI**（模组启动器）、**Mod**（单个模组）、**Modpack**（整合包）；并显示进行中/历史任务摘要。
+下载页侧栏标题「下载类别」（实机）：**游戏本体**（副文案「SteamCMD 登录下载」，axaml 硬编码）、**SMAPI**（`Download.Category.SmapiSub`「模组启动器」）、**Mod**（「单个模组」）、**Modpack**（「整合包」）；并显示进行中/历史任务摘要。
 
 
 ## 游戏本体（SteamCMD）

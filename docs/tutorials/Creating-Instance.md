@@ -83,10 +83,10 @@
 
 ![下载 · Modpack 搜索（Linux · v1.2.0.0）](image/avalonia/modpack.png)
 
-> 上图为导航 **下载 → Modpack**。本地 zip 导入仍用版本选择 **「导入整合包」** 或拖放。
+> 上图为导航 **下载 → Modpack**。版本选择 **「导入整合包」** 会跳到该搜索页（不是文件选择器）。本地 zip/7z/cfmodpack 请 **拖入窗口**（或源码中的 `ImportModpackFromFile`/`PickModpackFileAsync`，主窗口 axaml **未见**对应按钮绑定）。
 
 
-1. **版本选择** → **「导入整合包」**；或把包拖入窗口。
+1. **版本选择** → **「导入整合包」**（跳转下载→Modpack 搜索）；或把包 **拖入窗口** 走 `ModpackDropDialog`。
 2. 选择 Base、填写实例名。
 3. 等待解压、装 Mods、装指定 SMAPI。
 
