@@ -117,9 +117,9 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 
 ## 关于
 
-- 作者卡片：**盛夏de背影** / `mc_shengxia`；按钮 **赞助支持**
+- 作者卡片：**盛夏de背影** / `mc_shengxia`；按钮 **赞助支持** → `https://ifdian.net/a/mcshengxia`
 - 启动器信息：版本号与技术栈展示（**.NET 10 + Avalonia 11（跨平台）**）
-- 按钮：**查看源码** / **打开官网**
+- 按钮：**查看源码** → GitHub `panda-lsy/SVL-StardewValleyLauncher`；**打开官网** → `https://svl.qzz.io/`
 
 ### 更新设置（关于页卡片）
 
