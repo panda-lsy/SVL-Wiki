@@ -36,12 +36,12 @@
 |------|------|------|----------|
 | **快速开始** | | | |
 | ├─[安装指南](./docs/tutorials/Installation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Gitee v1.2.0.0 已同步；匿名统计 FAQ | 2026-11-04 |
-| ├─[初次使用](./docs/tutorials/Getting-Started) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ SplashWindow 与未挂载 SplashScreen | 2026-11-04 |
+| ├─[初次使用](./docs/tutorials/Getting-Started) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Mod管理钮仅 SMAPI 实例可见 | 2026-11-04 |
 | ├─[创建游戏实例](./docs/tutorials/Creating-Instance) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 添加实例无效/重复路径状态文案 | 2026-11-04 |
 | └─[安装 Mods](./docs/tutorials/Installing-Mods) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 本地安装确认框 zip/文件夹分流 | 2026-11-04 |
 | **功能文档** | | | |
 | ├─[游戏实例管理](./docs/features/Instance-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 添加实例对话框与重名实例报错 | 2026-11-04 |
-| ├─[Mod 管理](./docs/features/Mod-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 本地安装 zip/文件夹确认分流 | 2026-11-04 |
+| ├─[Mod 管理](./docs/features/Mod-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 社区冲突检测状态全文 | 2026-11-04 |
 | ├─[NexusMods 集成](./docs/features/NexusMods-Integration) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Linux/Win/macOS NXM 注册路径与 Collection 任务态 | 2026-11-04 |
 | ├─[Modpack 整合包](./docs/features/Modpack-Support) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 导出进度/最近导出/无 Mod 状态 | 2026-11-04 |
 | ├─[下载管理器](./docs/features/Download-Manager) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 选择/确认游戏路径全文与无效目录状态 | 2026-11-04 |
@@ -55,7 +55,7 @@
 | ├─[技术栈](./docs/development/Tech-Stack) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia/.NET 10 重写 | 2026-11-03 |
 | └─[构建指南](./docs/development/Building) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已对齐 `build.ps1` / `SVL.Avalonia` | 2026-11-03 |
 | **贡献指南** | | | |
-| ├─[对 Wiki 进行贡献](./docs/community/Contributing) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Avalonia 截图/notes.txt 贡献约定 | 2026-11-04 |
+| ├─[对 Wiki 进行贡献](./docs/community/Contributing) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Confirm/Input 默认按钮约定 | 2026-11-04 |
 | └─[社区资源本地化](./docs/community/Localization-Contributing) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 贡献本地化 i 说明对话框对齐源码 | 2026-11-04 |
 
 > **说明**：不要把「未校对的旧稿」标成 100%。本表只反映文档状态，不代表启动器功能完成度。

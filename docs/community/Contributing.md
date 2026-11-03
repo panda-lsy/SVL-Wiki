@@ -10,6 +10,7 @@
 - 截图优先放 `docs/tutorials/image/avalonia/`，注明平台与版本号（推荐 caption：`Linux · v1.2.0.0`）。
 - 同目录 `notes.txt` 记录每张截图对应的真实页面与 UI 文案，改图注前先对一下，避免把「下载·Mod」误标成「实例 Mod 管理」。
 - 顶栏导航固定为：**启动**、**下载**、**任务**、**设置**（不要写旧「下载管理器」当顶栏项）。
+- 通用确认/输入框按钮默认 **取消** / **确定**（`ConfirmDialog` / `InputDialog`）；具体业务对话框以各自 axaml 为准。
 - 直接向 `SVL-Wiki` 的 `main` 提交；旧 WPF 表述请改掉或移到 `docs/archive/`。
 
 ## 贡献类型
