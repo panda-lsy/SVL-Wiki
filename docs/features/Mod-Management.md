@@ -116,7 +116,11 @@ Mods 分栏可见（文案以界面为准）：
 - **依赖启用对话框**：启用带禁用前置的 Mod 时走 `ShowDependencyEnableDialogAsync` → `DependencyEnableDialog`。业务调用传入标题「启用前置 Mod」、说明「检测到以下前置 Mod 已安装但处于禁用状态。是否先启用它们，再启用当前 Mod？」（`DialogService` 默认值仍是「启用依赖」/「检测到当前资源依赖以下模组，建议一并启用。」，当前唯一调用方已覆盖）。列表 + **取消** / **启用依赖**。取消「已取消启用：前置 Mod 未启用」（hint「已取消启用，请先启用当前 Mod 所需的前置 Mod」）；部分成功「前置 Mod 启用完成：a/n，将继续尝试启用当前 Mod」并可 hint「部分前置 Mod 启用失败，请检查目录冲突或权限」。这是列表确认框，**不是**独立依赖树可视化页面；勿画假树状图。
 - **本地 Mod 详情**（`LocalModDetailDialog`，默认标题「本地 Mod 详情」）：**贡献本地化**（旁 **i** → 标题「贡献本地化」；正文「点击“贡献本地化”可打开社区贡献页面，为当前 Mod 提交中文名称与描述。」+ 依赖筛选提示；与下载资源详情 **i** 的「贡献本地化说明」正文不同）；字段「版本：」「作者：」「唯一ID：」「路径：」「来源包：」（无来源时「无」）；启用态文案固定「已启用」/「已禁用」；可更新徽标「可更新」；区块 **依赖项**；按钮 **打开目录** / **关闭**。
 - **拖放安装**：`InstallModFromDropAsync` 接受文件/文件夹路径；需 `ModArchiveDetector.LooksLikeModInstallSource`（含 `manifest.json` 的压缩包或文件夹）。无可用 SMAPI/Base 时弹「无法安装 Mod」（正文常见「当前没有可用的 SMAPI/Base 目标，请先安装 SMAPI 或在实例页面添加游戏路径。」）。否则先弹 **选择 Mod 安装目标**（标题同此；说明「选择要安装 Mod 的 SMAPI/Base 版本」；空列表 hint「当前没有可用的 SMAPI 版本，请先安装 SMAPI。」；按钮 **确定** / **另存为** / **取消**）。完成状态「已安装/更新 n 个 Mod 到 {目标名}」（可附「，失败 m 个」）或「Mod 安装失败，请确认压缩包中包含有效 manifest.json」；消息框「Mod 安装完成」/「Mod 安装失败」；取消目标「已取消 Mod 安装」；目标失效「所选 Mod 安装目标已失效，请刷新实例列表后重试」；冲突窗标题「安装 Mod 时发现更新/冲突」，说明「安装内容会替换已有 Mod。请确认是否覆盖；系统会在覆盖前自动备份原有 Mod。」，打开钮「打开待安装文件」/「打开原有 Mod 文件夹」，替换钮「覆盖（先备份原有 Mod）」；取消「已取消 Mod 覆盖安装」；备份失败消息「无法覆盖 Mod」。勿编造未出现的右键菜单。
-- **下载页路径状态**：无有效目录时仅显示黄条（见 [安装 Mods](../tutorials/Installing-Mods)）；有目录后黄条隐藏。`DownloadPageView.axaml` **未见**常驻「切换安装目标」条——目标在点 **安装** 时由对话框选择（如 **选择 Mod 安装目标** / SMAPI 选 Base+实例名）。原版实例的 Mod 管理页提示：「这是原版版本，不支持使用 MOD。请先安装并切换到 SMAPI 版本。」
+- **下载页安装目标**（`DownloadPageViewModel` 在线安装前）：`DownloadPageView.axaml` **未见**常驻「切换安装目标」条；无有效目录时仅黄条（见 [安装 Mods](../tutorials/Installing-Mods)）。点 **安装** 时分支：
+  1. **未选游戏版本**（`PreferredInstancePath` 空/不存在）→ `ShowModInstallTargetDialogAsync` 默认标题「没有选择游戏版本，请选择」；说明「请选择一个已有的 SMAPI/Base 版本后继续安装；已存在同名 Mod 时会直接更新。」；列表行「{显示名}\n{路径}」；空列表 hint「当前没有可用的 SMAPI 版本，请先安装 SMAPI。」；按钮 **确定** / **另存为** / **取消**。取消「已取消 Mod 安装（未选择游戏版本）」；目标失效「所选 SMAPI 版本已失效，请刷新实例列表后重试」。
+  2. **已选版本但是原版或 Mods 路径无效** → `ShowInstanceSelectionDialogAsync` 标题「选择要安装 Mod 的 SMAPI 实例」；窗内固定「选择 Base 路径」+ 下拉；**取消** / **确认**。取消「已取消 Mod 安装（未选择实例）」；无 SMAPI 实例「当前没有可用的 SMAPI 实例，请先在实例页面安装 SMAPI」；失效「所选实例已失效，请刷新实例列表后重试」。
+  3. 选定后会写入 `PreferredInstancePath` / `InstanceName`，并把 `PreferredLaunchMode` 置为「SMAPI」。无法直链时可能弹 `BrowserDownloadGuideDialog`（说明可覆盖为「该资源当前无法直接解析下载地址，请在浏览器完成下载后再返回重试。」）。
+- **本地拖放** 目标窗标题不同：见上「拖放安装」的「选择 Mod 安装目标」。原版实例的 Mod 管理页提示：「这是原版版本，不支持使用 MOD。请先安装并切换到 SMAPI 版本。」
 
 ---
 

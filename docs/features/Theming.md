@@ -2,7 +2,7 @@
 
 在 **「设置」→「个性化」** 调整主题、配色、透明度、字号与界面语言。
 
-源码：`SettingsPageView.axaml` 个性化卡片、`ThemeService`、`AppUserSettings`。
+源码：`SettingsPageView.axaml` 个性化卡片、`ThemeService`、`AppUserSettings`、`GameCursorService`。
 
 ![设置 · 个性化（Linux · v1.2.0.0）](../tutorials/image/avalonia/theme.png)
 
@@ -15,6 +15,7 @@
 - [配色方案与强调色](#配色方案与强调色)
 - [动画与透明度](#动画与透明度)
 - [字号与语言](#字号与语言)
+- [游戏风格指针](#游戏风格指针)
 - [与旧文差异](#与旧文差异)
 
 ## 入口
@@ -78,6 +79,22 @@
 - **界面语言**：`zh-CN`、`en-US`；状态「界面语言切换为：{码}（已自动保存）」。  
 
 语言切换后部分导航文案经 `LocalizationService` 刷新。
+
+
+## 游戏风格指针
+
+启动时 `App.axaml.cs` 调用 `GameCursorService.TryInstall`：用星露谷素材替换默认指针（`Assets/Icons/Stardew/Cursor/`），**设置页无开关**。
+
+| 资源键 / 用途 | 素材 |
+|---------------|------|
+| 窗口 / 弹出层默认 | `Cursor.png`（热点 0,0；缩放 ×2） |
+| `Svl.Cursor.Hand`（按钮、勾选、列表项、菜单等） | `Cursor_Hand.png` |
+| `Svl.Cursor.Search` | `Cursor_Info.png` |
+| `Svl.Cursor.Add` | `Cursor_Add.png` |
+| `Svl.Cursor.Favorite` | `Cursor_Heart.png` |
+| `Svl.Cursor.Text` | 系统 I-beam（文本框） |
+
+素材加载失败时回退系统手形，不阻断启动。文本输入与窗口边缘等系统专用指针仍保留。
 
 ## 与旧文差异
 
