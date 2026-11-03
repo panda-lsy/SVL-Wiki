@@ -30,7 +30,20 @@
 ## 文档开发进度
 
 > 正文页均已按 Avalonia / .NET 10 修订；标注「已修订」只表示文档对齐过，**不是**功能 100% 完工。**一切以启动器实机与源码为准。**  
-> 新截图目录：`docs/tutorials/image/avalonia/`（标注 Linux · v1.2.0.0）。尚缺：有游戏实例后的启动就绪态、实例内 **Mod管理**、**任务** 页独立截图（需本机 Stardew Valley 目录）。
+> 新截图目录：`docs/tutorials/image/avalonia/`（标注 Linux · v1.2.0.0）。详见下方「截图与实机缺口」。
+
+### 截图与实机缺口
+
+本批截图在**无本机 Stardew Valley Base** 的环境下拍摄（见 `docs/tutorials/image/avalonia/notes.txt`）。因此：
+
+| 已有 | 仍缺（需真实游戏目录 / 有任务后） |
+|------|-----------------------------------|
+| 启动空状态、版本选择空、添加实例对话框、下载侧栏、SMAPI/Mod/Modpack、设置、主题 | 启动页**就绪**态（**启动游戏**可点） |
+| | 实例内 **Mod管理**（版本设置 / 启动页 SMAPI 实例） |
+| | 导航 **任务** 页非空列表与选中详情（进行中/失败/Collection 进度） |
+| | SteamCMD 登录下载、Nexus 登录全流程 |
+
+官网 [svl.qzz.io](https://svl.qzz.io/) 仍可能写「仅 Windows」——**不在本 Wiki 仓**；是否改站由产品站维护者另定。Wiki 与启动器 README 以跨平台 Avalonia 为准。
 
 | 章节 | 进度 | 状态 | 最后更新 |
 |------|------|------|----------|
