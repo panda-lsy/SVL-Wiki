@@ -2,10 +2,11 @@
 
 本指南说明如何下载并安装跨平台版 SVL（Avalonia / .NET 10）。
 
-> **版本说明（截至本页修订时）**  
-> - GitHub **Latest** 仍可能指向旧版 WPF 线（例如 `v1.1.8.6`）。  
-> - 跨平台包在 **Pre-release**（例如 `v1.2.0.0`）。下载时请确认标签与资源名，不要误下旧版单文件 EXE 当主安装方式。  
-> 来源：[GitHub Releases](https://github.com/panda-lsy/SVL-StardewValleyLauncher/releases)、启动器仓库 `README.md`。
+> **版本说明（2026-11-04 核对 API）**  
+> - GitHub **Latest**（非预发布）仍为旧 WPF 线 `v1.1.8.6`。  
+> - 跨平台 Avalonia 包在 **Pre-release** `v1.2.0.0`（标题「新架构预览版」）。下载时选该标签，勿把旧版 `SVL.Desktop_v1.1.x_*.exe` 当主安装方式。  
+> - Gitee 镜像 `mc_shengxia/SVL-StardewValleyLauncher` 已发布同标签 `v1.2.0.0`（含 Linux/macOS/Windows 与 DEB 等资源）。  
+> 来源：GitHub / Gitee Releases API、启动器仓库 `README.md`。
 
 ## 目录
 
@@ -76,7 +77,7 @@
 | 源 | 地址 |
 |----|------|
 | GitHub（主） | [Releases](https://github.com/panda-lsy/SVL-StardewValleyLauncher/releases) |
-| Gitee（镜像，**待核实**是否已同步 Avalonia 包） | [gitee.com/mc_shengxia/SVL-StardewValleyLauncher](https://gitee.com/mc_shengxia/SVL-StardewValleyLauncher) |
+| Gitee（镜像，**已同步** `v1.2.0.0` 资源，与 GitHub 同批约 31 个附件） | [Releases](https://gitee.com/mc_shengxia/SVL-StardewValleyLauncher/releases/tag/v1.2.0.0) |
 
 ## 安装步骤
 

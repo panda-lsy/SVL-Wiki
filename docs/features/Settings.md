@@ -117,9 +117,24 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 ## 关于
 
 - 作者卡片：**盛夏de背影** / `mc_shengxia`；按钮 **赞助支持**
-- 启动器信息：版本号与技术栈展示（**.NET 10 + Avalonia 11**）
-- **查看源码** / **打开官网**
-- 更新：自动检查、自动下载（不自动安装重启）、通知开关、更新源、通道、手动检查
+- 启动器信息：版本号与技术栈展示（**.NET 10 + Avalonia 11（跨平台）**）
+- 按钮：**查看源码** / **打开官网**
+
+### 更新设置（关于页卡片）
+
+副标题文案：「自动检查和版本通道策略」。勾选与下拉（`LocalizationService` 中文键）：
+
+| UI | 字段 / 选项 |
+|----|-------------|
+| **启动时自动检查更新** | `EnableAutoUpdateCheck`（默认开） |
+| **发现新版本时自动下载** | `AutoDownloadUpdate`（依赖上一开关） |
+| **发现新版本时显示提示** | `ShowUpdateNotification`（默认开；依赖自动检查） |
+| **更新源偏好** | `PreferredUpdateSource`：`GitHub (推荐)` / `Gitee (国内加速)` |
+| **更新通道** | `UpdateChannel`：`稳定版` / `预览版`（预览版会查 prerelease） |
+| 状态行 | 更新状态 / 最新版本 / 更新源 / **当前包体**（运行时模式） |
+| **立即检查更新** | `CheckLauncherUpdateCommand` |
+
+页内提示：「关闭更新提示后仍会在后台下载，安装需手动确认。」自动下载**不会**自动安装并重启；需用户确认安装。
 
 ## 配置文件
 
@@ -152,7 +167,7 @@ Avalonia 版设置页按左侧选项卡组织。改完多数会自动保存；�
 - `CollectionDownloadParallelism`、`DownloadSegmentThreads`
 - `DefaultSmapiSource`、`DefaultModSource`（无设置页控件）
 - `NexusOAuthAccessToken` / Refresh / 用户信息（敏感，勿分享）
-- `RegisterNxmProtocolOnStartup`、`EnableAutoUpdateCheck`、`UpdateChannel`
+- `RegisterNxmProtocolOnStartup`、`EnableAutoUpdateCheck`、`AutoDownloadUpdate`、`ShowUpdateNotification`、`UpdateChannel`、`PreferredUpdateSource`
 - `DebugMode`、`MinimizeToTrayOnClose`、`BackgroundTransparencyPercent`
 - `PreferredLaunchMode`（默认「自动」）、`EnableSafeLaunch`（启动页只读展示；安装 SMAPI 等会改写）
 

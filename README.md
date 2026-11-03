@@ -35,7 +35,7 @@
 | 章节 | 进度 | 状态 | 最后更新 |
 |------|------|------|----------|
 | **快速开始** | | | |
-| ├─[安装指南](./docs/tutorials/Installation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ NXM 无首启弹窗；macOS ad-hoc/Rosetta 说明 | 2026-11-03 |
+| ├─[安装指南](./docs/tutorials/Installation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Gitee 已同步 v1.2.0.0 包；Latest 仍为 WPF 1.1.8.6 | 2026-11-04 |
 | ├─[初次使用](./docs/tutorials/Getting-Started) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已对齐导航文案；配 Avalonia 截图 | 2026-11-04 |
 | ├─[创建游戏实例](./docs/tutorials/Creating-Instance) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 对齐 versions 流程；去掉隔离开关 | 2026-11-04 |
 | └─[安装 Mods](./docs/tutorials/Installing-Mods) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 下载·Mod 截图；实例 Mod 管理页未拍到 | 2026-11-04 |
@@ -49,7 +49,7 @@
 | **高级功能** | | | |
 | ├─[版本隔离](./docs/features/Version-Isolation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 存档共享；1.1.8.2 无开关 | 2026-11-04 |
 | ├─[SMAPI 管理](./docs/features/SMAPI-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 下载/拖放/自动安装对齐 | 2026-11-04 |
-| └─[设置与配置](./docs/features/Settings) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 基本设置实机字段 + Linux 截图 | 2026-11-04 |
+| └─[设置与配置](./docs/features/Settings) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 关于页更新通道/源偏好文案与字段对齐 | 2026-11-04 |
 | **开发文档** | | | |
 | ├─[项目结构](./docs/development/Project-Structure) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia 仓库结构重写 | 2026-11-03 |
 | ├─[技术栈](./docs/development/Tech-Stack) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia/.NET 10 重写 | 2026-11-03 |
