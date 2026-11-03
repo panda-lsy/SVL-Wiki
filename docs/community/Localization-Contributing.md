@@ -45,7 +45,11 @@
   ![contributor.png](image/Localization-Contributing/contributor.png)
 - 点击"确定并加载信息"按钮获取平台原始信息与仓库现有内容
 
-Avalonia 版可在 **Mod 详情** / 下载资源详情点 **「贡献本地化」**（旁 **i** 说明对话框标题「贡献本地化」，正文提示可跳转社区页补充中文译名与说明），浏览器打开贡献页并尽量预填 Unique ID / 标题 / 描述。网页端仍可手动选平台与 ID。
+Avalonia 两处 **i** 说明文案不同，勿混用：
+- **下载资源详情**（`ModDetailsPageViewModel.ShowLocalizationContributorInfoAsync`）：消息框标题「贡献本地化」；正文以「贡献本地化说明」起头，说明点 **贡献本地化** 可跳转社区页补充中文译名与说明；有贡献者则附「当前资源的本地化贡献者：…」，否则「当前资源还没有人进行汉化贡献，欢迎前往贡献页面参与补充。」
+- **本地 Mod 详情**（`DialogService` 绑到 `LocalModDetailDialog`）：同标题「贡献本地化」；正文「点击“贡献本地化”可打开社区贡献页面，为当前 Mod 提交中文名称与描述。\n\n若已在列表中看到依赖项，可先点击依赖进行快速筛选和核对。」
+
+点 **贡献本地化** 本身会打开贡献页并尽量预填 Unique ID / 标题 / 描述。网页端仍可手动选平台与 ID。
 
 ![faster1.png](image/Localization-Contributing/faster1.png)
 

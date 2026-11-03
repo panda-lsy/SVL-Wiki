@@ -38,17 +38,17 @@
 | ├─[安装指南](./docs/tutorials/Installation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Gitee v1.2.0.0 已同步；匿名统计 FAQ | 2026-11-04 |
 | ├─[初次使用](./docs/tutorials/Getting-Started) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Launch.Guide 先导句与 CurseForge 无登录对齐 | 2026-11-04 |
 | ├─[创建游戏实例](./docs/tutorials/Creating-Instance) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ SMAPI 来源登录表对齐 curse.tools（无用户登录） | 2026-11-04 |
-| └─[安装 Mods](./docs/tutorials/Installing-Mods) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Mod/Modpack 目录搜索结果状态全文 | 2026-11-04 |
+| └─[安装 Mods](./docs/tutorials/Installing-Mods) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 资源下载详情关系卡与安装/升级文案 | 2026-11-04 |
 | **功能文档** | | | |
 | ├─[游戏实例管理](./docs/features/Instance-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 删除版本/卸载 Base SMAPI 与实例设置保存状态 | 2026-11-04 |
-| ├─[Mod 管理](./docs/features/Mod-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 前置依赖启用对话框与批量启停状态对齐源码 | 2026-11-04 |
+| ├─[Mod 管理](./docs/features/Mod-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 本地详情 i 说明与资源详情分流 | 2026-11-04 |
 | ├─[NexusMods 集成](./docs/features/NexusMods-Integration) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ NXM/OAuth 与 Collection 准备/缓存任务态 | 2026-11-04 |
 | ├─[Modpack 整合包](./docs/features/Modpack-Support) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 导出打开目录状态与拖放路径展示 | 2026-11-04 |
 | ├─[下载管理器](./docs/features/Download-Manager) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 目录搜索结果与 SSL 代理失败状态 | 2026-11-04 |
 | └─[主题与外观](./docs/features/Theming) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 强调色校验/应用与字号语言状态 | 2026-11-04 |
 | **高级功能** | | | |
 | ├─[版本隔离](./docs/features/Version-Isolation) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 跨平台共享 Saves 路径示例 | 2026-11-04 |
-| ├─[SMAPI 管理](./docs/features/SMAPI-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ SmapiVersionPicker 加载失败/CurseForge 回退文案 | 2026-11-04 |
+| ├─[SMAPI 管理](./docs/features/SMAPI-Management) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 详情关系卡与安装动作文案对齐 | 2026-11-04 |
 | └─[设置与配置](./docs/features/Settings) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 语言/字号/打开 JSON/调试控制台导出状态 | 2026-11-04 |
 | **开发文档** | | | |
 | ├─[项目结构](./docs/development/Project-Structure) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已按 Avalonia 仓库结构重写 | 2026-11-03 |
@@ -56,7 +56,7 @@
 | └─[构建指南](./docs/development/Building) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 已对齐 `build.ps1` / `SVL.Avalonia` | 2026-11-03 |
 | **贡献指南** | | | |
 | ├─[对 Wiki 进行贡献](./docs/community/Contributing) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ Confirm/Input 默认按钮约定 | 2026-11-04 |
-| └─[社区资源本地化](./docs/community/Localization-Contributing) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 贡献本地化 i 说明对话框对齐源码 | 2026-11-04 |
+| └─[社区资源本地化](./docs/community/Localization-Contributing) | ![已修订](https://img.shields.io/badge/进度-Avalonia_修订-brightgreen) | ✅ 两处贡献本地化 i 正文分流对齐 | 2026-11-04 |
 
 > **说明**：不要把「未校对的旧稿」标成 100%。本表只反映文档状态，不代表启动器功能完成度。
 
