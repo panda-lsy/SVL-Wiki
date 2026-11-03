@@ -66,11 +66,13 @@ Avalonia 主入口是导航 **「任务」**（`Nav.Tasks`），列表 + 详情�
 
 下载侧栏第一项 **游戏本体**（副文案「SteamCMD 登录下载」）。主区标题 **「游戏本体下载（SteamCMD）」**。
 
-线性流程（`DownloadPageView.axaml`）：
+页头说明原文：「线性流程：安装 SteamCMD → 登录 Steam 账号 → 选择版本下载。账号需已拥有该游戏。版本通过 SteamCMD 自动获取，也可输入自定义 Manifest ID。」
 
-1. **安装 SteamCMD** — 「下载 SteamCMD」（约 2MB 命令行客户端）
-2. **登录 Steam 账号** — 需已拥有游戏；手机令牌/邮箱验证码按日志提示
-3. **选择版本下载** — SteamCMD 自动获取当前/历史分支 Manifest；也可输入自定义 Manifest ID / 自定义指令（如 `app_update 413150`）
+三步（`DownloadPageView.axaml`，可用 **上一步** / **下一步**）：
+
+1. **安装 SteamCMD** — 文案：「首次使用需下载并解压 SteamCMD 命令行客户端（约 2MB）…」；按钮 **下载 SteamCMD**；显示 **SteamCMD 状态：**
+2. **登录 Steam 账号** — 账号/密码等输入 + **登录**；需已拥有游戏；令牌/邮箱验证码跟日志提示
+3. **选择版本下载** — 「SteamCMD 自动获取的版本」下拉；可选 **自定义 Manifest ID**（水印「从 SteamDB 查询 Manifest ID」，优先于下拉）；可输入自定义指令（水印例 `app_update 413150`）
 
 侧有 **SteamCMD 日志**。账号登录与下载未在本批截图中演示（`notes.txt` blockers）。
 

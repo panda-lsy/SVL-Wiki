@@ -22,7 +22,7 @@
 | **`.7z`** | 文件选择器与拖放白名单包含；解压能力随实现 |
 | **Nexus Collection** | Collection 安装链路（并行度等受设置约束） |
 
-本地文件选择器筛选：**整合包文件** = `*.zip` / `*.cfmodpack` / `*.7z`。
+本地文件选择器筛选：**整合包文件** = `*.zip` / `*.cfmodpack` / `*.7z`。拖放非白名单格式时弹「不支持的文件」：「支持 .zip、.cfmodpack 和 .7z 整合包格式。」（`MainWindowViewModel`）。
 
 第三方变体若缺 `sources.json`，安装器会尝试与 `modpack.json.mods` 合并来源字段（兼容逻辑以源码为准）。
 
